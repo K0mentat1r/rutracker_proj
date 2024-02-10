@@ -1,17 +1,82 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Крупнейший русскоязычный битторрент трекер">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/main.css">
     <title>Rutracker.org</title>
+    <!--<meta charset="Windows-1251">
+        <meta name="description" content="Крупнейший русскоязычный битторрент трекер">
+        <link rel="canonical" href="https://rutracker.org/forum/index.php">
+        <title>RuTracker.org</title>
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/manifest.json">
+        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="msapplication-TileImage" content="/mstile-144x144.png">
+        <meta name="theme-color" content="#ffffff">
+        <link rel="search" type="application/opensearchdescription+xml" title="Поиск на RuTracker.org" href="https://static.rutracker.cc/opensearch.xml">
+        <script type="text/javascript" async="" src="https://cdn.jsdelivr.net/npm/yandex-metrica-watch/watch.js"></script><script>
+        window.BB = {
+            cur_domain: location.hostname.replace(/.*?(([a-z0-9-]+\.){1,2}[a-z0-9-]+)$/, '$1'),
+            form_token: '',
+            opt_js: {},
+
+            IS_GUEST: !!'1',
+            IMG_URL: 'https://static.rutracker.cc/templates/v1/images',
+            SMILES_URL: 'https://static.rutracker.cc/smiles',
+            catId: 0,
+            FORUM_ID: 0,
+            parentForumId: 0,
+                COOKIE_MARK: 'bb_mark_read',
+            };
+        BB.cookie_defaults = {
+            domain: '.' + BB.cur_domain,
+            path: "/forum/",
+        };
+        </script>
+        <link href="https://static.rutracker.cc/templates/v1/min/10e5495ef26cfc18546ad21a308407ea.all.min.css" rel="stylesheet">
+        <script src="https://static.rutracker.cc/templates/v1/min/89cb07925b0747ebeb4acf70951adc9d.lib.min.js"></script>
+        <script src="https://static.rutracker.cc/templates/v1/min/f4bab4671fb47d21de2f6ab19ca1de84.bb.min.js"></script>
+        <style>
+        .invisible-el {
+            /* @include element-invisible(); */
+            clip: rect(1px, 1px, 1px, 1px);
+            height: 1px;
+            overflow: hidden;
+            position: absolute !important;
+            width: 1px;
+        }
+        .hidden, .menu-sub, #ajax-loading, #ajax-error, var.ajax-params, #modal-blocker, .q-post {
+            display: none;
+        }
+        /**/
+        #logo {
+            min-height: auto;
+        }
+        /**/
+        /* temp */
+        /* temp end */
+        </style>
+        <noscript>
+            <style>
+            .sp-body {
+                display: block; /* for bots */
+            }
+            </style>
+        </noscript>
+        <meta class="foundation-mq">
+    </head>--> <!--Скопировал с рутрекера весь head-->
 </head>
-<body>
+<body class>
     <header>
 
         <div class="logo_rutracker">
-            <img src="img/logo_rutracker.png" alt="Логотип">
+            <img src="img/logo_rutracker.png" alt="Логотип"> <!--<img class="site-logo" src="https://static.rutracker.cc/logo/logo-3.svg" alt="logo">-->
         </div>
 
         <div class="links__search">
@@ -27,7 +92,9 @@
             </nav>
 
             <div class="search">
-                <p>Поиск</p>
+                <form class="search__form">
+                    <input type="text" class="search__input" placeholder="Поиск">
+                </form>
             </div>
         </div>
 
@@ -36,6 +103,27 @@
             <a href="">Войти</a>
         </div>
     </header>
+    <div class="LogIn">
+        <h1>Вход</h1>
+        <div class="name-user">
+            <form class>
+                <input type="text" class="name-user__input" placeholder="Имя или e-mail">
+            </form>
+        </div>
+        <div class="password-user">
+            <form class>
+                <input type="text" class="password-user__input" placeholder="Пароль">
+            </form>
+        </div>
+        <div class="new-pass-or-name">
+            <a href="">Забыли имя или пароль?</a>
+        </div>
+        <button class="LogIn__button">Вход</button>
+        <div class="reg-user">
+            <p>Нет аккаунта?</p>
+            <a href="">Зарегистрироваться</a>
+        </div>
+    </div>
 
 
     <main>
