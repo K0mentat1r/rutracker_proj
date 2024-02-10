@@ -38,20 +38,87 @@ body{
         width: 100%;
         height: 25px;
         padding-left: 20px;
+        background-color: white;
+        font-size: 25px;
     }
     .logo_rutracker{
         width: 0;
     }
     .search__input::placeholder{
-        font-size: 20px;
+        font-size: 25px;
     }
     
-.LogIn{ /*Вход. Пока что отключил, т.к. он не готов*/
-    margin:0;
-    display: flex;
+
+.pop-up{ /*Вход. Готов. Чтобы включить см .disabled-until-events (применяется этот класс для элементов которые появляются при определённых действиях (заделка под js))*/
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(156,156,156,49%);
+    z-index: 2;
+    width: 100vw;
+    height: 100vh;
+}
+.pop-up__body{
+    position: relative;
     flex-direction: column;
-    justify-content: center;
-    border-radius: 4px solid black;
+    padding: 10px 40px;
+    border: 3px solid black;
     border-radius: 20px;
+    background-color: white;
+}
+form>*{
+    background-color: #F4F4F4;
+    border-radius: 20px;
+    border-width: 0px;
+    height: 30px;
+    width: 300px;
+}
+.name-user__input::placeholder, .password-user__input::placeholder{
+    font-size: 17px;
+}
+.name-user__input, .password-user__input{
+    padding-left: 10px;
+    font-size: 17px;
+}
+.name-user,.password-user{
+    padding: 10px 0;
+}
+.pop-up__container{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding-top: 10%;
+}
+.pop-up__body>h1{
+    font-size: 40px;
+}
+.new-pass-or-name{
+    text-align: start;
+    padding-left: 5px;
+    text-decoration: underline;
+}
+.login__button{
+    justify-content: center;
+    padding-top: 30px;
+    padding-bottom: 20px;
+}
+.login__button>*{
+    background-color: #D9D9D9;
+    border-width: 0;
+    border-radius: 20px;
+    padding: 5px 40px;
+    font-size: 20px;
+}
+.errors{
+    color: red;
+}
+.disabled-until-errors{
     display: none;
+}
+.disabled-until-events{
+    /*display: none;*/
+}
+.reg-user>a{
+    font-size: 18px;
+    text-decoration: underline;
 }

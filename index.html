@@ -103,25 +103,34 @@
             <a href="">Войти</a>
         </div>
     </header>
-    <div class="LogIn">
-        <h1>Вход</h1>
-        <div class="name-user">
-            <form class>
-                <input type="text" class="name-user__input" placeholder="Имя или e-mail">
-            </form>
-        </div>
-        <div class="password-user">
-            <form class>
-                <input type="text" class="password-user__input" placeholder="Пароль">
-            </form>
-        </div>
-        <div class="new-pass-or-name">
-            <a href="">Забыли имя или пароль?</a>
-        </div>
-        <button class="LogIn__button">Вход</button>
-        <div class="reg-user">
-            <p>Нет аккаунта?</p>
-            <a href="">Зарегистрироваться</a>
+    <div class="LogIn pop-up disabled-until-events">
+        <div class="pop-up__container">
+            <div class="pop-up__body">
+                <h1>Вход</h1>
+                <div class="name-user">
+                    <form class>
+                        <input type="text" class="name-user__input" placeholder="Имя или e-mail">
+                    </form>
+                </div>
+                <div class="password-user">
+                    <form class>
+                        <input type="text" class="password-user__input" placeholder="Пароль">
+                    </form>
+                </div>
+                <div class="new-pass-or-name">
+                    <a href="">Забыли имя или пароль?</a>
+                </div>
+                <div class="login__error">
+                    <p class="errors disabled disabled-until-errors"></p> <!--заделка на будущее для js-->
+                </div>
+                <div class="login__button">
+                    <button>Войти</button>
+                </div>
+                <div class="reg-user">
+                    <p>Нет аккаунта?</p>
+                    <a href="">Зарегистрироваться</a>
+                </div>
+            </div>
         </div>
     </div>
 
