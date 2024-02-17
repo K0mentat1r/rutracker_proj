@@ -1,124 +1,178 @@
+/*Переменные*/
+:root{ /*Псевдокласс (не изучали пока что)*/
+    --pop-up_background-color: rgba(156,156,156,49%); /*Переменная*/
+    --standart-border: 3px solid black; /*Переменная*/
+}
+
+/*Свойства для основной части*/
 body{
     margin:0;
 }
-    header{
-        display: flex;
-        justify-content: space-between;
-    }
-    .links__search{
-        
-    }
-    .links__buttons{
-        display: flex;
-        justify-content: space-between;
-    }
-    .links__buttons>*{
-        padding-left: 20px;
-    }
-    .menu_user-logo>*{
-        display: block;
-        text-align: center;
-    }
-    .menu_user-logo>img{
-        border: 2px solid black;
-        border-radius: 90px;
-    }
-    .menu_user-logo{
-        padding-right: 20px;
-        
-    }
-    
-    a{
-        text-decoration: none;
-        color: black;
-    }
-    .search__input{
-        border: 3px solid black;
-        border-radius: 50px;
-        width: 100%;
-        height: 25px;
-        padding-left: 20px;
-        background-color: white;
-        font-size: 25px;
-    }
-    .logo_rutracker{
-        width: 0;
-    }
-    .search__input::placeholder{
-        font-size: 25px;
-    }
-    
-
-.pop-up{ /*Вход. Готов. Чтобы включить см .disabled-until-events (применяется этот класс для элементов которые появляются при определённых действиях (заделка под js))*/
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-color: rgba(156,156,156,49%);
-    z-index: 2;
-    width: 100vw;
-    height: 100vh;
-}
-.pop-up__body{
-    position: relative;
-    flex-direction: column;
-    padding: 10px 40px;
-    border: 3px solid black;
-    border-radius: 20px;
-    background-color: white;
-}
-form>*{
-    background-color: #F4F4F4;
-    border-radius: 20px;
-    border-width: 0px;
-    height: 30px;
-    width: 300px;
-}
-.name-user__input::placeholder, .password-user__input::placeholder{
-    font-size: 17px;
-}
-.name-user__input, .password-user__input{
-    padding-left: 10px;
-    font-size: 17px;
-}
-.name-user,.password-user{
-    padding: 10px 0;
-}
-.pop-up__container{
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    padding-top: 10%;
-}
-.pop-up__body>h1{
-    font-size: 40px;
-}
-.new-pass-or-name{
-    text-align: start;
-    padding-left: 5px;
-    text-decoration: underline;
-}
-.login__button{
-    justify-content: center;
-    padding-top: 30px;
-    padding-bottom: 20px;
-}
-.login__button>*{
-    background-color: #D9D9D9;
-    border-width: 0;
-    border-radius: 20px;
-    padding: 5px 40px;
-    font-size: 20px;
+a{
+    text-decoration: none;
+    color: black;
 }
 .errors{
     color: red;
 }
-.disabled-until-errors{
+.disabled{
     display: none;
 }
-.disabled-until-events{
-    /*display: none;*/
+
+/*Свойства для шапки*/
+header{
+    display: flex;
+    justify-content: space-between;
+
+    .links__buttons{
+        display: flex;
+        justify-content: space-between;
+        width: 80%;
+        *{
+            padding-left: 1vw;
+        }
+        *:first-child{
+            padding-left: 0;
+        }
+    }
+    .menu_user-logo{
+        padding-right: 20px;
+
+        *{
+            display: block;
+            text-align: center;
+        }
+        img{
+            border: var(--standart-border);
+            border-radius: 90px;
+        }
+        
+    }
+    .search__input{
+        border: var(--standart-border);
+        border-radius: 50px;
+        width: 100%;
+        height: 25px;
+        padding-left: 30px;
+        background-color: white;
+        font-size: 25px;
+
+        ::placeholder{
+            font-size: 25px;
+        } 
+    }
+    .logo_rutracker{
+        width: 0;
+    }
 }
-.reg-user>a{
-    font-size: 18px;
-    text-decoration: underline;
+
+/*Основные свойства для всплывающих окон*/
+.pop-up{
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: var(--pop-up_background-color);
+    z-index: 2;
+    width: 100vw;
+    height: 100vh;
+
+    .pop-up__container{
+        display: flex;
+        justify-content: center;
+        text-align: center;
+
+        .pop-up__body{
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            border: var(--standart-border);
+            border-radius: 20px;
+            background-color: white;
+        }
+    }
+}
+.LogIn>.pop-up__container{
+    padding-top: 10%;
+
+    .pop-up__body{
+        padding: 10px 40px;
+
+        h1{
+            font-size: 40px;
+        }
+        
+        .name-user,.password-user{
+            padding: 10px 0;
+        }
+        
+        .name-user__input, .password-user__input{
+            padding-left: 10px;
+            font-size: 17px;
+
+            ::placeholder{
+                font-size: 17px;
+            }
+        }
+
+        .login__button{
+            justify-content: center;
+            padding-top: 30px;
+            padding-bottom: 20px;
+
+            *{
+                background-color: #D9D9D9;
+                border-width: 0;
+                border-radius: 20px;
+                padding: 5px 40px;
+                font-size: 20px;
+            }
+        }
+
+        .new-pass-or-name{
+            text-align: start;
+            padding-left: 5px;
+            text-decoration: underline;
+        }
+
+        form>*{
+            background-color: #F4F4F4;
+            border-radius: 20px;
+            border-width: 0px;
+            height: 30px;
+            width: 300px;
+        }
+       
+        .reg-user>a{
+            font-size: 18px;
+            text-decoration: underline;
+        }    
+    }
+}
+
+/*Свойства для меню*/
+.Menu>.pop-up__container{
+    text-align: start;
+    justify-content: end;
+    padding-top: calc(1% + 70px);
+    padding-right: calc(1% + 5px);
+    .pop-up__body{
+        padding: 10px;
+        a{
+            font-size: 17px;
+        }
+        .links{
+            li{
+                list-style-type: none;
+                display: grid;
+                grid-template-columns: 1fr 5fr 4fr;
+                grid-template-rows: repeat(3, 10px);
+                align-items: center;
+                grid-column-gap: 5px;
+                .menu__link{
+
+                }
+            }
+            padding-left: 5px;
+        }
+    }
 }
