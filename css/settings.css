@@ -1,0 +1,13 @@
+/*Переменные*/
+:root{ /*Псевдокласс (не изучали пока что)*/
+    --pop-up_background-color: rgba(156,156,156,49%); /*Переменная*/
+    --standart-border: 3px solid black; /*Переменная*/
+    --mini-border: 1px solid black;
+    /*.standart-form {
+        background-color: #F4F4F4;
+        border-radius: 20px;
+        border-width: 0px;
+        height: 30px;
+        width: 300px;
+    }*/
+}

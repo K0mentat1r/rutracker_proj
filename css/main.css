@@ -1,9 +1,4 @@
-/*Переменные*/
-:root{ /*Псевдокласс (не изучали пока что)*/
-    --pop-up_background-color: rgba(156,156,156,49%); /*Переменная*/
-    --standart-border: 3px solid black; /*Переменная*/
-}
-
+@import url(settings.css);
 /*Свойства для основной части*/
 body{
     margin:0;

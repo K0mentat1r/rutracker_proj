@@ -1,7 +1,68 @@
-main{
-    justify-content: center;
-    text-align: center;
+body{
+    margin:0;
 }
-.accordion-objects{
-    margin: auto;
+a{
+    color: black;
+}
+a:hover{
+    color: navy;
+}
+main{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 25px;
+    div{
+        padding-bottom: 3%;
+    }
+    form{
+        *{
+            background-color: #F4F4F4;
+            border-radius: 20px;
+            border-width: 0px;
+            height: 30px;
+            width: 300px;
+        }
+        input{
+            padding-left: 10px;
+            font-size: 17px;
+    
+            ::placeholder{
+                font-size: 17px;
+            }
+        }
+    }
+    button{
+        justify-content: center;
+        padding-top: 30px;
+        padding-bottom: 20px;
+        background-color: #D9D9D9;
+        border-width: 0;
+        border-radius: 20px;
+        padding: 5px 40px;
+        font-size: 15px;
+    }
+    .choise{
+        display: grid;
+        grid-template-columns: 120px 200px;
+        label{
+            padding-right: 10px;
+            font-size: 18px;
+            text-align: start;
+            align-items: start;
+            justify-content: start;
+        }
+        select{
+            border: 1px solid black;;
+            border-radius: 20px;
+            font-size: 16px;
+        }
+    }
+    @keyframes anim-select{
+        0%{
+
+        }
+    }
 }
