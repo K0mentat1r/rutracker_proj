@@ -11,3 +11,31 @@
         width: 300px;
     }*/
 }
+body{
+    margin:0;
+}
+main{
+    background-color: #ECECEC;
+}
+header, footer{
+    background-color: white;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+.errors{
+    color: red;
+}
+.disabled{
+    display: none;
+}
+button:active{
+    box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.2);
+    transform: translateY(-0.5px);
+}
+select{
+    border: 1px solid black;;
+    border-radius: 20px;
+    font-size: 16px;
+}

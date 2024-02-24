@@ -1,24 +1,14 @@
 @import url(settings.css);
-/*Свойства для основной части*/
-body{
-    margin:0;
-}
-a{
-    text-decoration: none;
-    color: black;
-}
-.errors{
-    color: red;
-}
-.disabled{
-    display: none;
-}
+.void{
+    height: 500px;
+} /*убрать свойства void*/
 
 /*Свойства для шапки*/
 header{
     display: flex;
     justify-content: space-between;
-
+    padding: 0 10px;
+    align-items: center;
     .links__buttons{
         display: flex;
         justify-content: space-between;
@@ -57,7 +47,10 @@ header{
         } 
     }
     .logo_rutracker{
-        width: 0;
+        width: 25%;
+        img{
+            width: 100%;
+        }
     }
 }
 
@@ -152,22 +145,22 @@ header{
     padding-right: calc(1% + 5px);
     .pop-up__body{
         padding: 10px;
+        padding-top: 0;
         a{
-            font-size: 17px;
+            font-size: 20px;
         }
         .links{
+            padding-left: 5px;
             li{
                 list-style-type: none;
                 display: grid;
-                grid-template-columns: 1fr 5fr 4fr;
+                grid-template-columns: 1fr 5fr 2.5fr;
                 grid-template-rows: repeat(3, 10px);
+                padding-top: 0.4vw;
+                grid-column-gap: 7px;
                 align-items: center;
-                grid-column-gap: 5px;
-                .menu__link{
-
-                }
+                align-content: center;
             }
-            padding-left: 5px;
         }
     }
 }

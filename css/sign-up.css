@@ -1,20 +1,21 @@
-body{
-    margin:0;
+@import url(settings.css);
+header{
+    height: calc(9vw - 100px);
+    min-height: fit-content;
 }
 a{
-    color: black;
+    text-decoration: underline;
 }
 a:hover{
     color: navy;
 }
 main{
     display: flex;
-    justify-content: center;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 25px;
-    div{
+    gap: 1.2vw;
+    >div>*{
         padding-bottom: 3%;
     }
     form{
@@ -23,7 +24,10 @@ main{
             border-radius: 20px;
             border-width: 0px;
             height: 30px;
-            width: 300px;
+            max-height: fit-content;
+            width: 16vw;
+            max-width: 400px;
+            min-width: max-content
         }
         input{
             padding-left: 10px;
@@ -44,21 +48,20 @@ main{
         padding: 5px 40px;
         font-size: 15px;
     }
-    .choise{
-        display: grid;
-        grid-template-columns: 120px 200px;
-        label{
-            padding-right: 10px;
-            font-size: 18px;
-            text-align: start;
-            align-items: start;
-            justify-content: start;
+    .selects{
+        .choise{
+            display: grid;
+            grid-template-columns: 120px 250px;
+            label{
+                padding-right: 10px;
+                font-size: 18px;
+                text-align: start;
+                align-items: start;
+                justify-content: start;
+            }
         }
-        select{
-            border: 1px solid black;;
-            border-radius: 20px;
-            font-size: 16px;
-        }
+    }
+    .user-agree{
     }
     @keyframes anim-select{
         0%{

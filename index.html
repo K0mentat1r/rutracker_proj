@@ -72,11 +72,11 @@
         <meta class="foundation-mq">
     </head>--> <!--Скопировал с рутрекера весь head-->
 </head>
-<body class>
+<body>
     <header>
 
         <div class="logo_rutracker">
-            <img src="img/logo_rutracker.png" alt="Logo"> <!--<img class="site-logo" src="https://static.rutracker.cc/logo/logo-3.svg" alt="logo">-->
+            <img src="img/logo.jpeg" alt="Logo"> <!--<img class="site-logo" src="https://static.rutracker.cc/logo/logo-3.svg" alt="logo">-->
         </div>
 
         <div class="links-n-search">
@@ -104,61 +104,75 @@
         </div>
     </header>
     <main>
-        <div class="LogIn pop-up disabled-until-events"> <!--disabled-->
-            <div class="pop-up__container">
-                <div class="pop-up__body">
-                    <h1>Вход</h1>
-                    <div class="name-user">
-                        <form class>
-                            <input type="text" class="name-user__input" placeholder="Имя или e-mail">
-                        </form>
+        <div class="pop-ups">
+            <div class="LogIn pop-up disabled disabled-until-events"> <!--disabled-->
+                <div class="pop-up__container">
+                    <div class="pop-up__body">
+                        <h1>Вход</h1>
+                        <div class="name-user">
+                            <form class>
+                                <input type="text" class="name-user__input" placeholder="Имя или e-mail">
+                            </form>
+                        </div>
+                        <div class="password-user">
+                            <form class>
+                                <input type="text" class="password-user__input" placeholder="Пароль">
+                            </form>
+                        </div>
+                        <div class="new-pass-or-name">
+                            <a href="">Забыли имя или пароль?</a>
+                        </div>
+                        <div class="login__error">
+                            <p class="errors disabled disabled-until-errors"></p> <!--заделка на будущее для js-->
+                        </div>
+                        <div class="login__button">
+                            <button>Войти</button>
+                        </div>
+                        <div class="reg-user">
+                            <p>Нет аккаунта?</p>
+                            <a href="file:///C:/WorkSpaces/rutracker-proj/other-html/Sign-up_site.html">Зарегистрироваться</a>
+                        </div>
                     </div>
-                    <div class="password-user">
-                        <form class>
-                            <input type="text" class="password-user__input" placeholder="Пароль">
-                        </form>
-                    </div>
-                    <div class="new-pass-or-name">
-                        <a href="">Забыли имя или пароль?</a>
-                    </div>
-                    <div class="login__error">
-                        <p class="errors disabled disabled-until-errors"></p> <!--заделка на будущее для js-->
-                    </div>
-                    <div class="login__button">
-                        <button>Войти</button>
-                    </div>
-                    <div class="reg-user">
-                        <p>Нет аккаунта?</p>
-                        <a href="file:///C:/WorkSpaces/rutracker-proj/other-html/Sign-up_site.html">Зарегистрироваться</a>
+                </div>
+            </div>
+            <div class="Menu pop-up "> <!--disabled отключает элемент-->
+                <div class="pop-up__container">
+                    <div class="pop-up__body">
+                        <ul class="links">
+                            <li class="news-link memu__link">
+                                <img class="menu__icon rupor" src="img/icons/icon-ruport__menu.svg">
+                                <a href="" class="menu__link">Новости</a>
+                            </li>
+                            <li class="media-link memu__link">
+                                <img class="menu__icon" src="img/icons/icon-tv__menu.svg">
+                                <a href="" class="menu__link">Медиа</a>
+                            </li>
+                            <li class="books-link memu__link">
+                                <img class="menu__icon" src="img/icons/icon-tv__menu.svg"> <!--Надо будет заменить на другую иконку-->
+                                <a href="" class="menu__link">Книги</a>
+                            </li>
+                            <li class="music-link memu__link">
+                                <img class="menu__icon" src="img/icons/icon-music__menu.svg">
+                                <a href="" class="menu__link">Музыка</a>
+                            </li>
+                            <li class="games-link memu__link">
+                                <img class="menu__icon" src="img/icons/icon-games__menu.svg">
+                                <a href="" class="menu__link">Игры</a>
+                            </li>
+                            <li class="programms-link memu__link">
+                                <img class="menu__icon" src="img/icons/icon-programms__menu.svg">
+                                <a href="" class="menu__link">Программы и дизайн</a>
+                            </li>
+                            <li class="FAQ-link memu__link">
+                                <img class="menu__icon" src="img/icons/icon-FAQ__menu.svg">
+                                <a href="" class="menu__link">Вопросы по форуму и трекеру</a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="Menu pop-up disabled "> <!--disabled отключает элемент-->
-            <div class="pop-up__container">
-                <div class="pop-up__body">
-                    <ul class="links">
-                        <li class="news-link memu__link">
-                            <img class="menu__icon rupor" src="img/icons/icon-ruport__menu.svg">
-                            <a href="" class="menu__link">Новости</a>
-                        </li>
-                        <li class="media-link memu__link">
-                            <img class="menu__icon" src="img/icons/icon-tv__menu.svg">
-                            <a href="" class="menu__link">Медиа</a>
-                        </li>
-                        <li class="books-link memu__link">
-                            <img class="menu__icon" src="img/icons/icon-tv__menu.svg"> <!--Надо будет заменить на другую иконку-->
-                            <a href="" class="menu__link">Книги</a>
-                        </li>
-                        <!--ещё пару div'ов-->
-                        <li class="FAQ-link memu__link">
-                            <img class="menu__icon" src="img/icons/icon-FAQ__menu.svg">
-                            <a href="" class="menu__link">Вопросы по форуму и трекеру</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+        <div class="void"></div> <!--потом убрать, нужно для того, чтобы показать стили main-->
     </main>
 
     <footer>

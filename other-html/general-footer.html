@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet"> <!--href="file:///C:/WorkSpaces/rutracker-proj/css/general-footer.css"-->
+    <style>
+        body{
+            margin:0;
+        }
+        a{
+            text-decoration: none;
+            color: black;
+        }
+        footer{
+            background-color: white;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            padding: 20px 0;
+            .main-links{
+                border-right: 1px solid #9fa79f;
+                padding: calc(0.5% + 10px);
+                ul{
+                    display: flex;
+                    flex-direction: column;
+                    padding-left: calc(0.5% + 10px);
+                    list-style-type: disc;
+                    ::marker{
+                        font-size: 17px;            
+                    }
+                }
+            }
+            nav{
+                text-align: center;
+                a{
+                    padding-left: calc(0.4vw + 10px);
+                    display: inline-block;
+                }
+            }
+        }
+    </style>
+</head>
+<body>
+    <footer>
+        <div class="main-links">
+            <ul>
+                <li><a href="">Администрация</a></li>
+                <li><a href="">Модераторы</a></li>
+                <li><a href="">Тех. помощь</a></li>
+                <li><a href="">Telegram-канал</a></li>
+            </ul>
+        </div>
+        <div class="other-links">
+            <nav>
+                <a href="">Условия использования</a>
+                <a href="">Реклама на сайте</a>
+                <a href="">Для правообладателей</a>
+                <a href="">Для прессы</a>
+                <a href="">Для провайдеров</a>
+                <a href="">Торрентопедия</a>
+                <a href="">Правила</a>
+                <a href="">Кому задать вопрос</a>
+                <a href="">Авторские раздачи</a>
+                <a href="">Конкурсы</a>
+                <a href="">Новости "Хранителей" и "Антикваров"</a>
+                <a href="">Случайная раздача</a>
+            </nav>
+        </div>
+    </footer>
+</body>
+</html>
