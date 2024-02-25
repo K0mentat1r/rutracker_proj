@@ -3,6 +3,7 @@
     --pop-up_background-color: rgba(156,156,156,49%); /*Переменная*/
     --standart-border: 3px solid black; /*Переменная*/
     --mini-border: 1px solid black;
+    --form-bg-color_standart: #F4F4F4;
     /*.standart-form {
         background-color: #F4F4F4;
         border-radius: 20px;
