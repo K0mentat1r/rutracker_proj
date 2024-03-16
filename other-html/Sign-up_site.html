@@ -10,23 +10,23 @@
 </head>
 <body>
     <header>
+        <h1 class="pagetitle">Регистрация</h1>
     </header>
-    <main>
-        <h1 class="text">Регистрация</h1>
+    <main class="main_content reg-rules">        
         <div class="inputs">
             <div class="sign-up__name-user">
-                <form>
-                    <input type="text" class="input name-user" placeholder="Имя">
+                <form accept="https://echo.htmlacademy.ru/">
+                    <input type="text" class="input name-user" placeholder="Имя" name="username">
                 </form>
             </div>
             <div class="sign-up__email-user">
-                <form>
-                    <input type="text" class="input email-user" placeholder="e-mail">
+                <form accept="https://echo.htmlacademy.ru/">
+                    <input type="email" class="input email-user" placeholder="e-mail" name="email">
                 </form>
             </div>
             <div class="sign-up__password-user">
-                <form>
-                    <input type="text" class="input new_pass" name="new_pass" placeholder="Пароль" value="" autocomplete="off">
+                <form accept="https://echo.htmlacademy.ru/">
+                    <input type="password" class="input new_pass" name="new_pass" placeholder="Пароль" value="" autocomplete="off">
                 </form>
                 <!--<span onclick="show_pass(); $(this).remove();">Показать пароль</span>
                 <script>
@@ -43,8 +43,8 @@
         </div>
         <div class="sign-up__check-captcha">
             <div class="enter-captcha">
-                <form>
-                    <input type="text" class="input check-captcha" placeholder="Код подтверждения">
+                <form accept="https://echo.htmlacademy.ru/">
+                    <input type="text" class="input check-captcha" placeholder="Код подтверждения" name>
                 </form>
             </div>
             <div class="Generator-captcha">
@@ -52,7 +52,7 @@
             </div>
             <button class="btn-new-captcha">Показать другой код</button>
         </div>
-        <div class="selects">
+        <form class="selects" accept="https://echo.htmlacademy.ru/">
             <div class="countres choise">
                 <label class="countres__text">Откуда:</label>
                 <div class="countres__choise">
@@ -259,9 +259,9 @@
                         <option value="87">&nbsp;Япония&nbsp;</option>
                     </select>
                     <nav class="standart-countres">
-                        <a href="">Россия</a>
-                        <a href="">Украина</a>
-                        <a href="">Беларусь</a>
+                        <a href="" name="">Россия</a>
+                        <a href="" name="">Украина</a>
+                        <a href="" name="">Беларусь</a>
                     </nav>
                 </div>
             </div>
@@ -310,15 +310,18 @@
                     <option value="2">&nbsp;Мужской&nbsp;</option>
                 </select>
             </div>
+        </form>
+        <div class="errors">
+
         </div>
         <div class="user-agree">
             <div class="user-agree__checkbox">
                 <input type="checkbox"><label>Я принимаю <a href="">ПОЛЬЗОВАТЕЛЬСКОЕ СОГЛАШЕНИЕ</a></label>
             </div>
-            <button class="reg-user disabled-until-events">Продолжить регистрацию</button>
+            <button type="submit" class="button_reg-user"><a href="https://echo.htmlacademy.ru/">Продолжить регистрацию</a></button>
         </div>
     </main>
-
+    <main class="main_content"></main>
 
     <footer>
 

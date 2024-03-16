@@ -1,7 +1,9 @@
 @import url(settings.css);
 header{
     height: calc(9vw - 100px);
-    min-height: fit-content;
+    min-height: 50px;
+    align-items: center;
+    text-align: center;
 }
 a{
     text-decoration: underline;
@@ -14,11 +16,12 @@ main{
     flex-direction: column;
     align-items: center;
     text-align: center;
+    padding: 1vw 0;
     gap: 1.2vw;
-    >div>*{
+    div>*, .selects>*{
         padding-bottom: 3%;
     }
-    form{
+    div>form{
         *{
             background-color: #F4F4F4;
             border-radius: 20px;
@@ -49,7 +52,7 @@ main{
         font-size: 15px;
     }
     .selects{
-        .choise{
+        >.choise{
             display: grid;
             grid-template-columns: 120px 250px;
             label{
@@ -59,9 +62,10 @@ main{
                 align-items: start;
                 justify-content: start;
             }
+            select{
+                padding-bottom: 0;
+            }
         }
-    }
-    .user-agree{
     }
     @keyframes anim-select{
         0%{

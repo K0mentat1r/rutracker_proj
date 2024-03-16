@@ -28,7 +28,7 @@ a{
 .errors{
     color: red;
 }
-.disabled{
+.disabled, .disabled-until-events, .disabled-until-errors{
     display: none;
 }
 button:active{
@@ -37,6 +37,6 @@ button:active{
 }
 select{
     border: 1px solid black;;
-    border-radius: 20px;
+    border-radius: 10px;
     font-size: 16px;
 }
