@@ -90,7 +90,6 @@
                     <a href="#">Правила</a>
                 </ul>
             </nav>
-
             <div class="search"> <!--Нужно постмотреть какие классы, id, имена и др. (для работы скриптов, которые есть в оригинале)-->
                 <form class="search__form">
                     <input type="text" class="search__input" placeholder="Поиск"> <!--Нужно ещё засунуть в начало картинку, типо лупы, как у гугла-->
@@ -101,14 +100,14 @@
         </div>
 
         <div class="menu_user-logo">
-            <img src="img/User_logo_white.png" alt="Профиль">
-            <a href="">ВОЙТИ</a>
+            <img src="img/User_logo_white.png" alt="Профиль" id="openMenu">
+            <a id="openReg">ВОЙТИ</a>
         </div>
     </header>
     <div class="pop-ups">
-        <div class="LogIn pop-up disabled"> <!--disabled-->
+        <div class="LogIn pop-up disabled" id="reg"> <!--disabled-->
             <div class="pop-up__container">
-                <div class="pop-up__body">
+                <div class="pop-up__body" id="regBody">
                     <h1>Вход</h1>
                     <div class="name-user">
                         <form class>
@@ -136,9 +135,19 @@
                 </div>
             </div>
         </div>
-        <div class="Menu pop-up disabled"> <!--disabled отключает элемент-->
+        <script>
+            function OnReg(){
+                reg.style.display = "block";
+            }
+            function OffReg(){
+                reg.style.display="none";
+            }
+            openReg.addEventListener("click", OnReg);
+            regBody.addEventListener("mouseleave", OffReg);
+        </script>
+        <div class="Menu pop-up disabled" id="menu" name="pop-up"> <!--disabled отключает элемент-->
             <div class="pop-up__container">
-                <div class="pop-up__body">
+                <div class="pop-up__body" id="menuBody" name="pop-up-body">
                     <ul class="links">
                         <li class="news-link memu__link">
                             <img class="menu__icon rupor" src="img/icons/icon-ruport__menu.svg">
@@ -172,6 +181,17 @@
                 </div>
             </div>
         </div>
+         <!--нужно переписать-->
+        <script>
+            function OnMenu(){
+                menu.style.display = "block";
+            }
+            function OffMenu(){
+                menu.style.display="none";
+            }
+            openMenu.addEventListener("mouseover", OnMenu);
+            menuBody.addEventListener("mouseleave", OffMenu);
+        </script>
     </div>
     <main>
         <div class=""></div>
@@ -230,28 +250,503 @@
                 </article>
             </div>
             <div class="categories_other">
-                <article class="category category-games-and-shops"> <!--Нужно посмотреть как называются категории в оригинале-->
+                <article class="category category_games-and-shops"> <!--Нужно посмотреть как называются категории в оригинале-->
                     <div class="category__header">
                         <h2 class="category__title title">Товары, услуги, игры и развлечения </h2>
                         <div>тут что то будет</div> <!--Здесь будет какой нибудь элемент-->
                     </div>
                     <ul class="sub-categories">
                         <li class="sub-category sub-category__games"><a>Браузерные и клиентские онлайн игры</a></li>
+                        <hr noshade="">
                         <li class="sub-category sub-category__shops"><a>Магазины и образование</a></li>
                     </ul>
                 </article>
-                <article class="category ">
+                <article class="category category_off-locks">
                     <div class="category__header">
                         <h2 class="category__title title">Обход блокировок</h2>
                         <div>тут что то будет</div> <!--Здесь будет какой нибудь элемент-->
                     </div>
                     <ul class="sub-categories">
-                        <li class="sub-category sub-category__VPN"><a>VPN-сервисы</a></li>
-                        <li class="sub-category sub-category__off-locks"><a>Обход блокировок</a></li>
+                        <li class="sub-category other-sub-category"><a>VPN-сервисы</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Обход блокировок</a></li>
+                    </ul>
+                </article>
+                <article class="category category_news"> <!--Нужно посмотреть как называются категории в оригинале-->
+                    <div class="category__header">
+                        <h2 class="category__title title">Новости</h2>
+                        <div>тут что то будет</div> <!--Здесь будет какой нибудь элемент-->
+                    </div>
+                    <ul class="sub-categories">
+                        <li class="sub-category other-sub-category"><a>Новости трекера</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Краудфандинг (переводы, покупка дисков и т. п.)</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>GENERATION.TORRENT - Музыкальный конкурс</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Rutracker Awards (мероприятия и конкурсы)</a></li>
+                    </ul>
+                </article>
+                <article class="category category_FAQ">
+                    <div class="category__header">
+                        <h2 class="category__title title">Вопросы по форуму и трекеру</h2>
+                        <div>тут что то будет</div> <!--Здесь будет какой нибудь элемент-->
+                    </div>
+                    <ul class="sub-categories">
+                        <li class="sub-category other-sub-category"><a>Правила, основные инструкции, FAQ-и</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Вопросы по форуму и трекеру</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Вопросы по BitTorrent сети и ее клиентам</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Обсуждение провайдеров</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Железо: комплектующие и периферия</a></li>
+                    </ul>
+                </article>
+                <article class="category category_media"> <!--Нужно посмотреть как называются категории в оригинале-->
+                    <div class="category__header">
+                        <h2 class="category__title title">Кино, Видео и ТВ</h2>
+                        <div>тут что то будет</div> <!--Здесь будет какой нибудь элемент-->
+                    </div>
+                    <ul class="sub-categories">
+                        <li class="sub-category other-sub-category"><a>Предложения по улучшению категории "Кино, Видео и ТВ"</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Кино, Видео и TV - помощь по разделу</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Наше кино</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Зарубежное кино</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Арт-хаус и авторское кино</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Театр</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>DVD Video</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>HD Video</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>UHD Video</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>3D/Стерео Кино, Видео, TV и Спорт</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Мультфильмы</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Мультсериалы</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Аниме</a></li>
+                    </ul>
+                </article>
+                <article class="category category_series">
+                    <div class="category__header">
+                        <h2 class="category__title title">Сериалы</h2>
+                        <div>тут что то будет</div> <!--Здесь будет какой нибудь элемент-->
+                    </div>
+                    <ul class="sub-categories">
+                        <li class="sub-category other-sub-category"><a>Предложения по улучшению категории "Сериалы"</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Русские сериалы</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Зарубежные сериалы</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Зарубежные сериалы (HD Video)</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Сериалы Латинской Америки, Турции и Индии</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Азиатские сериалы</a></li>
+                    </ul>
+                </article>
+                <article class="category category_documentary-n-humor"> <!--Нужно посмотреть как называются категории в оригинале-->
+                    <div class="category__header">
+                        <h2 class="category__title title">Документалистика и юмор</h2>
+                        <div>тут что то будет</div> <!--Здесь будет какой нибудь элемент-->
+                    </div>
+                    <ul class="sub-categories">
+                        <li class="sub-category other-sub-category"><a>Предложения по улучшению категории "Документалистика и юмор"</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>СМИ</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Вера и религия</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Документальные фильмы и телепередачи</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Документальные (HD Video)</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Развлекательные телепередачи и шоу, приколы и юмор</a></li>
+                    </ul>
+                </article>
+                <article class="category category_sport">
+                    <div class="category__header">
+                        <h2 class="category__title title">Спорт</h2>
+                        <div>тут что то будет</div> <!--Здесь будет какой нибудь элемент-->
+                    </div>
+                    <ul class="sub-categories">
+                        <li class="sub-category other-sub-category"><a>XXXII Летние Олимпийские игры 2020</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>XXIV Зимние Олимпийские игры 2022</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Спортивные турниры, фильмы и передачи</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Футбол</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Баскетбол</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Хоккей</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Рестлинг</a></li>
+                    </ul>
+                </article>
+                <article class="category category_books-n-magazines"> <!--Нужно посмотреть как называются категории в оригинале-->
+                    <div class="category__header">
+                        <h2 class="category__title title">Книги и журналы</h2>
+                        <div>тут что то будет</div> <!--Здесь будет какой нибудь элемент-->
+                    </div>
+                    <ul class="sub-categories">
+                        <li class="sub-category other-sub-category"><a>Правила "Книг и журналов", помощь, предложения по улучшению, сканирование</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Книги и журналы (общий раздел)</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Для детей, родителей и учителей</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Спорт, физическая культура, боевые искусства</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Гуманитарные науки</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Исторические науки</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Точные, естественные и инженерные науки</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Ноты и Музыкальная литература</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Военное дело</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Вера и религия</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Психология</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Коллекционирование, увлечения и хобби</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Художественная литература</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Компьютерная литература</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Комиксы, манга, ранобэ</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Коллекции книг и библиотеки</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Мультимедийные и интерактивные издания</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Медицина и здоровье</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Архив (Книги и журналы)</a></li>
+                    </ul>
+                </article>
+                <article class="category category_educat-another-lang">
+                    <div class="category__header">
+                        <h2 class="category__title title">Обучение инностранным языкам</h2>
+                        <div>тут что то будет</div> <!--Здесь будет какой нибудь элемент-->
+                    </div>
+                    <ul class="sub-categories">
+                        <li class="sub-category other-sub-category"><a>Объявления, предложения, помощь по разделу</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Иностранные языки для взрослых</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Иностранные языки для детей</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Художественная литература (ин.языки)</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Аудиокниги на иностранных языках</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Архив (Иностранные языки)</a></li>
+                    </ul>
+                </article>
+                <article class="category category_educat-video"> <!--Нужно посмотреть как называются категории в оригинале-->
+                    <div class="category__header">
+                        <h2 class="category__title title">Обучающие видео</h2>
+                        <div>тут что то будет</div> <!--Здесь будет какой нибудь элемент-->
+                    </div>
+                    <ul class="sub-categories">
+                        <li class="sub-category other-sub-category"><a>Видеоуроки и обучающие интерактивные DVD</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Боевые искусства (Видеоуроки)</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Компьютерные видеоуроки и обучающие интерактивные DVD</a></li>
+                    </ul>
+                </article>
+                <article class="category category_audiobooks">
+                    <div class="category__header">
+                        <h2 class="category__title title">Аудиокниги</h2>
+                        <div>тут что то будет</div> <!--Здесь будет какой нибудь элемент-->
+                    </div>
+                    <ul class="sub-categories">
+                        <li class="sub-category other-sub-category"><a>Новости, объявления, полезная информация</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Радиоспектакли, история, мемуары</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Фантастика, фэнтези, мистика, ужасы, фанфики</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Художественная литература</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Религии</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Прочая литература</a></li>
+                    </ul>
+                </article>
+                <article class="category category_auto-n-motorcycle"> <!--Нужно посмотреть как называются категории в оригинале-->
+                    <div class="category__header">
+                        <h2 class="category__title title">Авто и мото</h2>
+                        <div>тут что то будет</div> <!--Здесь будет какой нибудь элемент-->
+                    </div>
+                    <ul class="sub-categories">
+                        <li class="sub-category other-sub-category"><a>Ремонт и эксплуатация транспортных средств</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Фильмы и передачи по авто/мото</a></li>
+                    </ul>
+                </article>
+                <article class="category category_music">
+                    <div class="category__header">
+                        <h2 class="category__title title">Музыка</h2>
+                        <div>тут что то будет</div> <!--Здесь будет какой нибудь элемент-->
+                    </div>
+                    <ul class="sub-categories">
+                        <li class="sub-category other-sub-category"><a>Предложения по улучшению музыкальных разделов</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Помощь по музыкальным разделам</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Классическая и современная академическая музыка</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Фольклор, Народная и Этническая музыка</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>New Age, Relax, Meditative & Flamenco</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Рэп, Хип-Хоп, R'n'B</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Reggae, Ska, Dub</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Саундтреки, караоке и мюзиклы</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Шансон, Авторская и Военная песня</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Лейбл- и сцен-паки. Неофициальные сборники и ремастеринги</a></li>
+                    </ul>
+                </article>
+                <article class="category category_popular-music"> <!--Нужно посмотреть как называются категории в оригинале-->
+                    <div class="category__header">
+                        <h2 class="category__title title">Популярная музыка</h2>
+                        <div>тут что то будет</div> <!--Здесь будет какой нибудь элемент-->
+                    </div>
+                    <ul class="sub-categories">
+                        <li class="sub-category other-sub-category"><a>Отечественная поп-музыка</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Зарубежная поп-музыка</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Eurodance, Disco, Hi-NRG</a></li>
+                    </ul>
+                </article>
+                <article class="category category_jazz-n-blues">
+                    <div class="category__header">
+                        <h2 class="category__title title">Джазовая и Блюзовая музыка</h2>
+                        <div>тут что то будет</div> <!--Здесь будет какой нибудь элемент-->
+                    </div>
+                    <ul class="sub-categories">
+                        <li class="sub-category other-sub-category"><a>Зарубежный джаз</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Зарубежный блюз</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Отечественный джаз и блюз</a></li>
+                    </ul>
+                </article>
+                <article class="category category_rock-music"> <!--Нужно посмотреть как называются категории в оригинале-->
+                    <div class="category__header">
+                        <h2 class="category__title title">Рок-музыка</h2>
+                        <div>тут что то будет</div> <!--Здесь будет какой нибудь элемент-->
+                    </div>
+                    <ul class="sub-categories">
+                        <li class="sub-category other-sub-category"><a>Зарубежный Rock</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Зарубежный Metal</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Зарубежные Alternative, Punk, Independent</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Отечественный Rock, Metal</a></li>
+                    </ul>
+                </article>
+                <article class="category category_electonic-music">
+                    <div class="category__header">
+                        <h2 class="category__title title">Электронная музыка</h2>
+                        <div>тут что то будет</div> <!--Здесь будет какой нибудь элемент-->
+                    </div>
+                    <ul class="sub-categories">
+                        <li class="sub-category other-sub-category"><a>Trance, Goa Trance, Psy-Trance, PsyChill, Ambient, Dub</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>House, Techno, Hardcore, Hardstyle, Jumpstyle</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Drum & Bass, Jungle, Breakbeat, Dubstep, IDM, Electro</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Chillout, Lounge, Downtempo, Trip-Hop</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Traditional Electronic, Ambient, Modern Classical, Electroacoustic, Experimental</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Industrial, Noise, EBM, Dark Electro, Aggrotech, Cyberpunk, Synthpop, New Wave</a></li>
+                    </ul>
+                </article>
+                <article class="category category_hi-res-n-digitization"> <!--Нужно посмотреть как называются категории в оригинале-->
+                    <div class="category__header">
+                        <h2 class="category__title title">Hi-Res форматы, оцифровки</h2>
+                        <div>тут что то будет</div> <!--Здесь будет какой нибудь элемент-->
+                    </div>
+                    <ul class="sub-categories">
+                        <li class="sub-category other-sub-category"><a>Архив (Hi-Res форматы, оцифровки)</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Для общения (Hi-Res, оцифровки)</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Hi-Res stereo и многоканальная музыка</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Оцифровки с аналоговых носителей</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Неофициальные конверсии цифровых форматов</a></li>
+                    </ul>
+                </article>
+                <article class="category category_music-videos">
+                    <div class="category__header">
+                        <h2 class="category__title title">Музыкальное видео</h2>
+                        <div>тут что то будет</div> <!--Здесь будет какой нибудь элемент-->
+                    </div>
+                    <ul class="sub-categories">
+                        <li class="sub-category other-sub-category"><a>Помощь по музыкальным видео</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Музыкальное SD видео</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Музыкальное DVD видео</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Неофициальные DVD видео</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Музыкальное HD видео</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Некондиционное музыкальное видео (Видео, DVD видео, HD видео)</a></li>
+                    </ul>
+                </article>
+                <article class="category category_games"> <!--Нужно посмотреть как называются категории в оригинале-->
+                    <div class="category__header">
+                        <h2 class="category__title title">Игры</h2>
+                        <div>тут что то будет</div> <!--Здесь будет какой нибудь элемент-->
+                    </div>
+                    <ul class="sub-categories">
+                        <li class="sub-category other-sub-category"><a>Предложения по улучшению категории "Игры"</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Игры для Windows</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Прочее для Windows-игр</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Прочее для Microsoft Flight Simulator, Prepar3D, X-Plane</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Игры для Apple Macintosh</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Игры для Linux</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Игры для консолей</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Видео для консолей</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Игры для мобильных устройств</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Игровое видео</a></li>
+                    </ul>
+                </article>
+                <article class="category category_programms-n-design">
+                    <div class="category__header">
+                        <h2 class="category__title title">Программы и дизайн</h2>
+                        <div>тут что то будет</div> <!--Здесь будет какой нибудь элемент-->
+                    </div>
+                    <ul class="sub-categories">
+                        <li class="sub-category other-sub-category"><a>Предложения по улучшению категории "Программы и Дизайн"</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Инструкции, руководства, обзоры программ</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Операционные системы от Microsoft</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Linux, Unix и другие ОС</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Тестовые диски для настройки аудио/видео аппаратуры</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Системные программы</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Системы для бизнеса, офиса, научной и проектной работы</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Веб-разработка и Программирование</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Программы для работы с мультимедиа и 3D</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Материалы для мультимедиа и дизайна</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>ГИС, системы навигации и карты</a></li>
+                    </ul>
+                </article>
+                <article class="category category_mobile"> <!--Нужно посмотреть как называются категории в оригинале-->
+                    <div class="category__header">
+                        <h2 class="category__title title">Мобильные устройства</h2>
+                        <div>тут что то будет</div> <!--Здесь будет какой нибудь элемент-->
+                    </div>
+                    <ul class="sub-categories">
+                        <li class="sub-category other-sub-category"><a>Приложения для мобильных устройств</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Видео для мобильных устройств</a></li>
+                    </ul>
+                </article>
+                <article class="category category_apple">
+                    <div class="category__header">
+                        <h2 class="category__title title">Apple</h2>
+                        <div>тут что то будет</div> <!--Здесь будет какой нибудь элемент-->
+                    </div>
+                    <ul class="sub-categories">
+                        <li class="sub-category other-sub-category"><a>Apple Macintosh</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>iOS</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Видео</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Видео HD</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Аудио</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>F.A.Q.</a></li>
+                    </ul>
+                </article>
+                <article class="category category_another"> <!--Нужно посмотреть как называются категории в оригинале-->
+                    <div class="category__header">
+                        <h2 class="category__title title">Разное</h2>
+                        <div>тут что то будет</div> <!--Здесь будет какой нибудь элемент-->
+                    </div>
+                    <ul class="sub-categories">
+                        <li class="sub-category other-sub-category"><a>Разное (раздачи)</a></li>
+                    </ul>
+                </article>
+                <article class="category category_forum">
+                    <div class="category__header">
+                        <h2 class="category__title title">Обслуждение, встречи, общение</h2>
+                        <div>тут что то будет</div> <!--Здесь будет какой нибудь элемент-->
+                    </div>
+                    <ul class="sub-categories">
+                        <li class="sub-category other-sub-category"><a>Для общения пользователей</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Юридический</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Бизнес-форум</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Раздел Пиратской партии России</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Место сбора для релиз-групп</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Место встречи изменить...</a></li>
+                        <hr noshade="">
+                        <li class="sub-category other-sub-category"><a>Архив (Общий)</a></li>
                     </ul>
                 </article>
             </div>
         </div>
+        <script>
+            
+        </script>
         <div class=""></div>
     </main>
 

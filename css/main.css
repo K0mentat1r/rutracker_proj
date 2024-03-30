@@ -191,10 +191,6 @@ main{
         margin-bottom: 30px;
         .all-news__title{
             margin-bottom: 0;
-            padding-left: 0;
-        }
-        .news{
-            margin: 0 calc(80px - 2%);
         }
         .news__body{
             background: linear-gradient(to right, #CFCFCF, #CFCFCF, #ECECEC, #ECECEC);
@@ -222,6 +218,7 @@ main{
             width: 100%;
             background-color: #D9D9D9;
             border-radius: 15px;
+            max-width: 2000px;
             .category__header{
                 justify-content: space-between;
                 border-radius: 15px 15px 0 0;
@@ -233,13 +230,25 @@ main{
                 height: 50px;
             }
             .sub-categories{
+                padding-bottom: 10px;
+                hr{
+                    margin: 0.8% 0;
+                    margin-left: 0;
+                    height: 2px;
+                    background-color: #7A7A7E;
+                    border: 0;  
+                    width: 95%;
+                    display: flex;
+                    justify-content: center;
+                }
                 .sub-category{
                     padding: 10px;
                     padding-left: 0;
                     margin-left: 0;
                     align-items: center;
                     display: grid;
-                    grid-template-columns: 1fr 25fr 1fr;
+                    grid-template-columns: 5% 90% 10%; /*grid-template-columns: 10% 80% 10%; можно использовать для телефонов. 
+                    В процентах текст не центрируется, когда мало места, а в fr центрируется*/ /*криво встает на экране 1350px (длина) (breakpoint)*/
                     column-gap: 10px;
                     text-align: start;
                     a{
@@ -264,15 +273,10 @@ main{
                 width: 30px;
                 height: 29px;
             }
-            .sub-category__VPN::before {
-                background-image: url();
-                width: 40px;
-                height: 29px;
-            }
-            .sub-category__off-locks::before {
-                background-image: url();
+            .other-sub-category::before {
+                background-image: url(file:///C:/WorkSpaces/rutracker-proj/img/icons/icon_folder.svg);
                 width: 30px;
-                height: 29px;
+                height: 23px;
             }
         }
     }
