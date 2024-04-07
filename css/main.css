@@ -361,8 +361,9 @@ main{
         height: 0%;
         display: none;
     }
-    50%{
+    75%{
         opacity: 0%;
+        display: none;
     }
     100%{
         display: block;

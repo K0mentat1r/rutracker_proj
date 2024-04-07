@@ -798,6 +798,7 @@
                 console.log("wasHeaderNum = " + wasHeaderNum);
                 if (!IsWork)
                 {
+                    catBody[headerNum-1].style.display = "block";
                     Category[headerNum-1].classList.remove('onRevAnimCat');
                     catHeader[headerNum-1].classList.remove('onRevAnimCatHeader');
                     catBody[headerNum-1].classList.remove("onRevAnimSubCat");
@@ -816,6 +817,7 @@
                         catHeader[wasHeaderNum-1].classList.add('onRevAnimCatHeader');
                         catBody[wasHeaderNum-1].classList.add("onRevAnimSubCat");
 
+                        catBody[headerNum-1].style.display = "block";
                         Category[headerNum-1].classList.add('onAnimCat');
                         catHeader[headerNum-1].classList.add('onAnimCatHeader');
                         catBody[headerNum-1].classList.add("onAnimSubCat");
