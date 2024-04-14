@@ -1,8 +1,4 @@
 @import url(settings.css);
-.void{
-    height: 500px;
-} /*убрать свойства void*/
-/*Свойства для шапки*/
 header{
     display: flex;
     justify-content: space-between;
@@ -28,6 +24,7 @@ header{
     }
     .menu_user-logo{
         padding-top: 15px;
+        cursor: pointer;
         *{
             display: block;
             text-align: center;
@@ -81,12 +78,21 @@ header{
             position: relative;
             display: flex;
             flex-direction: column;
-            border: var(--standart-border);
             border-radius: 20px;
             background-color: white;
             text-align: center;
         }
     }
+}
+.pop-ups>.onPop-up{
+    animation: animOnMenu 0.3s 1 forwards;
+}
+.pop-ups>.offPop-up{
+    animation: animOffMenu 0.3s 1 forwards;
+}
+
+.LogIn{
+    display: none;
 }
 .LogIn>.pop-up__container{
     padding-top: 10%;
@@ -147,23 +153,54 @@ header{
 }
 
 /*Свойства для меню*/
+.Menu{
+    display: none;
+}
 .Menu>.pop-up__container{
     justify-content: end;
-    padding-top: calc(1% + 70px);
+    padding-top: 20px;
+    height: 100%;
+    /* padding-top: calc(1% + 70px); */
     padding-right: calc(1% + 5px);
     .pop-up__body{
         padding-right: 10px;
         padding-bottom: 10px;
         text-align: start;
+        height: calc(50% - 50px);
+        width: 18%;
+        max-width: 500px;
+        min-width: 300px;
+        max-height: 600px;
+        min-height: 400px;
+        .menu__userInfo{
+            display: flex;
+            justify-content: space-between;
+            padding: 4%;
+            align-items: center;
+            img{
+                border-radius: 90px;
+                border: var(--mini-border);
+            }
+            #profile-uname{
+                font-weight: 500;
+                font-size: 20px;
+            }
+        }
         a{
-            font-size: 20px;
+            font-size: 18px;
+        }
+        hr{
+            width: 103%;
+            color: var(--pop-up_background-color);
+            opacity: 49%;
+            height: 1.5px;
         }
         .links{
             padding-left: 5px;
             li{
                 list-style-type: none;
                 display: grid;
-                grid-template-columns: 1fr 5fr 2.5fr;
+                grid-template-columns: 1fr 5fr 0.1fr;
                 grid-template-rows: repeat(3, 10px);
                 padding-top: 0.4vw;
                 grid-column-gap: 7px;
@@ -214,10 +251,10 @@ main{
         display: grid;
         flex-direction: column;
         .onAnimCat{
-            animation: animCategory 2s 1 forwards;
+            animation: animCategory 1s 1 forwards; /*было 2s*/
         }
         .onRevAnimCat{
-            animation: revAnimCategory 2s 1 forwards;
+            animation: revAnimCategory 1s 1 forwards; /*было 2s*/
         }
         .category{
             width: 100%;
@@ -236,18 +273,26 @@ main{
                 align-items: center;
                 padding: 0 20px;
                 height: 50px;
+                /* .closeCategory>li::before {
+                    content: "";
+                    background-size: contain;
+                    margin: auto;
+                    background-image: url(file:///C:/WorkSpaces/rutracker-proj/img/icons/icon-arrowOpenCat.svg);
+                    width: 50px;
+                    height: 40px;
+                } */
             }
             .onAnimCatHeader {
-                animation: animCategoryHeader 1s 1 forwards;
+                animation: animCategoryHeader 1.2s 1 forwards; /*было 1s*/
             }
             .onAnimSubCat {
-                animation: animSubCategories 2s 1 forwards;
+                animation: animSubCategories 1s 1 forwards; /*было 2s*/
             }
             .onRevAnimCatHeader {
-                animation: revAnimCategoryHeader 1s 1 forwards;
+                animation: revAnimCategoryHeader 1.2s 1 forwards; /*было 1s*/
             }
             .onRevAnimSubCat {
-                animation: revAnimSubCategories 0.2s 1 forwards;
+                animation: revAnimSubCategories 0.1s 1 forwards; /*было 0,2s*/
             }
             .sub-categories{
                 padding-bottom: 10px;
@@ -281,8 +326,6 @@ main{
                     content: "";
                     background-size: contain;
                     margin: auto;
-                    /*max-wigth 50px*/
-                    /*max-height 29px*/
                 }
             }
             .sub-category__games::before {
@@ -307,20 +350,17 @@ main{
     --catHeight: 0;
     --catHeight2: 0;
 }
-@-webkit-keyframes revAnimCategoryHeader{
+@keyframes revAnimCategoryHeader{
     0%{
         border-radius: 15px 15px 0 0;
-        margin-bottom: 10px;
-    }
-    50%{
-        margin-bottom: 10px;
+        margin-bottom: 0;
     }
     100%{
         border-radius: 15px;
         margin-bottom: 10px;
     }
 }
-@-webkit-keyframes revAnimSubCategories{
+@keyframes revAnimSubCategories{
     0%{
         opacity: 100%;
         height: calc(100% - 120px);
@@ -332,30 +372,30 @@ main{
         display: none;
     }
 }
-@-webkit-keyframes animCategory{
+@keyframes animCategory{
     0%{
         height: 50px;
         margin-bottom: 10px;
+    }
+    30%{
+        margin-bottom: 5px;
     }
     100%{
         height: var(--catHeight);
         margin-bottom: 20px;
     }
 }
-@-webkit-keyframes animCategoryHeader{
+@keyframes animCategoryHeader{
     0%{
         border-radius: 15px;
-        margin-bottom: 10px;
-    }
-    50%{
-        margin-bottom: 10px;
+        margin-bottom: 20px;
     }
     100%{
         border-radius: 15px 15px 0 0;
         margin-bottom: 10px;
     }
 }
-@-webkit-keyframes animSubCategories{
+@keyframes animSubCategories{
     0%{
         opacity: 0%;
         height: 0%;
@@ -368,11 +408,11 @@ main{
     100%{
         display: block;
         opacity: 100%;
-        height: calc(100% - 120px);
+        height: calc(100% - 100px);
     }
 }
 
-@-webkit-keyframes revAnimCategory{
+@keyframes revAnimCategory{
     0%{
         height: var(--catHeight2);
         margin-bottom: 20px;
@@ -380,5 +420,26 @@ main{
     100%{
         height: 50px;
         margin-bottom: 10px;
+    }
+}
+
+@keyframes animOffMenu{
+    0%{
+        opacity: 100%;
+        display: block;
+    }
+    100%{
+        opacity: 0;
+        display: none;
+    }
+}
+@keyframes animOnMenu{
+    0%{
+        opacity: 0;
+        display: none;
+    }
+    100%{
+        opacity: 100%;
+        display: block;
     }
 }

@@ -105,10 +105,10 @@
         </div>
     </header>
     <div class="pop-ups">
-        <div class="LogIn pop-up disabled" id="reg"> <!--disabled-->
+        <div class="LogIn pop-up onPop-up" id="reg"> <!--disabled offPop-up onPop-up-->
             <div class="pop-up__container">
                 <div class="pop-up__body" id="regBody">
-                    <h1>Вход</h1>
+                    <h1>ВХОД</h1>
                     <div class="name-user">
                         <form class>
                             <input type="text" class="name-user__input" placeholder="Имя или e-mail">
@@ -135,19 +135,14 @@
                 </div>
             </div>
         </div>
-        <script>
-            function OnReg(){
-                reg.style.display = "block";
-            }
-            function OffReg(){
-                reg.style.display="none";
-            }
-            openReg.addEventListener("click", OnReg);
-            regBody.addEventListener("mouseleave", OffReg);
-        </script>
-        <div class="Menu pop-up disabled" id="menu" name="pop-up"> <!--disabled отключает элемент-->
+        <div class="Menu pop-up" id="menu" name="pop-up"> <!--disabled отключает элемент-->
             <div class="pop-up__container">
                 <div class="pop-up__body" id="menuBody" name="pop-up-body">
+                    <div class="menu__userInfo">
+                        <p id="profile-uname" data-uid="48822890">войти</p>
+                        <img id="avatar-image" src="img/User_logo_white.png">
+                    </div>
+                    <hr noshade="">
                     <ul class="links">
                         <li class="news-link memu__link">
                             <img class="menu__icon rupor" src="img/icons/icon-ruport__menu.svg">
@@ -181,16 +176,26 @@
                 </div>
             </div>
         </div>
-         <!--нужно переписать-->
+        <!-- анимации для pop up -->
         <script>
-            function OnMenu(){
-                menu.style.display = "block";
+            const popUps = document.getElementsByClassName("pop-up");
+            const popUpsBody = document.getElementsByClassName("pop-up__body");
+            const openMenu = document.getElementById("openMenu");
+            const openReg = document.getElementById("openReg");
+            var popUpNum = -1;
+            function offPopUp(){
+                popUps[popUpNum].classList.remove("onPop-up");
+                popUps[popUpNum].classList.add("offPop-up");
+                popUps[popUpNum].style.display="none";
             }
-            function OffMenu(){
-                menu.style.display="none";
+            function onPopUp(){
+                popUps[popUpNum].style.display="block";
+                popUps[popUpNum].classList.add("onPop-up");
+                popUps[popUpNum].classList.remove("offPop-up");
+                popUpsBody[popUpNum].addEventListener("mouseleave", offPopUp);
             }
-            openMenu.addEventListener("mouseover", OnMenu);
-            menuBody.addEventListener("mouseleave", OffMenu);
+            openMenu.addEventListener("click", function(){popUpNum=1; onPopUp();});
+            openReg.addEventListener("click", function(){popUpNum=0; onPopUp();});
         </script>
     </div>
     <main>
@@ -253,38 +258,38 @@
                 <article class="category category_games-and-shops"> <!--Нужно посмотреть как называются категории в оригинале-->
                     <div class="category__header">
                         <h2 class="category__title title">Товары, услуги, игры и развлечения </h2>
-                        <div name="closeCategory" id="header1">тут что то будет</div> <!--Здесь будет какой нибудь элемент-->
+                        <ul name="closeCategory" id="header1"><li></li></ul> <!--Здесь будет какой нибудь элемент-->
                     </div>
                     <ul class="sub-categories">
-                        <li class="sub-category sub-category__games"><a>Браузерные и клиентские онлайн игры</a></li>
+                        <li class="sub-category sub-category__games"><a href="https://rutracker.org/forum/viewforum.php?f=638">Браузерные и клиентские онлайн игры</a></li>
                         <hr noshade="">
-                        <li class="sub-category sub-category__shops"><a>Магазины и образование</a></li>
+                        <li class="sub-category sub-category__shops"><a href="https://rutracker.org/forum/viewforum.php?f=2346">Магазины и образование</a></li>
                     </ul>
                 </article>
                 <article class="category category_off-locks">
                     <div class="category__header">
                         <h2 class="category__title title">Обход блокировок</h2>
-                        <div name="closeCategory" id="header2">тут что то будет</div> <!--Здесь будет какой нибудь элемент-->
+                        <ul name="closeCategory" id="header2"><li></li></ul> <!--Здесь будет какой нибудь элемент-->
                     </div>
                     <ul class="sub-categories">
-                        <li class="sub-category other-sub-category"><a>VPN-сервисы</a></li>
+                        <li class="sub-category other-sub-category"><a href="https://rutracker.org/forum/viewforum.php?f=1649">VPN-сервисы</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Обход блокировок</a></li>
+                        <li class="sub-category other-sub-category"><a href="https://rutracker.org/forum/viewforum.php?f=1958">Обход блокировок</a></li>
                     </ul>
                 </article>
                 <article class="category category_news"> <!--Нужно посмотреть как называются категории в оригинале-->
                     <div class="category__header">
                         <h2 class="category__title title">Новости</h2>
-                        <div name="closeCategory" id="header3">тут что то будет</div> <!--Здесь будет какой нибудь элемент-->
+                        <ul name="closeCategory" id="header3"><li></li></ul> <!--Здесь будет какой нибудь элемент-->
                     </div>
                     <ul class="sub-categories">
-                        <li class="sub-category other-sub-category"><a>Новости трекера</a></li>
+                        <li class="sub-category other-sub-category"><a href="https://rutracker.org/forum/viewforum.php?f=1960">Новости трекера</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Краудфандинг (переводы, покупка дисков и т. п.)</a></li>
+                        <li class="sub-category other-sub-category"><a href="https://rutracker.org/forum/viewforum.php?f=1678">Краудфандинг (переводы, покупка дисков и т. п.)</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>GENERATION.TORRENT - Музыкальный конкурс</a></li>
+                        <li class="sub-category other-sub-category"><a href="https://rutracker.org/forum/viewforum.php?f=1246">GENERATION.TORRENT - Музыкальный конкурс</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Rutracker Awards (мероприятия и конкурсы)</a></li>
+                        <li class="sub-category other-sub-category"><a href="https://rutracker.org/forum/viewforum.php?f=1289">Rutracker Awards (мероприятия и конкурсы)</a></li>
                     </ul>
                 </article>
                 <article class="category category_FAQ">
@@ -293,15 +298,15 @@
                         <div name="closeCategory" id="header4">тут что то будет</div> <!--Здесь будет какой нибудь элемент-->
                     </div>
                     <ul class="sub-categories">
-                        <li class="sub-category other-sub-category"><a>Правила, основные инструкции, FAQ-и</a></li>
+                        <li class="sub-category other-sub-category"><a href="http://rutracker.wiki/">Правила, основные инструкции, FAQ-и</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Вопросы по форуму и трекеру</a></li>
+                        <li class="sub-category other-sub-category"><a href="https://rutracker.org/forum/viewforum.php?f=2">Вопросы по форуму и трекеру</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Вопросы по BitTorrent сети и ее клиентам</a></li>
+                        <li class="sub-category other-sub-category"><a href="https://rutracker.org/forum/viewforum.php?f=328">Вопросы по BitTorrent сети и ее клиентам</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Обсуждение провайдеров</a></li>
+                        <li class="sub-category other-sub-category"><a href="https://rutracker.org/forum/viewforum.php?f=326">Обсуждение провайдеров</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Железо: комплектующие и периферия</a></li>
+                        <li class="sub-category other-sub-category"><a href="https://rutracker.org/forum/viewforum.php?f=1146">Железо: комплектующие и периферия</a></li>
                     </ul>
                 </article>
                 <article class="category category_media"> <!--Нужно посмотреть как называются категории в оригинале-->
@@ -310,31 +315,31 @@
                         <div name="closeCategory" id="header5">тут что то будет</div> <!--Здесь будет какой нибудь элемент-->
                     </div>
                     <ul class="sub-categories">
-                        <li class="sub-category other-sub-category"><a>Предложения по улучшению категории "Кино, Видео и ТВ"</a></li>
+                        <li class="sub-category other-sub-category"><a href="https://rutracker.org/forum/viewforum.php?f=756">Предложения по улучшению категории "Кино, Видео и ТВ"</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Кино, Видео и TV - помощь по разделу</a></li>
+                        <li class="sub-category other-sub-category"><a href="https://rutracker.org/forum/viewforum.php?f=214">Кино, Видео и TV - помощь по разделу</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Наше кино</a></li>
+                        <li class="sub-category other-sub-category"><a href="https://rutracker.org/forum/viewforum.php?f=22">Наше кино</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Зарубежное кино</a></li>
+                        <li class="sub-category other-sub-category"><a href="https://rutracker.org/forum/viewforum.php?f=7">Зарубежное кино</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Арт-хаус и авторское кино</a></li>
+                        <li class="sub-category other-sub-category"><a href="https://rutracker.org/forum/viewforum.php?f=124">Арт-хаус и авторское кино</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Театр</a></li>
+                        <li class="sub-category other-sub-category"><a href="https://rutracker.org/forum/viewforum.php?f=511">Театр</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>DVD Video</a></li>
+                        <li class="sub-category other-sub-category"><a href="https://rutracker.org/forum/viewforum.php?f=93">DVD Video</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>HD Video</a></li>
+                        <li class="sub-category other-sub-category"><a href="">HD Video</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>UHD Video</a></li>
+                        <li class="sub-category other-sub-category"><a href="">UHD Video</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>3D/Стерео Кино, Видео, TV и Спорт</a></li>
+                        <li class="sub-category other-sub-category"><a href="">3D/Стерео Кино, Видео, TV и Спорт</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Мультфильмы</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Мультфильмы</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Мультсериалы</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Мультсериалы</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Аниме</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Аниме</a></li>
                     </ul>
                 </article>
                 <article class="category category_series">
@@ -343,17 +348,17 @@
                         <div name="closeCategory" id="header6">тут что то будет</div> <!--Здесь будет какой нибудь элемент-->
                     </div>
                     <ul class="sub-categories">
-                        <li class="sub-category other-sub-category"><a>Предложения по улучшению категории "Сериалы"</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Предложения по улучшению категории "Сериалы"</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Русские сериалы</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Русские сериалы</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Зарубежные сериалы</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Зарубежные сериалы</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Зарубежные сериалы (HD Video)</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Зарубежные сериалы (HD Video)</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Сериалы Латинской Америки, Турции и Индии</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Сериалы Латинской Америки, Турции и Индии</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Азиатские сериалы</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Азиатские сериалы</a></li>
                     </ul>
                 </article>
                 <article class="category category_documentary-n-humor"> <!--Нужно посмотреть как называются категории в оригинале-->
@@ -362,17 +367,17 @@
                         <div name="closeCategory" id="header7">тут что то будет</div> <!--Здесь будет какой нибудь элемент-->
                     </div>
                     <ul class="sub-categories">
-                        <li class="sub-category other-sub-category"><a>Предложения по улучшению категории "Документалистика и юмор"</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Предложения по улучшению категории "Документалистика и юмор"</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>СМИ</a></li>
+                        <li class="sub-category other-sub-category"><a href="">СМИ</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Вера и религия</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Вера и религия</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Документальные фильмы и телепередачи</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Документальные фильмы и телепередачи</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Документальные (HD Video)</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Документальные (HD Video)</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Развлекательные телепередачи и шоу, приколы и юмор</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Развлекательные телепередачи и шоу, приколы и юмор</a></li>
                     </ul>
                 </article>
                 <article class="category category_sport">
@@ -381,19 +386,19 @@
                         <div name="closeCategory" id="header8">тут что то будет</div> <!--Здесь будет какой нибудь элемент-->
                     </div>
                     <ul class="sub-categories">
-                        <li class="sub-category other-sub-category"><a>XXXII Летние Олимпийские игры 2020</a></li>
+                        <li class="sub-category other-sub-category"><a href="">XXXII Летние Олимпийские игры 2020</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>XXIV Зимние Олимпийские игры 2022</a></li>
+                        <li class="sub-category other-sub-category"><a href="">XXIV Зимние Олимпийские игры 2022</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Спортивные турниры, фильмы и передачи</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Спортивные турниры, фильмы и передачи</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Футбол</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Футбол</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Баскетбол</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Баскетбол</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Хоккей</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Хоккей</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Рестлинг</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Рестлинг</a></li>
                     </ul>
                 </article>
                 <article class="category category_books-n-magazines"> <!--Нужно посмотреть как называются категории в оригинале-->
@@ -402,43 +407,43 @@
                         <div name="closeCategory" id="header9">тут что то будет</div> <!--Здесь будет какой нибудь элемент-->
                     </div>
                     <ul class="sub-categories">
-                        <li class="sub-category other-sub-category"><a>Правила "Книг и журналов", помощь, предложения по улучшению, сканирование</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Правила "Книг и журналов", помощь, предложения по улучшению, сканирование</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Книги и журналы (общий раздел)</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Книги и журналы (общий раздел)</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Для детей, родителей и учителей</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Для детей, родителей и учителей</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Спорт, физическая культура, боевые искусства</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Спорт, физическая культура, боевые искусства</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Гуманитарные науки</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Гуманитарные науки</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Исторические науки</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Исторические науки</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Точные, естественные и инженерные науки</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Точные, естественные и инженерные науки</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Ноты и Музыкальная литература</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Ноты и Музыкальная литература</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Военное дело</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Военное дело</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Вера и религия</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Вера и религия</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Психология</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Психология</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Коллекционирование, увлечения и хобби</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Коллекционирование, увлечения и хобби</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Художественная литература</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Художественная литература</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Компьютерная литература</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Компьютерная литература</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Комиксы, манга, ранобэ</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Комиксы, манга, ранобэ</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Коллекции книг и библиотеки</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Коллекции книг и библиотеки</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Мультимедийные и интерактивные издания</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Мультимедийные и интерактивные издания</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Медицина и здоровье</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Медицина и здоровье</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Архив (Книги и журналы)</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Архив (Книги и журналы)</a></li>
                     </ul>
                 </article>
                 <article class="category category_educat-another-lang">
@@ -447,17 +452,17 @@
                         <div name="closeCategory" id="header10">тут что то будет</div> <!--Здесь будет какой нибудь элемент-->
                     </div>
                     <ul class="sub-categories">
-                        <li class="sub-category other-sub-category"><a>Объявления, предложения, помощь по разделу</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Объявления, предложения, помощь по разделу</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Иностранные языки для взрослых</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Иностранные языки для взрослых</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Иностранные языки для детей</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Иностранные языки для детей</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Художественная литература (ин.языки)</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Художественная литература (ин.языки)</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Аудиокниги на иностранных языках</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Аудиокниги на иностранных языках</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Архив (Иностранные языки)</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Архив (Иностранные языки)</a></li>
                     </ul>
                 </article>
                 <article class="category category_educat-video"> <!--Нужно посмотреть как называются категории в оригинале-->
@@ -466,11 +471,11 @@
                         <div name="closeCategory" id="header11">тут что то будет</div> <!--Здесь будет какой нибудь элемент-->
                     </div>
                     <ul class="sub-categories">
-                        <li class="sub-category other-sub-category"><a>Видеоуроки и обучающие интерактивные DVD</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Видеоуроки и обучающие интерактивные DVD</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Боевые искусства (Видеоуроки)</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Боевые искусства (Видеоуроки)</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Компьютерные видеоуроки и обучающие интерактивные DVD</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Компьютерные видеоуроки и обучающие интерактивные DVD</a></li>
                     </ul>
                 </article>
                 <article class="category category_audiobooks">
@@ -479,17 +484,17 @@
                         <div name="closeCategory" id="header12">тут что то будет</div> <!--Здесь будет какой нибудь элемент-->
                     </div>
                     <ul class="sub-categories">
-                        <li class="sub-category other-sub-category"><a>Новости, объявления, полезная информация</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Новости, объявления, полезная информация</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Радиоспектакли, история, мемуары</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Радиоспектакли, история, мемуары</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Фантастика, фэнтези, мистика, ужасы, фанфики</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Фантастика, фэнтези, мистика, ужасы, фанфики</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Художественная литература</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Художественная литература</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Религии</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Религии</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Прочая литература</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Прочая литература</a></li>
                     </ul>
                 </article>
                 <article class="category category_auto-n-motorcycle"> <!--Нужно посмотреть как называются категории в оригинале-->
@@ -498,9 +503,9 @@
                         <div name="closeCategory" id="header13">тут что то будет</div> <!--Здесь будет какой нибудь элемент-->
                     </div>
                     <ul class="sub-categories">
-                        <li class="sub-category other-sub-category"><a>Ремонт и эксплуатация транспортных средств</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Ремонт и эксплуатация транспортных средств</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Фильмы и передачи по авто/мото</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Фильмы и передачи по авто/мото</a></li>
                     </ul>
                 </article>
                 <article class="category category_music">
@@ -509,25 +514,25 @@
                         <div name="closeCategory" id="header14">тут что то будет</div> <!--Здесь будет какой нибудь элемент-->
                     </div>
                     <ul class="sub-categories">
-                        <li class="sub-category other-sub-category"><a>Предложения по улучшению музыкальных разделов</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Предложения по улучшению музыкальных разделов</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Помощь по музыкальным разделам</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Помощь по музыкальным разделам</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Классическая и современная академическая музыка</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Классическая и современная академическая музыка</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Фольклор, Народная и Этническая музыка</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Фольклор, Народная и Этническая музыка</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>New Age, Relax, Meditative & Flamenco</a></li>
+                        <li class="sub-category other-sub-category"><a href="">New Age, Relax, Meditative & Flamenco</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Рэп, Хип-Хоп, R'n'B</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Рэп, Хип-Хоп, R'n'B</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Reggae, Ska, Dub</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Reggae, Ska, Dub</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Саундтреки, караоке и мюзиклы</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Саундтреки, караоке и мюзиклы</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Шансон, Авторская и Военная песня</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Шансон, Авторская и Военная песня</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Лейбл- и сцен-паки. Неофициальные сборники и ремастеринги</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Лейбл- и сцен-паки. Неофициальные сборники и ремастеринги</a></li>
                     </ul>
                 </article>
                 <article class="category category_popular-music"> <!--Нужно посмотреть как называются категории в оригинале-->
@@ -536,11 +541,11 @@
                         <div name="closeCategory" id="header15">тут что то будет</div> <!--Здесь будет какой нибудь элемент-->
                     </div>
                     <ul class="sub-categories">
-                        <li class="sub-category other-sub-category"><a>Отечественная поп-музыка</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Отечественная поп-музыка</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Зарубежная поп-музыка</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Зарубежная поп-музыка</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Eurodance, Disco, Hi-NRG</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Eurodance, Disco, Hi-NRG</a></li>
                     </ul>
                 </article>
                 <article class="category category_jazz-n-blues">
@@ -549,11 +554,11 @@
                         <div name="closeCategory" id="header16">тут что то будет</div> <!--Здесь будет какой нибудь элемент-->
                     </div>
                     <ul class="sub-categories">
-                        <li class="sub-category other-sub-category"><a>Зарубежный джаз</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Зарубежный джаз</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Зарубежный блюз</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Зарубежный блюз</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Отечественный джаз и блюз</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Отечественный джаз и блюз</a></li>
                     </ul>
                 </article>
                 <article class="category category_rock-music"> <!--Нужно посмотреть как называются категории в оригинале-->
@@ -562,13 +567,13 @@
                         <div name="closeCategory" id="header17">тут что то будет</div> <!--Здесь будет какой нибудь элемент-->
                     </div>
                     <ul class="sub-categories">
-                        <li class="sub-category other-sub-category"><a>Зарубежный Rock</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Зарубежный Rock</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Зарубежный Metal</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Зарубежный Metal</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Зарубежные Alternative, Punk, Independent</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Зарубежные Alternative, Punk, Independent</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Отечественный Rock, Metal</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Отечественный Rock, Metal</a></li>
                     </ul>
                 </article>
                 <article class="category category_electonic-music">
@@ -577,17 +582,17 @@
                         <div name="closeCategory" id="header18">тут что то будет</div> <!--Здесь будет какой нибудь элемент-->
                     </div>
                     <ul class="sub-categories">
-                        <li class="sub-category other-sub-category"><a>Trance, Goa Trance, Psy-Trance, PsyChill, Ambient, Dub</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Trance, Goa Trance, Psy-Trance, PsyChill, Ambient, Dub</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>House, Techno, Hardcore, Hardstyle, Jumpstyle</a></li>
+                        <li class="sub-category other-sub-category"><a href="">House, Techno, Hardcore, Hardstyle, Jumpstyle</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Drum & Bass, Jungle, Breakbeat, Dubstep, IDM, Electro</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Drum & Bass, Jungle, Breakbeat, Dubstep, IDM, Electro</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Chillout, Lounge, Downtempo, Trip-Hop</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Chillout, Lounge, Downtempo, Trip-Hop</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Traditional Electronic, Ambient, Modern Classical, Electroacoustic, Experimental</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Traditional Electronic, Ambient, Modern Classical, Electroacoustic, Experimental</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Industrial, Noise, EBM, Dark Electro, Aggrotech, Cyberpunk, Synthpop, New Wave</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Industrial, Noise, EBM, Dark Electro, Aggrotech, Cyberpunk, Synthpop, New Wave</a></li>
                     </ul>
                 </article>
                 <article class="category category_hi-res-n-digitization"> <!--Нужно посмотреть как называются категории в оригинале-->
@@ -596,15 +601,15 @@
                         <div name="closeCategory" id="header19">тут что то будет</div> <!--Здесь будет какой нибудь элемент-->
                     </div>
                     <ul class="sub-categories">
-                        <li class="sub-category other-sub-category"><a>Архив (Hi-Res форматы, оцифровки)</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Архив (Hi-Res форматы, оцифровки)</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Для общения (Hi-Res, оцифровки)</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Для общения (Hi-Res, оцифровки)</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Hi-Res stereo и многоканальная музыка</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Hi-Res stereo и многоканальная музыка</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Оцифровки с аналоговых носителей</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Оцифровки с аналоговых носителей</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Неофициальные конверсии цифровых форматов</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Неофициальные конверсии цифровых форматов</a></li>
                     </ul>
                 </article>
                 <article class="category category_music-videos">
@@ -613,17 +618,17 @@
                         <div name="closeCategory" id="header20">тут что то будет</div> <!--Здесь будет какой нибудь элемент-->
                     </div>
                     <ul class="sub-categories">
-                        <li class="sub-category other-sub-category"><a>Помощь по музыкальным видео</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Помощь по музыкальным видео</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Музыкальное SD видео</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Музыкальное SD видео</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Музыкальное DVD видео</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Музыкальное DVD видео</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Неофициальные DVD видео</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Неофициальные DVD видео</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Музыкальное HD видео</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Музыкальное HD видео</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Некондиционное музыкальное видео (Видео, DVD видео, HD видео)</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Некондиционное музыкальное видео (Видео, DVD видео, HD видео)</a></li>
                     </ul>
                 </article>
                 <article class="category category_games"> <!--Нужно посмотреть как называются категории в оригинале-->
@@ -632,25 +637,25 @@
                         <div name="closeCategory" id="header21">тут что то будет</div> <!--Здесь будет какой нибудь элемент-->
                     </div>
                     <ul class="sub-categories">
-                        <li class="sub-category other-sub-category"><a>Предложения по улучшению категории "Игры"</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Предложения по улучшению категории "Игры"</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Игры для Windows</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Игры для Windows</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Прочее для Windows-игр</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Прочее для Windows-игр</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Прочее для Microsoft Flight Simulator, Prepar3D, X-Plane</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Прочее для Microsoft Flight Simulator, Prepar3D, X-Plane</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Игры для Apple Macintosh</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Игры для Apple Macintosh</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Игры для Linux</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Игры для Linux</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Игры для консолей</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Игры для консолей</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Видео для консолей</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Видео для консолей</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Игры для мобильных устройств</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Игры для мобильных устройств</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Игровое видео</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Игровое видео</a></li>
                     </ul>
                 </article>
                 <article class="category category_programms-n-design">
@@ -659,27 +664,27 @@
                         <div name="closeCategory" id="header22">тут что то будет</div> <!--Здесь будет какой нибудь элемент-->
                     </div>
                     <ul class="sub-categories">
-                        <li class="sub-category other-sub-category"><a>Предложения по улучшению категории "Программы и Дизайн"</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Предложения по улучшению категории "Программы и Дизайн"</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Инструкции, руководства, обзоры программ</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Инструкции, руководства, обзоры программ</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Операционные системы от Microsoft</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Операционные системы от Microsoft</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Linux, Unix и другие ОС</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Linux, Unix и другие ОС</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Тестовые диски для настройки аудио/видео аппаратуры</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Тестовые диски для настройки аудио/видео аппаратуры</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Системные программы</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Системные программы</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Системы для бизнеса, офиса, научной и проектной работы</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Системы для бизнеса, офиса, научной и проектной работы</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Веб-разработка и Программирование</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Веб-разработка и Программирование</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Программы для работы с мультимедиа и 3D</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Программы для работы с мультимедиа и 3D</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Материалы для мультимедиа и дизайна</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Материалы для мультимедиа и дизайна</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>ГИС, системы навигации и карты</a></li>
+                        <li class="sub-category other-sub-category"><a href="">ГИС, системы навигации и карты</a></li>
                     </ul>
                 </article>
                 <article class="category category_mobile"> <!--Нужно посмотреть как называются категории в оригинале-->
@@ -688,9 +693,9 @@
                         <div name="closeCategory" id="header23">тут что то будет</div> <!--Здесь будет какой нибудь элемент-->
                     </div>
                     <ul class="sub-categories">
-                        <li class="sub-category other-sub-category"><a>Приложения для мобильных устройств</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Приложения для мобильных устройств</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Видео для мобильных устройств</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Видео для мобильных устройств</a></li>
                     </ul>
                 </article>
                 <article class="category category_apple">
@@ -699,17 +704,17 @@
                         <div name="closeCategory" id="header24">тут что то будет</div> <!--Здесь будет какой нибудь элемент-->
                     </div>
                     <ul class="sub-categories">
-                        <li class="sub-category other-sub-category"><a>Apple Macintosh</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Apple Macintosh</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>iOS</a></li>
+                        <li class="sub-category other-sub-category"><a href="">iOS</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Видео</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Видео</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Видео HD</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Видео HD</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Аудио</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Аудио</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>F.A.Q.</a></li>
+                        <li class="sub-category other-sub-category"><a href="">F.A.Q.</a></li>
                     </ul>
                 </article>
                 <article class="category category_another"> <!--Нужно посмотреть как называются категории в оригинале-->
@@ -718,7 +723,7 @@
                         <div name="closeCategory" id="header25">тут что то будет</div> <!--Здесь будет какой нибудь элемент-->
                     </div>
                     <ul class="sub-categories">
-                        <li class="sub-category other-sub-category"><a>Разное (раздачи)</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Разное (раздачи)</a></li>
                     </ul>
                 </article>
                 <article class="category category_forum">
@@ -727,23 +732,24 @@
                         <div name="closeCategory" id="header26">тут что то будет</div> <!--Здесь будет какой нибудь элемент-->
                     </div>
                     <ul class="sub-categories">
-                        <li class="sub-category other-sub-category"><a>Для общения пользователей</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Для общения пользователей</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Юридический</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Юридический</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Бизнес-форум</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Бизнес-форум</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Раздел Пиратской партии России</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Раздел Пиратской партии России</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Место сбора для релиз-групп</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Место сбора для релиз-групп</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Место встречи изменить...</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Место встречи изменить...</a></li>
                         <hr noshade="">
-                        <li class="sub-category other-sub-category"><a>Архив (Общий)</a></li>
+                        <li class="sub-category other-sub-category"><a href="">Архив (Общий)</a></li>
                     </ul>
                 </article>
             </div>
         </div>
+        <!--анимация категорий (просто добавляются новые классы, сами анимации в css)-->
         <script>
             // получение нужных элементов
             const Category = document.getElementsByClassName("category");
@@ -751,41 +757,35 @@
             const catBody = document.getElementsByClassName("sub-categories");
             const catHeader = document.getElementsByClassName("category__header");
             //переменные размеров
-            var elemHeight = [];
+            let elemHeight = [];
             //переменные boolean
-            var IsWork = false;
+            let IsWork = false;
+            let newTime = true;
             //счетчик
-            var headerNum = 0;
-            var wasHeaderNum = 0;
-            var i = 0;
-            var newTime = true;
+            let headerNum = 0;
+            let wasHeaderNum = 0;
 
-            for (i = 0; i <= Category.length - 1; i++){
+            for (let i = 0; i <= Category.length - 1; i++){
                 elemHeight[i] = Category.item(i).offsetHeight; //получаем размеры категорий
                 Category.item(i).style.height = 50 + "px";
                 catBody[i].style.display="none";
             }
             function oprNumHeader(){
-                console.log("Скрипт анимации началася заново")
                 if (newTime){
                     wasHeaderNum = headerNum;
                 }
                 newTime = false;
-                console.log("Нажата кнопка в хидере под номером: "+headerNum);
                 var needCatHeight = true;
                 var needCatHeight2 = true;
                 if(needCatHeight){
                     document.documentElement.style.setProperty('--catHeight', elemHeight[headerNum-1] + "px");
                     document.documentElement.style.setProperty('--catHeight2', elemHeight[headerNum-1] + "px");
                     needCatHeight=false;
-                    console.log("--catHeight = "+elemHeight[headerNum-1] + "px");
-                    console.log("--catHeight2 = "+elemHeight[headerNum-1] + "px");
                 }
                 if (needCatHeight2 && wasHeaderNum != headerNum){
                     document.documentElement.style.setProperty('--catHeight2', elemHeight[wasHeaderNum - 1] + "px");
                     needCatHeight2=false;
                     IsWork = true;
-                    console.log("--catHeight = "+elemHeight[headerNum-1] + "px");
                 }
                 else if (!needCatHeight && !needCatHeight2){
                     needCatHeight=true;
@@ -794,8 +794,6 @@
                 onAnimations();
             }
             function onAnimations(){
-                console.log("headerNum = " + headerNum);
-                console.log("wasHeaderNum = " + wasHeaderNum);
                 if (!IsWork)
                 {
                     catBody[headerNum-1].style.display = "block";
@@ -833,37 +831,101 @@
                     wasHeaderNum = headerNum;
                 }
             }
-            header1.addEventListener("click", function(){headerNum=1;oprNumHeader();});
-            header2.addEventListener("click", function(){headerNum=2;oprNumHeader();});
-            header3.addEventListener("click", function(){headerNum=3;oprNumHeader();});
-            header4.addEventListener("click", function(){headerNum=4;oprNumHeader();});
-            header5.addEventListener("click", function(){headerNum=5;oprNumHeader();});
-            header6.addEventListener("click", function(){headerNum=6;oprNumHeader();});
-            header7.addEventListener("click", function(){headerNum=7;oprNumHeader();});
-            header8.addEventListener("click", function(){headerNum=8;oprNumHeader();});
-            header9.addEventListener("click", function(){headerNum=9;oprNumHeader();});
-            header10.addEventListener("click", function(){headerNum=10;oprNumHeader();});
-            header11.addEventListener("click", function(){headerNum=11;oprNumHeader();});
-            header12.addEventListener("click", function(){headerNum=12;oprNumHeader();});
-            header13.addEventListener("click", function(){headerNum=13;oprNumHeader();});
-            header14.addEventListener("click", function(){headerNum=14;oprNumHeader();});
-            header15.addEventListener("click", function(){headerNum=15;oprNumHeader();});
-            header16.addEventListener("click", function(){headerNum=16;oprNumHeader();});
-            header17.addEventListener("click", function(){headerNum=17;oprNumHeader();});
-            header18.addEventListener("click", function(){headerNum=18;oprNumHeader();});
-            header19.addEventListener("click", function(){headerNum=19;oprNumHeader();});
-            header20.addEventListener("click", function(){headerNum=20;oprNumHeader();});
-            header21.addEventListener("click", function(){headerNum=21;oprNumHeader();});
-            header22.addEventListener("click", function(){headerNum=22;oprNumHeader();});
-            header23.addEventListener("click", function(){headerNum=23;oprNumHeader();});
-            header24.addEventListener("click", function(){headerNum=24;oprNumHeader();});
-            header25.addEventListener("click", function(){headerNum=25;oprNumHeader();});
-            header26.addEventListener("click", function(){headerNum=26;oprNumHeader();});
+            for (let j = 0; j < btnClose.length; j++){
+                let a = j;
+                btnClose[j].addEventListener("click", function(){headerNum = a+1; oprNumHeader();});
+            }
         </script>
         <div class=""></div>
     </main>
     <footer>
-        
+        <style>
+            body{
+                margin:0;
+            }
+            a{
+                text-decoration: none;
+                color: black;
+            }
+            footer{
+                background-color: white;
+                display: flex;
+                gap: 10px;
+                align-items: center;
+                padding: 20px 0;
+                .main-links{
+                    border-right: 1px solid #9fa79f;
+                    padding: calc(0.5% + 10px);
+                    ul{
+                        display: flex;
+                        flex-direction: column;
+                        padding-left: calc(0.5% + 10px);
+                        list-style-type: disc;
+                        ::marker{
+                            font-size: 17px;            
+                        }
+                    }
+                }
+                a{
+                    font-size: 12px;
+                }
+                nav{
+                    display: grid;
+                    grid-template-columns: repeat(4, 1fr);
+                    gap: 10px;
+                    div{
+                        display: flex;
+                        flex-direction: column;
+                        padding-left: calc(0.4vw + 10px);
+                        *{
+                            padding-top: 5px;
+                        }
+                    }
+                }
+                .reclama{
+                    width: 100%;
+                    background: red;
+                    height: 90%;
+                    
+                }
+            }
+        </style>
+
+        <div class="main-links">
+            <ul>
+                <li><a href="">Администрация</a></li>
+                <li><a href="">Модераторы</a></li>
+                <li><a href="">Тех.&nbsp;помощь</a></li>
+                <li><a href="">Telegram-канал</a></li>
+            </ul>
+        </div>
+        <div class="other-links">
+            <nav>
+                <div>
+                    <a href="">Условия&nbsp;использования</a>
+                    <a href="">Правила</a>
+                    <a href="">Кому&nbsp;задать&nbsp;вопрос</a>
+                    <a href="">Торрентопедия</a>
+                </div>
+                <div>
+                    <a href="">Реклама&nbsp;на&nbsp;сайте</a>
+                </div>
+                <div>
+                    <a href="">Для&nbsp;правообладателей</a>
+                    <a href="">Для&nbsp;прессы</a>
+                    <a href="">Для&nbsp;провайдеров</a>
+                    <a href="">Авторские&nbsp;раздачи</a>
+                    <a href="">Случайная&nbsp;раздача</a>
+                </div>
+
+                <div>
+                    <a href="">Конкурсы</a>
+                    <a href="">Новости&nbsp;"Хранителей"&nbsp;и&nbsp;"Антикваров"</a>
+                </div>
+            </nav>
+        </div>
+        <div class="reclama">
+        </div>
     </footer>
 </body>
 </html>
