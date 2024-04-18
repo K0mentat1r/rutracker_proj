@@ -273,21 +273,6 @@ main{
                 padding: 0 20px;
                 height: 50px;
             }
-            .category__header ul{
-                padding: 0;
-            }
-            .category__header li::before {
-                display: block;
-                width:30px; /*коэф различия (высота/ширина) = 0,6*/
-                height:18px;
-                content:"";
-                background-size: contain;
-                margin: auto;
-                background-image: url(file:///C:/WorkSpaces/rutracker-proj/img/icons/icon_arrowOpenCat.svg);
-            }
-            .category__header li::marker {
-                content: "";
-            }
             .onAnimCloseCat{
                 animation: animCloseCat 0.5s 1 forwards;
             }
@@ -334,26 +319,6 @@ main{
                         font-size: 20px;
                     }
                 }
-                .sub-category::before {
-                    content: "";
-                    background-size: contain;
-                    margin: auto;
-                }
-            }
-            .sub-category__games::before {
-                background-image: url(file:///C:/WorkSpaces/rutracker-proj/img/icons/icon_gamepad.svg);
-                width: 40px;
-                height: 29px;
-            }
-            .sub-category__shops::before {
-                background-image: url(file:///C:/WorkSpaces/rutracker-proj/img/icons/icon_cart.svg);
-                width: 30px;
-                height: 29px;
-            }
-            .other-sub-category::before {
-                background-image: url(file:///C:/WorkSpaces/rutracker-proj/img/icons/icon_folder.svg);
-                width: 30px;
-                height: 23px;
             }
         }
     }
