@@ -3,69 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet">
-    <style>
-        body{
-            margin:0;
-        }
-        a{
-            text-decoration: none;
-            color: black;
-        }
-        footer{
-            background-color: white;
-            display: flex;
-            gap: 10px;
-            align-items: center;
-            padding: 20px 0;
-            .main-links{
-                border-right: 1px solid #9fa79f;
-                padding: calc(0.5% + 10px);
-                ul{
-                    display: flex;
-                    flex-direction: column;
-                    padding-left: calc(0.5% + 10px);
-                    list-style-type: disc;
-                    ::marker{
-                        font-size: 17px;            
-                    }
-                }
-            }
-            nav{
-                text-align: center;
-                a{
-                    padding-left: calc(0.4vw + 10px);
-                    display: inline-block;
-                }
-            }
-        }
-    </style>
 </head>
 <body>
     <footer>
+        <style>
+            body{
+                margin:0;
+            }
+            a{
+                text-decoration: none;
+                color: black;
+            }
+            footer{
+                background-color: white;
+                display: flex;
+                gap: 10px;
+                align-items: center;
+                padding: 20px 0;
+                .main-links{
+                    border-right: 1px solid #9fa79f;
+                    padding: calc(0.5% + 10px);
+                    ul{
+                        display: flex;
+                        flex-direction: column;
+                        padding-left: calc(0.5% + 10px);
+                        list-style-type: disc;
+                        ::marker{
+                            font-size: 17px;            
+                        }
+                    }
+                }
+                a{
+                    font-size: 12px;
+                }
+                nav{
+                    display: grid;
+                    grid-template-columns: repeat(5, 1fr);
+                    gap: 10px;
+                    div{
+                        display: flex;
+                        flex-direction: column;
+                        padding-left: calc(0.4vw + 10px);
+                        *{
+                            padding-top: 5px;
+                        }
+                    }
+                }
+                .reclama{
+                    width: 100%;
+                    background: red;
+                    height: 90%;
+                    
+                }
+            }
+        </style>
+
         <div class="main-links">
             <ul>
                 <li><a href="">Администрация</a></li>
                 <li><a href="">Модераторы</a></li>
-                <li><a href="">Тех. помощь</a></li>
+                <li><a href="">Тех.&nbsp;помощь</a></li>
                 <li><a href="">Telegram-канал</a></li>
             </ul>
         </div>
         <div class="other-links">
             <nav>
-                <a href="">Условия использования</a>
-                <a href="">Реклама на сайте</a>
-                <a href="">Для правообладателей</a>
-                <a href="">Для прессы</a>
-                <a href="">Для провайдеров</a>
-                <a href="">Торрентопедия</a>
-                <a href="">Правила</a>
-                <a href="">Кому задать вопрос</a>
-                <a href="">Авторские раздачи</a>
-                <a href="">Конкурсы</a>
-                <a href="">Новости "Хранителей" и "Антикваров"</a>
-                <a href="">Случайная раздача</a>
+                <div>
+                    <a href="">Условия&nbsp;использования</a>
+                    <a href="">Правила</a>
+                    <a href="">Кому&nbsp;задать&nbsp;вопрос</a>
+                    <a href="">Торрентопедия</a>
+                </div>
+                <div>
+                    <a href="">Реклама&nbsp;на&nbsp;сайте</a>
+                </div>
+                <div>
+                    <a href="">Для&nbsp;правообладателей</a>
+                    <a href="">Для&nbsp;прессы</a>
+                    <a href="">Для&nbsp;провайдеров</a>
+                </div>
+                <div>
+                    <a href="">Авторские&nbsp;раздачи</a>
+                    <a href="">Случайная&nbsp;раздача</a>
+                </div>
+
+                <div>
+                    <a href="">Конкурсы</a>
+                    <a href="">Новости&nbsp;"Хранителей"&nbsp;и&nbsp;"Антикваров"</a>
+                </div>
             </nav>
+        </div>
+        <div class="reclama">
         </div>
     </footer>
 </body>

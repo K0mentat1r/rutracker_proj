@@ -262,7 +262,6 @@ main{
             border-radius: 15px;
             max-width: 2000px;
             margin-bottom: 10px;
-        
             .category__header{
                 justify-content: space-between;
                 /* border-radius: 15px 15px 0 0; */
@@ -273,14 +272,27 @@ main{
                 align-items: center;
                 padding: 0 20px;
                 height: 50px;
-                /* .closeCategory>li::before {
-                    content: "";
-                    background-size: contain;
-                    margin: auto;
-                    background-image: url(file:///C:/WorkSpaces/rutracker-proj/img/icons/icon-arrowOpenCat.svg);
-                    width: 50px;
-                    height: 40px;
-                } */
+            }
+            .category__header ul{
+                padding: 0;
+            }
+            .category__header li::before {
+                display: block;
+                width:30px; /*коэф различия (высота/ширина) = 0,6*/
+                height:18px;
+                content:"";
+                background-size: contain;
+                margin: auto;
+                background-image: url(file:///C:/WorkSpaces/rutracker-proj/img/icons/icon_arrowOpenCat.svg);
+            }
+            .category__header li::marker {
+                content: "";
+            }
+            .onAnimCloseCat{
+                animation: animCloseCat 0.5s 1 forwards;
+            }
+            .onRevAnimCloseCat{
+                animation: animRevCloseCat 0.5s 1 forwards;
             }
             .onAnimCatHeader {
                 animation: animCategoryHeader 1.2s 1 forwards; /*было 1s*/
@@ -408,7 +420,7 @@ main{
     100%{
         display: block;
         opacity: 100%;
-        height: calc(100% - 100px);
+        height: calc(100% - 120px);
     }
 }
 
@@ -441,5 +453,21 @@ main{
     100%{
         opacity: 100%;
         display: block;
+    }
+}
+@keyframes animCloseCat {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{  
+        transform: rotate(-180deg);
+    }
+}
+@keyframes animRevCloseCat {
+    0%{
+        transform: rotate(-180deg);
+    }
+    100%{  
+        transform: rotate(0deg);
     }
 }
