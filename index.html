@@ -73,7 +73,7 @@
     </head>--> <!--Скопировал с рутрекера весь head-->
 </head>
 <body>
-    <header>
+    <header id="mainHeader" >
         <div class="logo_rutracker">
             <img src="img/logo.jpeg" alt="Logo"> <!--<img class="site-logo" src="https://static.rutracker.cc/logo/logo-3.svg" alt="logo">-->
         </div>
@@ -99,8 +99,30 @@
         </div>
 
         <div class="menu_user-logo">
-            <img src="img/User_logo_white.png" alt="Профиль" id="openMenu">
-            <a id="openReg">ВОЙТИ</a>
+            <img src="img/User_logo_white.png" alt="Профиль" name="openMenu">
+            <a name="openReg">ВОЙТИ</a>
+        </div>
+    </header>
+    <header id="secondHeader">
+        <div class="logo_rutracker">
+            <img src="img/logo.jpeg" alt="Logo"> <!--<img class="site-logo" src="https://static.rutracker.cc/logo/logo-3.svg" alt="logo">-->
+        </div>
+
+        <div class="links-n-search">
+            <nav class="links">
+                <ul class="links__buttons">
+                    <a href="#">Главная</a>
+                    <a href="#">Трекеры</a>
+                    <a href="#">Группы</a>
+                    <a href="#">FAQ</a>
+                    <a href="#">VPN</a>
+                    <a href="#">Правила</a>
+                </ul>
+            </nav>
+        </div>
+        <div class="menu_user-logo">
+            <a name="openReg">ВОЙТИ</a>
+            <img src="img/User_logo_white.png" alt="Профиль" name="openMenu">
         </div>
     </header>
     <div class="pop-ups">
@@ -129,7 +151,7 @@
                     </div>
                     <div class="reg-user">
                         <p>Нет аккаунта?</p>
-                        <a href="file:///C:/WorkSpaces/rutracker-proj/other-html/Sign-up_site.html">Зарегистрироваться</a>
+                        <a href="other-html/Sign-up_site.html">Зарегистрироваться</a>
                     </div>
                 </div>
             </div>
@@ -179,13 +201,16 @@
         <script>
             const popUps = document.getElementsByClassName("pop-up");
             const popUpsBody = document.getElementsByClassName("pop-up__body");
-            const openMenu = document.getElementById("openMenu");
-            const openReg = document.getElementById("openReg");
+            const openMenu = document.getElementsByName("openMenu");
+            const openReg = document.getElementsByName("openReg");
+            let IsSecHeader = false;
+            let wasIsSecHeader = false;
             var popUpNum = -1;
             function offPopUp(){
                 popUps[popUpNum].classList.remove("onPop-up");
                 popUps[popUpNum].classList.add("offPop-up");
                 popUps[popUpNum].style.display="none";
+                popUpsBody[popUpNum].removeEventListener("mouseleave", offPopUp);
             }
             function onPopUp(){
                 popUps[popUpNum].style.display="block";
@@ -193,8 +218,52 @@
                 popUps[popUpNum].classList.remove("offPop-up");
                 popUpsBody[popUpNum].addEventListener("mouseleave", offPopUp);
             }
-            openMenu.addEventListener("click", function(){popUpNum=1; onPopUp();});
-            openReg.addEventListener("click", function(){popUpNum=0; onPopUp();});
+            // Функция, которая проверяет видимость элемента
+            function isElementVisible(el) {
+                let rect = el.getBoundingClientRect();
+                let windowHeight = window.innerHeight || document.documentElement.clientHeight;
+                // Проверяем, что хотя бы 1 пиксель элемента виден
+                return (
+                    rect.top <= windowHeight && rect.top + rect.height+50 >= 0 && //убери +50 если будет слишком поздно появлятся
+                    rect.left >= 0 &&
+                    rect.bottom <= windowHeight &&
+                    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+                );
+            }
+            function getNewEventListener(){
+                if (IsSecHeader){
+                    openMenu[1].addEventListener("click", function(){popUpNum=1; onPopUp();});
+                    openReg[1].addEventListener("click", function(){popUpNum=0; onPopUp();});
+                    openMenu[0].removeEventListener("click", function(){popUpNum=1; onPopUp();});
+                    openReg[0].removeEventListener("click", function(){popUpNum=0; onPopUp();});
+                }
+                else{
+                    openMenu[0].addEventListener("click", function(){popUpNum=1; onPopUp();});
+                    openReg[0].addEventListener("click", function(){popUpNum=0; onPopUp();});
+                    openMenu[1].removeEventListener("click", function(){popUpNum=1; onPopUp();});
+                    openReg[1].removeEventListener("click", function(){popUpNum=0; onPopUp();});
+                }
+            }
+            function checkVisibleMainHeader(){
+                let el = document.getElementById('mainHeader');
+                // Проверяем его видимость
+                if (!isElementVisible(el)) { //не видно пользователю
+                    IsSecHeader = false;
+                    secondHeader.style.display="flex";
+
+                } else { //видно
+                    IsSecHeader=true;
+                    secondHeader.style.display="none";
+                }
+                if (wasIsSecHeader != IsSecHeader){
+                    getNewEventListener();
+                }
+                wasIsSecHeader = IsSecHeader;
+            }
+            getNewEventListener();
+            checkVisibleMainHeader()
+            window.addEventListener("mousewheel", checkVisibleMainHeader);
+            window.addEventListener("resize", checkVisibleMainHeader);
         </script>
     </div>
     <main>
@@ -796,12 +865,12 @@
             let elemHeight = [];
             //переменные boolean
             let IsWork = false;
-            let newTime = true;
             //счетчик
             let headerNum = 0;
             let wasHeaderNum = 0;
+            let newTime = true;
 
-            for (let i = 0; i <= Category.length - 1; i++){
+            for (let i = 0; i < Category.length; i++){
                 elemHeight[i] = Category.item(i).offsetHeight; //получаем размеры категорий
                 Category.item(i).style.height = 50 + "px";
                 catBody[i].style.display="none";
@@ -814,12 +883,12 @@
                 var needCatHeight = true;
                 var needCatHeight2 = true;
                 if(needCatHeight){
-                    document.documentElement.style.setProperty('--catHeight', elemHeight[headerNum-1] + "px");
-                    document.documentElement.style.setProperty('--catHeight2', elemHeight[headerNum-1] + "px");
+                    document.documentElement.style.setProperty('--catHeight', elemHeight[headerNum] + "px");
+                    document.documentElement.style.setProperty('--catHeight2', elemHeight[headerNum] + "px");
                     needCatHeight=false;
                 }
                 if (needCatHeight2 && wasHeaderNum != headerNum){
-                    document.documentElement.style.setProperty('--catHeight2', elemHeight[wasHeaderNum - 1] + "px");
+                    document.documentElement.style.setProperty('--catHeight2', elemHeight[wasHeaderNum] + "px");
                     needCatHeight2=false;
                     IsWork = true;
                 }
@@ -832,51 +901,54 @@
             function onAnimations(){
                 if (!IsWork)
                 {
-                    catBody[headerNum-1].style.display = "block";
-                    Category[headerNum-1].classList.remove('onRevAnimCat');
-                    catHeader[headerNum-1].classList.remove('onRevAnimCatHeader');
-                    catBody[headerNum-1].classList.remove("onRevAnimSubCat");
-                    btnClose[headerNum-1].classList.remove("onRevAnimCloseCat")
-                    Category[headerNum-1].classList.add('onAnimCat');
-                    catHeader[headerNum-1].classList.add('onAnimCatHeader');
-                    catBody[headerNum-1].classList.add("onAnimSubCat");
-                    btnClose[headerNum-1].classList.add("onAnimCloseCat")
+                    catBody[headerNum].style.display = "block";
+                    Category[headerNum].classList.remove('onRevAnimCat');
+                    catHeader[headerNum].classList.remove('onRevAnimCatHeader');
+                    catBody[headerNum].classList.remove("onRevAnimSubCat");
+                    btnClose[headerNum].classList.remove("onRevAnimCloseCat")
+                    Category[headerNum].classList.add('onAnimCat');
+                    catHeader[headerNum].classList.add('onAnimCatHeader');
+                    catBody[headerNum].classList.add("onAnimSubCat");
+                    btnClose[headerNum].classList.add("onAnimCloseCat")
+
                     IsWork = true;
                 }
                 else{
                     IsWork =false;
-                    if (wasHeaderNum != headerNum){
-                        Category[wasHeaderNum-1].classList.remove('onAnimCat');
-                        catHeader[wasHeaderNum-1].classList.remove('onAnimCatHeader');
-                        catBody[wasHeaderNum-1].classList.remove("onAnimSubCat");
-                        btnClose[wasHeaderNum-1].classList.remove("onAnimCloseCat")
-                        Category[wasHeaderNum-1].classList.add('onRevAnimCat');
-                        catHeader[wasHeaderNum-1].classList.add('onRevAnimCatHeader');
-                        catBody[wasHeaderNum-1].classList.add("onRevAnimSubCat");
-                        btnClose[wasHeaderNum-1].classList.add("onRevAnimCloseCat")
 
-                        catBody[headerNum-1].style.display = "block";
-                        Category[headerNum-1].classList.add('onAnimCat');
-                        catHeader[headerNum-1].classList.add('onAnimCatHeader');
-                        catBody[headerNum-1].classList.add("onAnimSubCat");
-                        btnClose[headerNum-1].classList.add("onAnimCloseCat")
+                    if (wasHeaderNum != headerNum){
+                        Category[wasHeaderNum].classList.remove('onAnimCat');
+                        catHeader[wasHeaderNum].classList.remove('onAnimCatHeader');
+                        catBody[wasHeaderNum].classList.remove("onAnimSubCat");
+                        btnClose[wasHeaderNum].classList.remove("onAnimCloseCat")
+                        Category[wasHeaderNum].classList.add('onRevAnimCat');
+                        catHeader[wasHeaderNum].classList.add('onRevAnimCatHeader');
+                        catBody[wasHeaderNum].classList.add("onRevAnimSubCat");
+                        btnClose[wasHeaderNum].classList.add("onRevAnimCloseCat")
+
+                        catBody[headerNum].style.display = "block";
+                        Category[headerNum].classList.add('onAnimCat');
+                        catHeader[headerNum].classList.add('onAnimCatHeader');
+                        catBody[headerNum].classList.add("onAnimSubCat");
+                        btnClose[headerNum].classList.add("onAnimCloseCat")
                     }
                     else{
-                        Category[headerNum-1].classList.remove('onAnimCat');
-                        catHeader[headerNum-1].classList.remove('onAnimCatHeader');
-                        catBody[headerNum-1].classList.remove("onAnimSubCat");
-                        btnClose[headerNum-1].classList.remove("onAnimCloseCat")
-                        Category[headerNum-1].classList.add('onRevAnimCat');
-                        catHeader[headerNum-1].classList.add('onRevAnimCatHeader');
-                        catBody[headerNum-1].classList.add("onRevAnimSubCat");
-                        btnClose[headerNum-1].classList.add("onRevAnimCloseCat")
+                        Category[headerNum].classList.remove('onAnimCat');
+                        catHeader[headerNum].classList.remove('onAnimCatHeader');
+                        catBody[headerNum].classList.remove("onAnimSubCat");
+                        btnClose[headerNum].classList.remove("onAnimCloseCat")
+                        Category[headerNum].classList.add('onRevAnimCat');
+                        catHeader[headerNum].classList.add('onRevAnimCatHeader');
+                        catBody[headerNum].classList.add("onRevAnimSubCat");
+                        btnClose[headerNum].classList.add("onRevAnimCloseCat")
                     }
                     wasHeaderNum = headerNum;
                 }
             }
             for (let j = 0; j < btnClose.length; j++){
                 let a = j;
-                btnClose[j].addEventListener("click", function(){headerNum = a+1; oprNumHeader();});
+                btnClose[j].addEventListener("click", function(){headerNum = a; oprNumHeader();});
+                 // btnClose[headerNum].addEventListener("click",function(){console.log("event listener у btnClose " + headerNum + " удален");});
             }
         </script>
         <div class=""></div>
