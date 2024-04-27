@@ -195,77 +195,10 @@
             </div>
         </div>
         <!-- анимации для pop up -->
-        <script>
-            const popUps = document.getElementsByClassName("pop-up");
-            const popUpsBody = document.getElementsByClassName("pop-up__body");
-            const openMenu = document.getElementsByName("openMenu");
-            const openReg = document.getElementsByName("openReg");
-            let IsSecHeader = false;
-            let wasIsSecHeader = false;
-            var popUpNum = -1;
-            function offPopUp(){
-                popUps[popUpNum].classList.remove("onPop-up");
-                popUps[popUpNum].classList.add("offPop-up");
-                popUps[popUpNum].style.display="none";
-                popUpsBody[popUpNum].removeEventListener("mouseleave", offPopUp);
-            }
-            function onPopUp(){
-                popUps[popUpNum].style.display="block";
-                popUps[popUpNum].classList.add("onPop-up");
-                popUps[popUpNum].classList.remove("offPop-up");
-                popUpsBody[popUpNum].addEventListener("mouseleave", offPopUp);
-            }
-            // Функция, которая проверяет видимость элемента
-            function isElementVisible(el) {
-                let rect = el.getBoundingClientRect();
-                let windowHeight = window.innerHeight || document.documentElement.clientHeight;
-                // Проверяем, что хотя бы 1 пиксель элемента виден
-                return (
-                    rect.top <= windowHeight && rect.top + rect.height+50 >= 0 && //убери +50 если будет слишком поздно появлятся
-                    rect.left >= 0 &&
-                    rect.bottom <= windowHeight &&
-                    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-                );
-            }
-            function getNewEventListener(){
-                if (IsSecHeader){
-                    openMenu[1].addEventListener("click", function(){popUpNum=1; onPopUp();});
-                    openReg[1].addEventListener("click", function(){popUpNum=0; onPopUp();});
-                    openMenu[0].removeEventListener("click", function(){popUpNum=1; onPopUp();});
-                    openReg[0].removeEventListener("click", function(){popUpNum=0; onPopUp();});
-                }
-                else{
-                    openMenu[0].addEventListener("click", function(){popUpNum=1; onPopUp();});
-                    openReg[0].addEventListener("click", function(){popUpNum=0; onPopUp();});
-                    openMenu[1].removeEventListener("click", function(){popUpNum=1; onPopUp();});
-                    openReg[1].removeEventListener("click", function(){popUpNum=0; onPopUp();});
-                }
-            }
-            function checkVisibleMainHeader(){
-                let el = document.getElementById('mainHeader');
-                // Проверяем его видимость
-                if (!isElementVisible(el)) { //не видно пользователю
-                    IsSecHeader = false;
-                    secondHeader.style.display="flex";
-
-                } else { //видно
-                    IsSecHeader=true;
-                    secondHeader.style.display="none";
-                }
-                if (wasIsSecHeader != IsSecHeader){
-                    getNewEventListener();
-                }
-                wasIsSecHeader = IsSecHeader;
-            }
-            getNewEventListener();
-            checkVisibleMainHeader()
-            window.addEventListener("mousewheel", checkVisibleMainHeader);
-            window.addEventListener("resize", checkVisibleMainHeader);
-        </script>
     </div>
     <main>
         <div class=""></div>
-        <div class="categories">
+        <div id="categories">
             <div class="all-news">
                 <h2 class="all-news__title title">НОВОСТИ</h2>
                 <article class="news news_1">
@@ -948,17 +881,127 @@
                  // btnClose[headerNum].addEventListener("click",function(){console.log("event listener у btnClose " + headerNum + " удален");});
             }
         </script>
-        <div class=""></div>
+        <script>
+            var IsPC = true;
+            let userWinPos = 0;
+            const popUps = document.getElementsByClassName("pop-up");
+            const popUpsBody = document.getElementsByClassName("pop-up__body");
+            const openMenu = document.getElementsByName("openMenu");
+            const openReg = document.getElementsByName("openReg");
+            const elemMain = document.querySelector("main");
+            const windowHeight = document.documentElement.offsetHeight;
+            let IsSecHeader = false;
+            let wasIsSecHeader = false;
+            let elemMainHeight = elemMain.clientHeight;
+            var popUpNum = -1;
+            function offPopUp(){
+                popUps[popUpNum].classList.remove("onPop-up");
+                popUps[popUpNum].classList.add("offPop-up");
+                popUps[popUpNum].style.display="none";
+                popUpsBody[popUpNum].removeEventListener("mouseleave", offPopUp);
+            }
+            function onPopUp(){
+                popUps[popUpNum].style.display="block";
+                popUps[popUpNum].classList.add("onPop-up");
+                popUps[popUpNum].classList.remove("offPop-up");
+                popUpsBody[popUpNum].addEventListener("mouseleave", offPopUp);
+            }
+            // Функция, которая проверяет видимость элемента
+            function isElementVisible() {
+                let paddingTop = 100; //прибавляется к результату (высчитывается где начало <main>)
+                console.log(windowHeight - elemMainHeight);
+                // проверка, где второй хидер
+                return (
+                    userWinPos <= (windowHeight - elemMainHeight)+paddingTop
+                );
+            }
+            function getNewEventListener(){
+                if (IsSecHeader){
+                    openMenu[1].addEventListener("click", function(){popUpNum=1; onPopUp();});
+                    openReg[1].addEventListener("click", function(){popUpNum=0; onPopUp();});
+                    openMenu[0].removeEventListener("click", function(){popUpNum=1; onPopUp();});
+                    openReg[0].removeEventListener("click", function(){popUpNum=0; onPopUp();});
+                }
+                else{
+                    openMenu[0].addEventListener("click", function(){popUpNum=1; onPopUp();});
+                    openReg[0].addEventListener("click", function(){popUpNum=0; onPopUp();});
+                    openMenu[1].removeEventListener("click", function(){popUpNum=1; onPopUp();});
+                    openReg[1].removeEventListener("click", function(){popUpNum=0; onPopUp();});
+                }
+            }
+            function checkVisibleMainHeader(){
+                // Проверяем его видимость
+                if (!isElementVisible()) { //видно
+                    IsSecHeader = false;
+                    secondHeader.style.display="flex";
+
+                } else { //не видно пользователю  
+                    IsSecHeader = true;
+                    secondHeader.style.display="none";
+                }
+                if (wasIsSecHeader != IsSecHeader){
+                    getNewEventListener();
+                }
+                wasIsSecHeader = IsSecHeader;
+            }
+            getNewEventListener();
+            window.onscroll = function(){
+                userWinPos = scrollY; 
+                checkVisibleMainHeader();
+            };
+        </script>
+        <div id="idx-sidebar2">
+            <article>
+                <h3 class="sb2__name">Авторские раздачи</h3>
+                <div class="sb2-block">
+                    <ul>
+                        <li>
+                            <p>(Electronicore/Dark Electro/Alternative Industrial) Van Roy Asylum - Дискография (2016-2023)</p>
+                        </li>
+                        <li>
+                            <p>(Electronicore/Dark Electro/Alternative Industrial) Van Roy Asylum - Дискография (2016-2023)</p>
+                        </li>
+                        <li>
+                            <p>(Electronicore/Dark Electro/Alternative Industrial) Van Roy Asylum - Дискография (2016-2023)</p>
+                        </li>
+                        <li>
+                            <p>(Electronicore/Dark Electro/Alternative Industrial) Van Roy Asylum - Дискография (2016-2023)</p>
+                        </li>
+                        <li>
+                            <p>(Electronicore/Dark Electro/Alternative Industrial) Van Roy Asylum - Дискография (2016-2023)</p>
+                        </li>
+                    </ul>
+                </div>
+            </article>
+            <article>
+                <h3 class="sb2__name">Авторские раздачи</h3>
+                <div class="sb2-block">
+                    <ul>
+                        <li>
+                            <p>(Electronicore/Dark Electro/Alternative Industrial) Van Roy Asylum - Дискография (2016-2023)</p>
+                        </li>
+                        <li>
+                            <p>(Electronicore/Dark Electro/Alternative Industrial) Van Roy Asylum - Дискография (2016-2023)</p>
+                        </li>
+                        <li>
+                            <p>(Electronicore/Dark Electro/Alternative Industrial) Van Roy Asylum - Дискография (2016-2023)</p>
+                        </li>
+                        <li>
+                            <p>(Electronicore/Dark Electro/Alternative Industrial) Van Roy Asylum - Дискография (2016-2023)</p>
+                        </li>
+                        <li>
+                            <p>(Electronicore/Dark Electro/Alternative Industrial) Van Roy Asylum - Дискография (2016-2023)</p>
+                        </li>
+                    </ul>
+                </div>
+            </article>
+        </div>
     </main>
     <!-- Если придумаем как сделать, чтобы не нужно писать было футер на каждой странице, то здесь можно его убирать. -->
     <footer>
         <style>
-            body{
-                margin:0;
-            }
-            a{
-                text-decoration: none;
-                color: black;
+            main{
+                padding-bottom: 50px;
             }
             footer{
                 background-color: white;
@@ -981,6 +1024,8 @@
                 }
                 a{
                     font-size: 12px;
+                    text-decoration: none;
+                    color: black;
                 }
                 nav{
                     display: grid;

@@ -5,14 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="Крупнейший русскоязычный битторрент трекер">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="file:///C:/WorkSpaces/rutracker-proj/css/sign-up.css">
     <title>Rutracker.org</title>
 </head>
 <body>
-    <header>
-        <h1 class="pagetitle">Регистрация</h1>
-    </header>
-    <main class="main_content reg-rules">        
+    <main class="main_content reg-rules">
+        <h1 class="pagetitle">Регистрация</h1>        
         <div class="inputs">
             <div class="sign-up__name-user">
                 <form accept="https://echo.htmlacademy.ru/">
@@ -321,8 +318,87 @@
             <button type="submit" class="button_reg-user"><a href="https://echo.htmlacademy.ru/">Продолжить регистрацию</a></button>
         </div>
     </main>
-    <main class="main_content"></main>
-
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+        p,h4,a{
+            font-family: "Roboto", sans-serif;
+            font-weight: 400;
+        }
+        h1,h2{
+            font-family: "Montserrat", sans-serif;
+            font-weight: 600;
+        }
+        body{
+            background-color: #ECECEC;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        a{
+            color: black;
+        }
+        main{
+            background-color: white;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            align-items: center;
+            text-align: center;
+            padding: 1vh 1.5vw;
+            gap: 1.2vw;
+            div>*, .selects>*{
+                padding-bottom: 3%;
+            }
+            div>form{
+                *{
+                    background-color: #F4F4F4;
+                    border-radius: 20px;
+                    border-width: 0px;
+                    height: 30px;
+                    max-height: fit-content;
+                    width: 16vw;
+                    max-width: 400px;
+                    min-width: max-content
+                }
+                input{
+                    padding-left: 10px;
+                    font-size: 17px;
+            
+                    ::placeholder{
+                        font-size: 17px;
+                    }
+                }
+            }
+            button{
+                justify-content: center;
+                padding-top: 30px;
+                padding-bottom: 20px;
+                background-color: #D9D9D9;
+                border-width: 0;
+                border-radius: 20px;
+                padding: 5px 40px;
+                font-size: 15px;
+            }
+            .selects{
+                >.choise{
+                    display: grid;
+                    grid-template-columns: 120px 250px;
+                    label{
+                        padding-right: 10px;
+                        font-size: 18px;
+                        text-align: start;
+                        align-items: start;
+                        justify-content: start;
+                    }
+                    select{
+                        padding-bottom: 0;
+                    }
+                }
+            }
+        }
+    </style>
     <footer>
 
     </footer>

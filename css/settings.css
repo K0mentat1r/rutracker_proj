@@ -4,24 +4,18 @@ p,h4,a{
     font-family: "Roboto", sans-serif;
     font-weight: 400;
 }
-h1,h2{
+h1,h2,h3{
     font-family: "Montserrat", sans-serif;
     font-weight: 600;
 }
 
 /*Переменные*/
-:root{ /*Псевдокласс (не изучали пока что)*/
+:root{
     --pop-up_background-color: rgba(117, 117, 117, 0.49); /*Переменная*/
     --standart-border: 3px solid black; /*Переменная*/
     --mini-border: 1px solid black;
     --form-bg-color_standart: #F4F4F4;
-    /*.standart-form {
-        background-color: #F4F4F4;
-        border-radius: 20px;
-        border-width: 0px;
-        height: 30px;
-        width: 300px;
-    }*/
+    --site-bg-color:#ECECEC;
 }
 
 /* остальные свойства */
@@ -29,7 +23,7 @@ body{
     margin:0;
 }
 main{
-    background-color: #ECECEC;
+    background-color: var(--site-bg-color);
 }
 header, footer{
     background-color: white;
