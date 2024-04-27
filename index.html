@@ -75,13 +75,13 @@
 <body>
     <header id="mainHeader" >
         <div class="logo_rutracker">
-            <img src="img/logo.jpeg" alt="Logo"> <!--<img class="site-logo" src="https://static.rutracker.cc/logo/logo-3.svg" alt="logo">-->
+            <a href="index.html"><img src="img/logo.jpeg" alt="Logo"></a>
         </div>
 
         <div class="links-n-search">
             <nav class="links">
                 <ul class="links__buttons">
-                    <a href="#">Главная</a>
+                    <a href="index.html">Главная</a>
                     <a href="#">Трекеры</a>
                     <a href="#">Группы</a>
                     <a href="#">FAQ</a>
@@ -105,11 +105,11 @@
     </header>
     <header id="secondHeader">
         <div class="logo_rutracker">
-            <img src="img/logo.jpeg" alt="Logo"> <!--<img class="site-logo" src="https://static.rutracker.cc/logo/logo-3.svg" alt="logo">-->
+            <a href="index.html"><img src="img/logo.jpeg" alt="Logo"></a> <!--<img class="site-logo" src="https://static.rutracker.cc/logo/logo-3.svg" alt="logo">-->
         </div>
         <nav class="links">
             <ul class="links__buttons">
-                <a href="#">Главная</a>
+                <a href="index.html">Главная</a>
                 <a href="#">Трекеры</a>
                 <a href="#">Группы</a>
                 <a href="#">FAQ</a>
@@ -157,7 +157,7 @@
             <div class="pop-up__container">
                 <div class="pop-up__body" id="menuBody" name="pop-up-body">
                     <div class="menu__userInfo">
-                        <p id="profile-uname" data-uid="48822890">войти</p>
+                        <a id="profile-uname" data-uid="48822890" name="openReg">войти</a>
                         <img id="avatar-image" src="img/User_logo_white.png">
                     </div>
                     <hr noshade="">
@@ -839,7 +839,7 @@
                     Category[headerNum].classList.add('onAnimCat');
                     catHeader[headerNum].classList.add('onAnimCatHeader');
                     catBody[headerNum].classList.add("onAnimSubCat");
-                    btnClose[headerNum].classList.add("onAnimCloseCat")
+                    btnClose[headerNum].classList.add("onAnimCloseCat");
 
                     IsWork = true;
                 }
@@ -884,16 +884,22 @@
         <script>
             var IsPC = true;
             let userWinPos = 0;
+
             const popUps = document.getElementsByClassName("pop-up");
             const popUpsBody = document.getElementsByClassName("pop-up__body");
             const openMenu = document.getElementsByName("openMenu");
             const openReg = document.getElementsByName("openReg");
             const elemMain = document.querySelector("main");
             const windowHeight = document.documentElement.offsetHeight;
+
             let IsSecHeader = false;
             let wasIsSecHeader = false;
+
             let elemMainHeight = elemMain.clientHeight;
+            let elemMainTop = windowHeight - elemMainHeight; //верх main 
+
             var popUpNum = -1;
+
             function offPopUp(){
                 popUps[popUpNum].classList.remove("onPop-up");
                 popUps[popUpNum].classList.add("offPop-up");
@@ -909,10 +915,9 @@
             // Функция, которая проверяет видимость элемента
             function isElementVisible() {
                 let paddingTop = 100; //прибавляется к результату (высчитывается где начало <main>)
-                console.log(windowHeight - elemMainHeight);
                 // проверка, где второй хидер
                 return (
-                    userWinPos <= (windowHeight - elemMainHeight)+paddingTop
+                    userWinPos <= elemMainTop + paddingTop
                 );
             }
             function getNewEventListener(){
@@ -944,6 +949,7 @@
                 }
                 wasIsSecHeader = IsSecHeader;
             }
+            openReg[2].addEventListener("click", function(){ popUpNum=1; offPopUp(); popUpNum = 0; onPopUp();});
             getNewEventListener();
             window.onscroll = function(){
                 userWinPos = scrollY; 
@@ -956,19 +962,19 @@
                 <div class="sb2-block">
                     <ul>
                         <li>
-                            <p>(Electronicore/Dark Electro/Alternative Industrial) Van Roy Asylum - Дискография (2016-2023)</p>
+                            <a>(Electronicore/Dark Electro/Alternative Industrial) Van Roy Asylum - Дискография (2016-2023)</ф>
                         </li>
                         <li>
-                            <p>(Electronicore/Dark Electro/Alternative Industrial) Van Roy Asylum - Дискография (2016-2023)</p>
+                            <a>(Electronicore/Dark Electro/Alternative Industrial) Van Roy Asylum - Дискография (2016-2023)</a>
                         </li>
                         <li>
-                            <p>(Electronicore/Dark Electro/Alternative Industrial) Van Roy Asylum - Дискография (2016-2023)</p>
+                            <a>(Electronicore/Dark Electro/Alternative Industrial) Van Roy Asylum - Дискография (2016-2023)</a>
                         </li>
                         <li>
-                            <p>(Electronicore/Dark Electro/Alternative Industrial) Van Roy Asylum - Дискография (2016-2023)</p>
+                            <a>(Electronicore/Dark Electro/Alternative Industrial) Van Roy Asylum - Дискография (2016-2023)</a>
                         </li>
                         <li>
-                            <p>(Electronicore/Dark Electro/Alternative Industrial) Van Roy Asylum - Дискография (2016-2023)</p>
+                            <a>(Electronicore/Dark Electro/Alternative Industrial) Van Roy Asylum - Дискография (2016-2023)</a>
                         </li>
                     </ul>
                 </div>
@@ -978,19 +984,19 @@
                 <div class="sb2-block">
                     <ul>
                         <li>
-                            <p>(Electronicore/Dark Electro/Alternative Industrial) Van Roy Asylum - Дискография (2016-2023)</p>
+                            <a>(Electronicore/Dark Electro/Alternative Industrial) Van Roy Asylum - Дискография (2016-2023)</a>
                         </li>
                         <li>
-                            <p>(Electronicore/Dark Electro/Alternative Industrial) Van Roy Asylum - Дискография (2016-2023)</p>
+                            <a>(Electronicore/Dark Electro/Alternative Industrial) Van Roy Asylum - Дискография (2016-2023)</a>
                         </li>
                         <li>
-                            <p>(Electronicore/Dark Electro/Alternative Industrial) Van Roy Asylum - Дискография (2016-2023)</p>
+                            <a>(Electronicore/Dark Electro/Alternative Industrial) Van Roy Asylum - Дискография (2016-2023)</a>
                         </li>
                         <li>
-                            <p>(Electronicore/Dark Electro/Alternative Industrial) Van Roy Asylum - Дискография (2016-2023)</p>
+                            <a>(Electronicore/Dark Electro/Alternative Industrial) Van Roy Asylum - Дискография (2016-2023)</a>
                         </li>
                         <li>
-                            <p>(Electronicore/Dark Electro/Alternative Industrial) Van Roy Asylum - Дискография (2016-2023)</p>
+                            <a>(Electronicore/Dark Electro/Alternative Industrial) Van Roy Asylum - Дискография (2016-2023)</a>
                         </li>
                     </ul>
                 </div>
@@ -1008,7 +1014,13 @@
                 display: flex;
                 gap: 10px;
                 align-items: center;
+                flex-direction: column;
                 padding: 20px 0;
+                .footer__links{
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                }
                 .main-links{
                     border-right: 1px solid #9fa79f;
                     padding: calc(0.5% + 10px);
@@ -1041,52 +1053,55 @@
                     }
                 }
                 .reclama{
-                    width: 100%;
+                    width: 95%;
+                    min-width: 500px;
                     height: 15vh;
                     display: flex;
-                    margin: 0;
+                    margin: 20px 0;
                     padding: 0;
                     background-color: black;
                 }
             }
         </style>
 
-        <div class="main-links">
-            <ul>
-                <li><a href="">Администрация</a></li>
-                <li><a href="">Модераторы</a></li>
-                <li><a href="">Тех.&nbsp;помощь</a></li>
-                <li><a href="">Telegram-канал</a></li>
-            </ul>
-        </div>
-        <div class="other-links">
-            <nav>
-                <div>
-                    <a href="">Условия&nbsp;использования</a>
-                    <a href="">Правила</a>
-                    <a href="">Кому&nbsp;задать&nbsp;вопрос</a>
-                    <a href="">Торрентопедия</a>
-                </div>
-                <div>
-                    <a href="">Реклама&nbsp;на&nbsp;сайте</a>
-                </div>
-                <div>
-                    <a href="">Для&nbsp;правообладателей</a>
-                    <a href="">Для&nbsp;прессы</a>
-                    <a href="">Для&nbsp;провайдеров</a>
-                </div>
-                <div>
-                    <a href="">Авторские&nbsp;раздачи</a>
-                    <a href="">Случайная&nbsp;раздача</a>
-                </div>
-
-                <div>
-                    <a href="">Конкурсы</a>
-                    <a href="">Новости&nbsp;"Хранителей"&nbsp;и&nbsp;"Антикваров"</a>
-                </div>
-            </nav>
-        </div>
         <div class="reclama">
+        </div>
+        <div class="footer__links">
+            <div class="main-links">
+                <ul>
+                    <li><a href="">Администрация</a></li>
+                    <li><a href="">Модераторы</a></li>
+                    <li><a href="">Тех.&nbsp;помощь</a></li>
+                    <li><a href="">Telegram-канал</a></li>
+                </ul>
+            </div>
+            <div class="other-links">
+                <nav>
+                    <div>
+                        <a href="">Условия&nbsp;использования</a>
+                        <a href="">Правила</a>
+                        <a href="">Кому&nbsp;задать&nbsp;вопрос</a>
+                        <a href="">Торрентопедия</a>
+                    </div>
+                    <div>
+                        <a href="">Реклама&nbsp;на&nbsp;сайте</a>
+                    </div>
+                    <div>
+                        <a href="">Для&nbsp;правообладателей</a>
+                        <a href="">Для&nbsp;прессы</a>
+                        <a href="">Для&nbsp;провайдеров</a>
+                    </div>
+                    <div>
+                        <a href="">Авторские&nbsp;раздачи</a>
+                        <a href="">Случайная&nbsp;раздача</a>
+                    </div>
+
+                    <div>
+                        <a href="">Конкурсы</a>
+                        <a href="">Новости&nbsp;"Хранителей"&nbsp;и&nbsp;"Антикваров"</a>
+                    </div>
+                </nav>
+            </div>
         </div>
     </footer>
 </body>

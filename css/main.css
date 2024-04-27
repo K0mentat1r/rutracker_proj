@@ -240,6 +240,7 @@
             #profile-uname{
                 font-weight: 500;
                 font-size: 20px;
+                cursor: pointer;
             }
         }
         a{
@@ -382,13 +383,11 @@ main{
         display:flex;
         flex-direction: column;
         margin-top: calc(10vh - 10px);
-        padding: 0 1.5vw;
-        gap: 5px;
-        p{
-            font-size: 15px;
-        }
+        padding: 0 1.7vw;
+        gap: 7px;
         h3{
-            padding: 0;
+            margin-bottom: 10px;
+            margin-top: 15px;
         }
         article:last-child{
             border-radius: 0 0 20px 20px;
@@ -406,11 +405,17 @@ main{
             .sb2__name{
                 text-align: center;
             }
+            a{
+                font-size: 15px;
+            }
             ul{
                 padding:0 10px;
             }
             li{
-                padding: 0;
+                padding: 10px 0;
+            }
+            li:first-child{
+                padding-top: 0;
             }
             li::marker {
                 content: "";
