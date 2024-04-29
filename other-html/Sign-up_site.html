@@ -8,318 +8,419 @@
     <title>Rutracker.org</title>
 </head>
 <body>
-    <main class="main_content reg-rules">
-        <h1 class="pagetitle">Регистрация</h1>        
-        <div class="inputs">
-            <div class="sign-up__name-user">
-                <form accept="https://echo.htmlacademy.ru/">
-                    <input type="text" class="input name-user" placeholder="Имя" name="username">
+    <main>
+        <div class="sign-up">
+            <div class="main_content reg-rules">
+                <h1 class="pagetitle">Регистрация</h1>        
+                <div class="inputs">
+                    <div class="sign-up__name-user">
+                        <form accept="https://echo.htmlacademy.ru/">
+                            <input type="text" class="input name-user" placeholder="Имя" name="username">
+                        </form>
+                    </div>
+                    <div class="sign-up__email-user">
+                        <form accept="https://echo.htmlacademy.ru/">
+                            <input type="email" class="input email-user" placeholder="e-mail" name="email">
+                        </form>
+                    </div>
+                    <div class="sign-up__password-user">
+                        <form accept="https://echo.htmlacademy.ru/">
+                            <input type="password" class="input new_pass" name="new_pass" placeholder="Пароль" value="" autocomplete="off">
+                        </form>
+                        <!--<span onclick="show_pass(); $(this).remove();">Показать пароль</span>
+                        <script>
+                            
+                        function show_pass() {
+                            var $old = $('input[name=new_pass]');
+                            var $new = $('<input type="text" name="new_pass" size="35" maxlength="20" value="" autocomplete="off">');
+                            $new.prop({ tabindex: $old.prop('tabindex') }).val($old.val()).insertAfter($old).focus();
+                            $old.remove();
+                        }
+                        
+                        </script>-->
+                    </div>
+                </div>
+                <div class="sign-up__check-captcha">
+                    <div class="enter-captcha">
+                        <form accept="https://echo.htmlacademy.ru/">
+                            <input type="text" class="input check-captcha" placeholder="Код подтверждения" name>
+                        </form>
+                    </div>
+                    <div class="Generator-captcha">
+                        <img class="captcha" src="">
+                    </div>
+                    <button class="btn-new-captcha">Показать другой код</button>
+                </div>
+                <form class="selects" accept="https://echo.htmlacademy.ru/">
+                    <div class="countres choise">
+                        <!--<label class="countres__text"></label>-->
+                        <div class="countres__choise">
+                            <select name="user_flag_id" id="user_flag_id" tabindex="105">
+                                <option selected="" value="0">&nbsp;» Выберите страну&nbsp;</option>
+                                <!--<option value="199">&nbsp;RuTracker.org&nbsp;</option>-->
+                                <option value="195">&nbsp;Абхазия&nbsp;</option>
+                                <option value="10">&nbsp;Австралия&nbsp;</option>
+                                <option value="11">&nbsp;Австрия&nbsp;</option>
+                                <option value="12">&nbsp;Азербайджан&nbsp;</option>
+                                <option value="3">&nbsp;Албания&nbsp;</option>
+                                <option value="4">&nbsp;Алжир&nbsp;</option>
+                                <option value="6">&nbsp;Ангола&nbsp;</option>
+                                <option value="5">&nbsp;Андорра&nbsp;</option>
+                                <option value="7">&nbsp;Антигуа и Барбуда&nbsp;</option>
+                                <option value="8">&nbsp;Аргентина&nbsp;</option>
+                                <option value="9">&nbsp;Армения&nbsp;</option>
+                                <option value="2">&nbsp;Афганистан&nbsp;</option>
+                                <option value="13">&nbsp;Багамы&nbsp;</option>
+                                <option value="15">&nbsp;Бангладеш&nbsp;</option>
+                                <option value="16">&nbsp;Барбадос&nbsp;</option>
+                                <option value="14">&nbsp;Бахрейн&nbsp;</option>
+                                <option value="17">&nbsp;Беларусь&nbsp;</option>
+                                <option value="19">&nbsp;Белиз&nbsp;</option>
+                                <option value="18">&nbsp;Бельгия&nbsp;</option>
+                                <option value="20">&nbsp;Бенин&nbsp;</option>
+                                <option value="27">&nbsp;Болгария&nbsp;</option>
+                                <option value="22">&nbsp;Боливия&nbsp;</option>
+                                <option value="23">&nbsp;Босния и Герцеговина&nbsp;</option>
+                                <option value="24">&nbsp;Ботсвана&nbsp;</option>
+                                <option value="25">&nbsp;Бразилия&nbsp;</option>
+                                <option value="26">&nbsp;Бруней&nbsp;</option>
+                                <option value="28">&nbsp;Буркина-Фасо&nbsp;</option>
+                                <option value="30">&nbsp;Бурунди&nbsp;</option>
+                                <option value="21">&nbsp;Бутан&nbsp;</option>
+                                <option value="184">&nbsp;Вануату&nbsp;</option>
+                                <option value="179">&nbsp;Великобритания&nbsp;</option>
+                                <option value="76">&nbsp;Венгрия&nbsp;</option>
+                                <option value="185">&nbsp;Венесуэла&nbsp;</option>
+                                <option value="186">&nbsp;Вьетнам&nbsp;</option>
+                                <option value="61">&nbsp;Габон&nbsp;</option>
+                                <option value="73">&nbsp;Гаити&nbsp;</option>
+                                <option value="72">&nbsp;Гайана&nbsp;</option>
+                                <option value="62">&nbsp;Гамбия&nbsp;</option>
+                                <option value="65">&nbsp;Гана&nbsp;</option>
+                                <option value="69">&nbsp;Гватемала&nbsp;</option>
+                                <option value="70">&nbsp;Гвинея&nbsp;</option>
+                                <option value="71">&nbsp;Гвинея-Бисау&nbsp;</option>
+                                <option value="64">&nbsp;Германия&nbsp;</option>
+                                <option value="74">&nbsp;Гондурас&nbsp;</option>
+                                <option value="75">&nbsp;Гонконг&nbsp;</option>
+                                <option value="67">&nbsp;Гренада&nbsp;</option>
+                                <option value="66">&nbsp;Греция&nbsp;</option>
+                                <option value="63">&nbsp;Грузия&nbsp;</option>
+                                <option value="47">&nbsp;Дания&nbsp;</option>
+                                <option value="48">&nbsp;Джибути&nbsp;</option>
+                                <option value="49">&nbsp;Доминика&nbsp;</option>
+                                <option value="50">&nbsp;Доминиканская Республика&nbsp;</option>
+                                <option value="52">&nbsp;Египет&nbsp;</option>
+                                <option value="194">&nbsp;ЕС&nbsp;</option>
+                                <option value="190">&nbsp;Заир&nbsp;</option>
+                                <option value="191">&nbsp;Замбия&nbsp;</option>
+                                <option value="192">&nbsp;Зимбабве&nbsp;</option>
+                                <option value="83">&nbsp;Израиль&nbsp;</option>
+                                <option value="78">&nbsp;Индия&nbsp;</option>
+                                <option value="79">&nbsp;Индонезия&nbsp;</option>
+                                <option value="88">&nbsp;Иордания&nbsp;</option>
+                                <option value="81">&nbsp;Ирак&nbsp;</option>
+                                <option value="80">&nbsp;Иран&nbsp;</option>
+                                <option value="82">&nbsp;Ирландия&nbsp;</option>
+                                <option value="77">&nbsp;Исландия&nbsp;</option>
+                                <option value="157">&nbsp;Испания&nbsp;</option>
+                                <option value="84">&nbsp;Италия&nbsp;</option>
+                                <option value="188">&nbsp;Йемен&nbsp;</option>
+                                <option value="200">&nbsp;Кабо-Верде&nbsp;</option>
+                                <option value="89">&nbsp;Казахстан&nbsp;</option>
+                                <option value="31">&nbsp;Камбоджа&nbsp;</option>
+                                <option value="32">&nbsp;Камерун&nbsp;</option>
+                                <option value="33">&nbsp;Канада&nbsp;</option>
+                                <option value="140">&nbsp;Катар&nbsp;</option>
+                                <option value="90">&nbsp;Кения&nbsp;</option>
+                                <option value="44">&nbsp;Кипр&nbsp;</option>
+                                <option value="93">&nbsp;Киргизия&nbsp;</option>
+                                <option value="91">&nbsp;Кирибати&nbsp;</option>
+                                <option value="37">&nbsp;Китай&nbsp;</option>
+                                <option value="38">&nbsp;Колумбия&nbsp;</option>
+                                <option value="39">&nbsp;Коморы&nbsp;</option>
+                                <option value="46">&nbsp;Конго&nbsp;</option>
+                                <option value="41">&nbsp;Коста-Рика&nbsp;</option>
+                                <option value="85">&nbsp;Кот д’Ивуар&nbsp;</option>
+                                <option value="43">&nbsp;Куба&nbsp;</option>
+                                <option value="92">&nbsp;Кувейт&nbsp;</option>
+                                <option value="94">&nbsp;Лаос&nbsp;</option>
+                                <option value="95">&nbsp;Латвия&nbsp;</option>
+                                <option value="97">&nbsp;Либерия&nbsp;</option>
+                                <option value="96">&nbsp;Ливан&nbsp;</option>
+                                <option value="98">&nbsp;Ливия&nbsp;</option>
+                                <option value="100">&nbsp;Литва&nbsp;</option>
+                                <option value="99">&nbsp;Лихтенштейн&nbsp;</option>
+                                <option value="101">&nbsp;Люксембург&nbsp;</option>
+                                <option value="111">&nbsp;Маврикий&nbsp;</option>
+                                <option value="110">&nbsp;Мавритания&nbsp;</option>
+                                <option value="104">&nbsp;Мадагаскар&nbsp;</option>
+                                <option value="103">&nbsp;Макао&nbsp;</option>
+                                <option value="102">&nbsp;Македония&nbsp;</option>
+                                <option value="105">&nbsp;Малави&nbsp;</option>
+                                <option value="106">&nbsp;Малайзия&nbsp;</option>
+                                <option value="108">&nbsp;Мали&nbsp;</option>
+                                <option value="107">&nbsp;Мальдивы&nbsp;</option>
+                                <option value="109">&nbsp;Мальта&nbsp;</option>
+                                <option value="117">&nbsp;Марокко&nbsp;</option>
+                                <option value="112">&nbsp;Мексика&nbsp;</option>
+                                <option value="113">&nbsp;Микронезия&nbsp;</option>
+                                <option value="118">&nbsp;Мозамбик&nbsp;</option>
+                                <option value="114">&nbsp;Молдова&nbsp;</option>
+                                <option value="115">&nbsp;Монако&nbsp;</option>
+                                <option value="116">&nbsp;Монголия&nbsp;</option>
+                                <option value="29">&nbsp;Мьянма&nbsp;</option>
+                                <option value="119">&nbsp;Намибия&nbsp;</option>
+                                <option value="120">&nbsp;Науру&nbsp;</option>
+                                <option value="121">&nbsp;Непал&nbsp;</option>
+                                <option value="126">&nbsp;Нигер&nbsp;</option>
+                                <option value="127">&nbsp;Нигерия&nbsp;</option>
+                                <option value="122">&nbsp;Нидерландские Антилы&nbsp;</option>
+                                <option value="123">&nbsp;Нидерланды&nbsp;</option>
+                                <option value="125">&nbsp;Никарагуа&nbsp;</option>
+                                <option value="124">&nbsp;Новая Зеландия&nbsp;</option>
+                                <option value="129">&nbsp;Норвегия&nbsp;</option>
+                                <option value="177">&nbsp;ОАЭ&nbsp;</option>
+                                <option value="130">&nbsp;Оман&nbsp;</option>
+                                <option value="131">&nbsp;Пакистан&nbsp;</option>
+                                <option value="132">&nbsp;Панама&nbsp;</option>
+                                <option value="133">&nbsp;Папуа - Новая Гвинея&nbsp;</option>
+                                <option value="134">&nbsp;Парагвай&nbsp;</option>
+                                <option value="135">&nbsp;Перу&nbsp;</option>
+                                <option value="193">&nbsp;ПМР&nbsp;</option>
+                                <option value="137">&nbsp;Польша&nbsp;</option>
+                                <option value="138">&nbsp;Португалия&nbsp;</option>
+                                <option value="139">&nbsp;Пуэрто-Рико&nbsp;</option>
+                                <option value="143">&nbsp;Россия&nbsp;</option>
+                                <option value="141">&nbsp;Руанда&nbsp;</option>
+                                <option value="142">&nbsp;Румыния&nbsp;</option>
+                                <option value="187">&nbsp;Самоа&nbsp;</option>
+                                <option value="197">&nbsp;Сан-Марино&nbsp;</option>
+                                <option value="144">&nbsp;Сан-Томе и Принсипи&nbsp;</option>
+                                <option value="145">&nbsp;Саудовская Аравия&nbsp;</option>
+                                <option value="128">&nbsp;Северная Корея&nbsp;</option>
+                                <option value="148">&nbsp;Сейшелы&nbsp;</option>
+                                <option value="146">&nbsp;Сенегал&nbsp;</option>
+                                <option value="68">&nbsp;Сент-Винсент и Гренадины&nbsp;</option>
+                                <option value="159">&nbsp;Сент-Китс и Невис&nbsp;</option>
+                                <option value="160">&nbsp;Сент-Люсия&nbsp;</option>
+                                <option value="147">&nbsp;Сербия&nbsp;</option>
+                                <option value="150">&nbsp;Сингапур&nbsp;</option>
+                                <option value="165">&nbsp;Сирия&nbsp;</option>
+                                <option value="151">&nbsp;Словакия&nbsp;</option>
+                                <option value="152">&nbsp;Словения&nbsp;</option>
+                                <option value="153">&nbsp;Соломоновы Острова&nbsp;</option>
+                                <option value="154">&nbsp;Сомали&nbsp;</option>
+                                <option value="182">&nbsp;СССР&nbsp;</option>
+                                <option value="161">&nbsp;Судан&nbsp;</option>
+                                <option value="162">&nbsp;Суринам&nbsp;</option>
+                                <option value="1">&nbsp;США&nbsp;</option>
+                                <option value="149">&nbsp;Сьерра-Леоне&nbsp;</option>
+                                <option value="167">&nbsp;Таджикистан&nbsp;</option>
+                                <option value="169">&nbsp;Таиланд&nbsp;</option>
+                                <option value="166">&nbsp;Тайвань&nbsp;</option>
+                                <option value="168">&nbsp;Танзания&nbsp;</option>
+                                <option value="170">&nbsp;Того&nbsp;</option>
+                                <option value="171">&nbsp;Тонга&nbsp;</option>
+                                <option value="172">&nbsp;Тринидад и Тобаго&nbsp;</option>
+                                <option value="176">&nbsp;Тувалу&nbsp;</option>
+                                <option value="173">&nbsp;Тунис&nbsp;</option>
+                                <option value="175">&nbsp;Туркмения&nbsp;</option>
+                                <option value="174">&nbsp;Турция&nbsp;</option>
+                                <option value="178">&nbsp;Уганда&nbsp;</option>
+                                <option value="183">&nbsp;Узбекистан&nbsp;</option>
+                                <option value="180">&nbsp;Украина&nbsp;</option>
+                                <option value="181">&nbsp;Уругвай&nbsp;</option>
+                                <option value="58">&nbsp;Фиджи&nbsp;</option>
+                                <option value="136">&nbsp;Филиппины&nbsp;</option>
+                                <option value="59">&nbsp;Финляндия&nbsp;</option>
+                                <option value="60">&nbsp;Франция&nbsp;</option>
+                                <option value="42">&nbsp;Хорватия&nbsp;</option>
+                                <option value="34">&nbsp;ЦАР&nbsp;</option>
+                                <option value="35">&nbsp;Чад&nbsp;</option>
+                                <option value="198">&nbsp;Черногория&nbsp;</option>
+                                <option value="45">&nbsp;Чехия&nbsp;</option>
+                                <option value="36">&nbsp;Чили&nbsp;</option>
+                                <option value="164">&nbsp;Швейцария&nbsp;</option>
+                                <option value="163">&nbsp;Швеция&nbsp;</option>
+                                <option value="158">&nbsp;Шри-Ланка&nbsp;</option>
+                                <option value="51">&nbsp;Эквадор&nbsp;</option>
+                                <option value="54">&nbsp;Экваториальная Гвинея&nbsp;</option>
+                                <option value="53">&nbsp;Эль-Сальвадор&nbsp;</option>
+                                <option value="55">&nbsp;Эритрея&nbsp;</option>
+                                <option value="56">&nbsp;Эстония&nbsp;</option>
+                                <option value="57">&nbsp;Эфиопия&nbsp;</option>
+                                <option value="156">&nbsp;ЮАР&nbsp;</option>
+                                <option value="189">&nbsp;Югославия&nbsp;</option>
+                                <option value="155">&nbsp;Южная Корея&nbsp;</option>
+                                <option value="196">&nbsp;Южная Осетия&nbsp;</option>
+                                <option value="86">&nbsp;Ямайка&nbsp;</option>
+                                <option value="87">&nbsp;Япония&nbsp;</option>
+                            </select>
+                            <!--<nav class="standart-countres">
+                                <a href="" name="">Россия</a>
+                                <a href="" name="">Украина</a>
+                                <a href="" name="">Беларусь</a>
+                            </nav>-->
+                        </div>
+                    </div>
+                    <div class="timezone choise">
+                        <!--<label class="timezone__text"></label>-->
+                        <select name="user_timezone_x2" id="user_timezone_x2" tabindex="106">
+                            <option value="-24">&nbsp;GMT - 12&nbsp;</option>
+                            <option value="-22">&nbsp;GMT - 11&nbsp;</option>
+                            <option value="-20">&nbsp;GMT - 10&nbsp;</option>
+                            <option value="-18">&nbsp;GMT - 9&nbsp;</option>
+                            <option value="-16">&nbsp;GMT - 8&nbsp;</option>
+                            <option value="-14">&nbsp;GMT - 7&nbsp;</option>
+                            <option value="-12">&nbsp;GMT - 6&nbsp;</option>
+                            <option value="-10">&nbsp;GMT - 5&nbsp;</option>
+                            <option value="-8">&nbsp;GMT - 4&nbsp;</option>
+                            <option value="-7">&nbsp;GMT - 3:30&nbsp;</option>
+                            <option value="-6">&nbsp;GMT - 3&nbsp;</option>
+                            <option value="-4">&nbsp;GMT - 2&nbsp;</option>
+                            <option value="-2">&nbsp;GMT - 1&nbsp;</option>
+                            <option value="0">&nbsp;GMT (время по гринвичу)&nbsp;</option>
+                            <option value="2">&nbsp;GMT + 1&nbsp;</option>
+                            <option value="4">&nbsp;GMT + 2&nbsp;</option>
+                            <option selected="" value="6">&nbsp;GMT + 3 (Московское время)&nbsp;</option>
+                            <option value="7">&nbsp;GMT + 3:30&nbsp;</option>
+                            <option value="8">&nbsp;GMT + 4&nbsp;</option>
+                            <option value="9">&nbsp;GMT + 4:30&nbsp;</option>
+                            <option value="10">&nbsp;GMT + 5&nbsp;</option>
+                            <option value="11">&nbsp;GMT + 5:30&nbsp;</option>
+                            <option value="12">&nbsp;GMT + 6&nbsp;</option>
+                            <option value="13">&nbsp;GMT + 6:30&nbsp;</option>
+                            <option value="14">&nbsp;GMT + 7&nbsp;</option>
+                            <option value="16">&nbsp;GMT + 8&nbsp;</option>
+                            <option value="18">&nbsp;GMT + 9&nbsp;</option>
+                            <option value="19">&nbsp;GMT + 9:30&nbsp;</option>
+                            <option value="20">&nbsp;GMT + 10&nbsp;</option>
+                            <option value="22">&nbsp;GMT + 11&nbsp;</option>
+                            <option value="24">&nbsp;GMT + 12&nbsp;</option>
+                            <option value="26">&nbsp;GMT + 13&nbsp;</option>
+                        </select>
+                    </div>
+                    <div class="gender choise">
+                        <!--<label class="timezone__text"></label>-->
+                        <select name="user_gender_id" id="user_gender_id" tabindex="107">
+                            <option selected="" value="0">&nbsp;Засекречен&nbsp;</option>
+                            <option value="1">&nbsp;Женский&nbsp;</option>
+                            <option value="2">&nbsp;Мужской&nbsp;</option>
+                        </select>
+                    </div>
                 </form>
-            </div>
-            <div class="sign-up__email-user">
-                <form accept="https://echo.htmlacademy.ru/">
-                    <input type="email" class="input email-user" placeholder="e-mail" name="email">
-                </form>
-            </div>
-            <div class="sign-up__password-user">
-                <form accept="https://echo.htmlacademy.ru/">
-                    <input type="password" class="input new_pass" name="new_pass" placeholder="Пароль" value="" autocomplete="off">
-                </form>
-                <!--<span onclick="show_pass(); $(this).remove();">Показать пароль</span>
-                <script>
-                    
-                function show_pass() {
-                    var $old = $('input[name=new_pass]');
-                    var $new = $('<input type="text" name="new_pass" size="35" maxlength="20" value="" autocomplete="off">');
-                    $new.prop({ tabindex: $old.prop('tabindex') }).val($old.val()).insertAfter($old).focus();
-                    $old.remove();
-                }
-                
-                </script>-->
-            </div>
-        </div>
-        <div class="sign-up__check-captcha">
-            <div class="enter-captcha">
-                <form accept="https://echo.htmlacademy.ru/">
-                    <input type="text" class="input check-captcha" placeholder="Код подтверждения" name>
-                </form>
-            </div>
-            <div class="Generator-captcha">
-                <img class="captcha" src="">
-            </div>
-            <button class="btn-new-captcha">Показать другой код</button>
-        </div>
-        <form class="selects" accept="https://echo.htmlacademy.ru/">
-            <div class="countres choise">
-                <label class="countres__text">Откуда:</label>
-                <div class="countres__choise">
-                    <select name="user_flag_id" id="user_flag_id" tabindex="105">
-                        <option selected="" value="0">&nbsp;» Выберите страну&nbsp;</option>
-                        <!--<option value="199">&nbsp;RuTracker.org&nbsp;</option>-->
-                        <option value="195">&nbsp;Абхазия&nbsp;</option>
-                        <option value="10">&nbsp;Австралия&nbsp;</option>
-                        <option value="11">&nbsp;Австрия&nbsp;</option>
-                        <option value="12">&nbsp;Азербайджан&nbsp;</option>
-                        <option value="3">&nbsp;Албания&nbsp;</option>
-                        <option value="4">&nbsp;Алжир&nbsp;</option>
-                        <option value="6">&nbsp;Ангола&nbsp;</option>
-                        <option value="5">&nbsp;Андорра&nbsp;</option>
-                        <option value="7">&nbsp;Антигуа и Барбуда&nbsp;</option>
-                        <option value="8">&nbsp;Аргентина&nbsp;</option>
-                        <option value="9">&nbsp;Армения&nbsp;</option>
-                        <option value="2">&nbsp;Афганистан&nbsp;</option>
-                        <option value="13">&nbsp;Багамы&nbsp;</option>
-                        <option value="15">&nbsp;Бангладеш&nbsp;</option>
-                        <option value="16">&nbsp;Барбадос&nbsp;</option>
-                        <option value="14">&nbsp;Бахрейн&nbsp;</option>
-                        <option value="17">&nbsp;Беларусь&nbsp;</option>
-                        <option value="19">&nbsp;Белиз&nbsp;</option>
-                        <option value="18">&nbsp;Бельгия&nbsp;</option>
-                        <option value="20">&nbsp;Бенин&nbsp;</option>
-                        <option value="27">&nbsp;Болгария&nbsp;</option>
-                        <option value="22">&nbsp;Боливия&nbsp;</option>
-                        <option value="23">&nbsp;Босния и Герцеговина&nbsp;</option>
-                        <option value="24">&nbsp;Ботсвана&nbsp;</option>
-                        <option value="25">&nbsp;Бразилия&nbsp;</option>
-                        <option value="26">&nbsp;Бруней&nbsp;</option>
-                        <option value="28">&nbsp;Буркина-Фасо&nbsp;</option>
-                        <option value="30">&nbsp;Бурунди&nbsp;</option>
-                        <option value="21">&nbsp;Бутан&nbsp;</option>
-                        <option value="184">&nbsp;Вануату&nbsp;</option>
-                        <option value="179">&nbsp;Великобритания&nbsp;</option>
-                        <option value="76">&nbsp;Венгрия&nbsp;</option>
-                        <option value="185">&nbsp;Венесуэла&nbsp;</option>
-                        <option value="186">&nbsp;Вьетнам&nbsp;</option>
-                        <option value="61">&nbsp;Габон&nbsp;</option>
-                        <option value="73">&nbsp;Гаити&nbsp;</option>
-                        <option value="72">&nbsp;Гайана&nbsp;</option>
-                        <option value="62">&nbsp;Гамбия&nbsp;</option>
-                        <option value="65">&nbsp;Гана&nbsp;</option>
-                        <option value="69">&nbsp;Гватемала&nbsp;</option>
-                        <option value="70">&nbsp;Гвинея&nbsp;</option>
-                        <option value="71">&nbsp;Гвинея-Бисау&nbsp;</option>
-                        <option value="64">&nbsp;Германия&nbsp;</option>
-                        <option value="74">&nbsp;Гондурас&nbsp;</option>
-                        <option value="75">&nbsp;Гонконг&nbsp;</option>
-                        <option value="67">&nbsp;Гренада&nbsp;</option>
-                        <option value="66">&nbsp;Греция&nbsp;</option>
-                        <option value="63">&nbsp;Грузия&nbsp;</option>
-                        <option value="47">&nbsp;Дания&nbsp;</option>
-                        <option value="48">&nbsp;Джибути&nbsp;</option>
-                        <option value="49">&nbsp;Доминика&nbsp;</option>
-                        <option value="50">&nbsp;Доминиканская Республика&nbsp;</option>
-                        <option value="52">&nbsp;Египет&nbsp;</option>
-                        <option value="194">&nbsp;ЕС&nbsp;</option>
-                        <option value="190">&nbsp;Заир&nbsp;</option>
-                        <option value="191">&nbsp;Замбия&nbsp;</option>
-                        <option value="192">&nbsp;Зимбабве&nbsp;</option>
-                        <option value="83">&nbsp;Израиль&nbsp;</option>
-                        <option value="78">&nbsp;Индия&nbsp;</option>
-                        <option value="79">&nbsp;Индонезия&nbsp;</option>
-                        <option value="88">&nbsp;Иордания&nbsp;</option>
-                        <option value="81">&nbsp;Ирак&nbsp;</option>
-                        <option value="80">&nbsp;Иран&nbsp;</option>
-                        <option value="82">&nbsp;Ирландия&nbsp;</option>
-                        <option value="77">&nbsp;Исландия&nbsp;</option>
-                        <option value="157">&nbsp;Испания&nbsp;</option>
-                        <option value="84">&nbsp;Италия&nbsp;</option>
-                        <option value="188">&nbsp;Йемен&nbsp;</option>
-                        <option value="200">&nbsp;Кабо-Верде&nbsp;</option>
-                        <option value="89">&nbsp;Казахстан&nbsp;</option>
-                        <option value="31">&nbsp;Камбоджа&nbsp;</option>
-                        <option value="32">&nbsp;Камерун&nbsp;</option>
-                        <option value="33">&nbsp;Канада&nbsp;</option>
-                        <option value="140">&nbsp;Катар&nbsp;</option>
-                        <option value="90">&nbsp;Кения&nbsp;</option>
-                        <option value="44">&nbsp;Кипр&nbsp;</option>
-                        <option value="93">&nbsp;Киргизия&nbsp;</option>
-                        <option value="91">&nbsp;Кирибати&nbsp;</option>
-                        <option value="37">&nbsp;Китай&nbsp;</option>
-                        <option value="38">&nbsp;Колумбия&nbsp;</option>
-                        <option value="39">&nbsp;Коморы&nbsp;</option>
-                        <option value="46">&nbsp;Конго&nbsp;</option>
-                        <option value="41">&nbsp;Коста-Рика&nbsp;</option>
-                        <option value="85">&nbsp;Кот д’Ивуар&nbsp;</option>
-                        <option value="43">&nbsp;Куба&nbsp;</option>
-                        <option value="92">&nbsp;Кувейт&nbsp;</option>
-                        <option value="94">&nbsp;Лаос&nbsp;</option>
-                        <option value="95">&nbsp;Латвия&nbsp;</option>
-                        <option value="97">&nbsp;Либерия&nbsp;</option>
-                        <option value="96">&nbsp;Ливан&nbsp;</option>
-                        <option value="98">&nbsp;Ливия&nbsp;</option>
-                        <option value="100">&nbsp;Литва&nbsp;</option>
-                        <option value="99">&nbsp;Лихтенштейн&nbsp;</option>
-                        <option value="101">&nbsp;Люксембург&nbsp;</option>
-                        <option value="111">&nbsp;Маврикий&nbsp;</option>
-                        <option value="110">&nbsp;Мавритания&nbsp;</option>
-                        <option value="104">&nbsp;Мадагаскар&nbsp;</option>
-                        <option value="103">&nbsp;Макао&nbsp;</option>
-                        <option value="102">&nbsp;Македония&nbsp;</option>
-                        <option value="105">&nbsp;Малави&nbsp;</option>
-                        <option value="106">&nbsp;Малайзия&nbsp;</option>
-                        <option value="108">&nbsp;Мали&nbsp;</option>
-                        <option value="107">&nbsp;Мальдивы&nbsp;</option>
-                        <option value="109">&nbsp;Мальта&nbsp;</option>
-                        <option value="117">&nbsp;Марокко&nbsp;</option>
-                        <option value="112">&nbsp;Мексика&nbsp;</option>
-                        <option value="113">&nbsp;Микронезия&nbsp;</option>
-                        <option value="118">&nbsp;Мозамбик&nbsp;</option>
-                        <option value="114">&nbsp;Молдова&nbsp;</option>
-                        <option value="115">&nbsp;Монако&nbsp;</option>
-                        <option value="116">&nbsp;Монголия&nbsp;</option>
-                        <option value="29">&nbsp;Мьянма&nbsp;</option>
-                        <option value="119">&nbsp;Намибия&nbsp;</option>
-                        <option value="120">&nbsp;Науру&nbsp;</option>
-                        <option value="121">&nbsp;Непал&nbsp;</option>
-                        <option value="126">&nbsp;Нигер&nbsp;</option>
-                        <option value="127">&nbsp;Нигерия&nbsp;</option>
-                        <option value="122">&nbsp;Нидерландские Антилы&nbsp;</option>
-                        <option value="123">&nbsp;Нидерланды&nbsp;</option>
-                        <option value="125">&nbsp;Никарагуа&nbsp;</option>
-                        <option value="124">&nbsp;Новая Зеландия&nbsp;</option>
-                        <option value="129">&nbsp;Норвегия&nbsp;</option>
-                        <option value="177">&nbsp;ОАЭ&nbsp;</option>
-                        <option value="130">&nbsp;Оман&nbsp;</option>
-                        <option value="131">&nbsp;Пакистан&nbsp;</option>
-                        <option value="132">&nbsp;Панама&nbsp;</option>
-                        <option value="133">&nbsp;Папуа - Новая Гвинея&nbsp;</option>
-                        <option value="134">&nbsp;Парагвай&nbsp;</option>
-                        <option value="135">&nbsp;Перу&nbsp;</option>
-                        <option value="193">&nbsp;ПМР&nbsp;</option>
-                        <option value="137">&nbsp;Польша&nbsp;</option>
-                        <option value="138">&nbsp;Португалия&nbsp;</option>
-                        <option value="139">&nbsp;Пуэрто-Рико&nbsp;</option>
-                        <option value="143">&nbsp;Россия&nbsp;</option>
-                        <option value="141">&nbsp;Руанда&nbsp;</option>
-                        <option value="142">&nbsp;Румыния&nbsp;</option>
-                        <option value="187">&nbsp;Самоа&nbsp;</option>
-                        <option value="197">&nbsp;Сан-Марино&nbsp;</option>
-                        <option value="144">&nbsp;Сан-Томе и Принсипи&nbsp;</option>
-                        <option value="145">&nbsp;Саудовская Аравия&nbsp;</option>
-                        <option value="128">&nbsp;Северная Корея&nbsp;</option>
-                        <option value="148">&nbsp;Сейшелы&nbsp;</option>
-                        <option value="146">&nbsp;Сенегал&nbsp;</option>
-                        <option value="68">&nbsp;Сент-Винсент и Гренадины&nbsp;</option>
-                        <option value="159">&nbsp;Сент-Китс и Невис&nbsp;</option>
-                        <option value="160">&nbsp;Сент-Люсия&nbsp;</option>
-                        <option value="147">&nbsp;Сербия&nbsp;</option>
-                        <option value="150">&nbsp;Сингапур&nbsp;</option>
-                        <option value="165">&nbsp;Сирия&nbsp;</option>
-                        <option value="151">&nbsp;Словакия&nbsp;</option>
-                        <option value="152">&nbsp;Словения&nbsp;</option>
-                        <option value="153">&nbsp;Соломоновы Острова&nbsp;</option>
-                        <option value="154">&nbsp;Сомали&nbsp;</option>
-                        <option value="182">&nbsp;СССР&nbsp;</option>
-                        <option value="161">&nbsp;Судан&nbsp;</option>
-                        <option value="162">&nbsp;Суринам&nbsp;</option>
-                        <option value="1">&nbsp;США&nbsp;</option>
-                        <option value="149">&nbsp;Сьерра-Леоне&nbsp;</option>
-                        <option value="167">&nbsp;Таджикистан&nbsp;</option>
-                        <option value="169">&nbsp;Таиланд&nbsp;</option>
-                        <option value="166">&nbsp;Тайвань&nbsp;</option>
-                        <option value="168">&nbsp;Танзания&nbsp;</option>
-                        <option value="170">&nbsp;Того&nbsp;</option>
-                        <option value="171">&nbsp;Тонга&nbsp;</option>
-                        <option value="172">&nbsp;Тринидад и Тобаго&nbsp;</option>
-                        <option value="176">&nbsp;Тувалу&nbsp;</option>
-                        <option value="173">&nbsp;Тунис&nbsp;</option>
-                        <option value="175">&nbsp;Туркмения&nbsp;</option>
-                        <option value="174">&nbsp;Турция&nbsp;</option>
-                        <option value="178">&nbsp;Уганда&nbsp;</option>
-                        <option value="183">&nbsp;Узбекистан&nbsp;</option>
-                        <option value="180">&nbsp;Украина&nbsp;</option>
-                        <option value="181">&nbsp;Уругвай&nbsp;</option>
-                        <option value="58">&nbsp;Фиджи&nbsp;</option>
-                        <option value="136">&nbsp;Филиппины&nbsp;</option>
-                        <option value="59">&nbsp;Финляндия&nbsp;</option>
-                        <option value="60">&nbsp;Франция&nbsp;</option>
-                        <option value="42">&nbsp;Хорватия&nbsp;</option>
-                        <option value="34">&nbsp;ЦАР&nbsp;</option>
-                        <option value="35">&nbsp;Чад&nbsp;</option>
-                        <option value="198">&nbsp;Черногория&nbsp;</option>
-                        <option value="45">&nbsp;Чехия&nbsp;</option>
-                        <option value="36">&nbsp;Чили&nbsp;</option>
-                        <option value="164">&nbsp;Швейцария&nbsp;</option>
-                        <option value="163">&nbsp;Швеция&nbsp;</option>
-                        <option value="158">&nbsp;Шри-Ланка&nbsp;</option>
-                        <option value="51">&nbsp;Эквадор&nbsp;</option>
-                        <option value="54">&nbsp;Экваториальная Гвинея&nbsp;</option>
-                        <option value="53">&nbsp;Эль-Сальвадор&nbsp;</option>
-                        <option value="55">&nbsp;Эритрея&nbsp;</option>
-                        <option value="56">&nbsp;Эстония&nbsp;</option>
-                        <option value="57">&nbsp;Эфиопия&nbsp;</option>
-                        <option value="156">&nbsp;ЮАР&nbsp;</option>
-                        <option value="189">&nbsp;Югославия&nbsp;</option>
-                        <option value="155">&nbsp;Южная Корея&nbsp;</option>
-                        <option value="196">&nbsp;Южная Осетия&nbsp;</option>
-                        <option value="86">&nbsp;Ямайка&nbsp;</option>
-                        <option value="87">&nbsp;Япония&nbsp;</option>
-                    </select>
-                    <nav class="standart-countres">
-                        <a href="" name="">Россия</a>
-                        <a href="" name="">Украина</a>
-                        <a href="" name="">Беларусь</a>
-                    </nav>
+                <div class="errors">
+
+                </div>
+                <div class="continue">
+                    <div class="user-agree__checkbox">
+                        <input type="checkbox"><label>Я принимаю ПОЛЬЗОВАТЕЛЬСКОЕ СОГЛАШЕНИЕ</label>
+                    </div>
+                    <button type="submit" class="button_reg-user"><a href="https://echo.htmlacademy.ru/">Продолжить регистрацию</a></button>
                 </div>
             </div>
-            <div class="timezone choise">
-                <label class="timezone__text">Часовой пояс:</label>
-                <select name="user_timezone_x2" id="user_timezone_x2" tabindex="106">
-                    <option value="-24">&nbsp;GMT - 12&nbsp;</option>
-                    <option value="-22">&nbsp;GMT - 11&nbsp;</option>
-                    <option value="-20">&nbsp;GMT - 10&nbsp;</option>
-                    <option value="-18">&nbsp;GMT - 9&nbsp;</option>
-                    <option value="-16">&nbsp;GMT - 8&nbsp;</option>
-                    <option value="-14">&nbsp;GMT - 7&nbsp;</option>
-                    <option value="-12">&nbsp;GMT - 6&nbsp;</option>
-                    <option value="-10">&nbsp;GMT - 5&nbsp;</option>
-                    <option value="-8">&nbsp;GMT - 4&nbsp;</option>
-                    <option value="-7">&nbsp;GMT - 3:30&nbsp;</option>
-                    <option value="-6">&nbsp;GMT - 3&nbsp;</option>
-                    <option value="-4">&nbsp;GMT - 2&nbsp;</option>
-                    <option value="-2">&nbsp;GMT - 1&nbsp;</option>
-                    <option value="0">&nbsp;GMT (время по гринвичу)&nbsp;</option>
-                    <option value="2">&nbsp;GMT + 1&nbsp;</option>
-                    <option value="4">&nbsp;GMT + 2&nbsp;</option>
-                    <option selected="" value="6">&nbsp;GMT + 3 (Московское время)&nbsp;</option>
-                    <option value="7">&nbsp;GMT + 3:30&nbsp;</option>
-                    <option value="8">&nbsp;GMT + 4&nbsp;</option>
-                    <option value="9">&nbsp;GMT + 4:30&nbsp;</option>
-                    <option value="10">&nbsp;GMT + 5&nbsp;</option>
-                    <option value="11">&nbsp;GMT + 5:30&nbsp;</option>
-                    <option value="12">&nbsp;GMT + 6&nbsp;</option>
-                    <option value="13">&nbsp;GMT + 6:30&nbsp;</option>
-                    <option value="14">&nbsp;GMT + 7&nbsp;</option>
-                    <option value="16">&nbsp;GMT + 8&nbsp;</option>
-                    <option value="18">&nbsp;GMT + 9&nbsp;</option>
-                    <option value="19">&nbsp;GMT + 9:30&nbsp;</option>
-                    <option value="20">&nbsp;GMT + 10&nbsp;</option>
-                    <option value="22">&nbsp;GMT + 11&nbsp;</option>
-                    <option value="24">&nbsp;GMT + 12&nbsp;</option>
-                    <option value="26">&nbsp;GMT + 13&nbsp;</option>
-                </select>
-            </div>
-            <div class="gender choise">
-                <label class="timezone__text">Пол:</label>
-                <select name="user_gender_id" id="user_gender_id" tabindex="107">
-                    <option selected="" value="0">&nbsp;Засекречен&nbsp;</option>
-                    <option value="1">&nbsp;Женский&nbsp;</option>
-                    <option value="2">&nbsp;Мужской&nbsp;</option>
-                </select>
-            </div>
-        </form>
-        <div class="errors">
-
         </div>
-        <div class="user-agree">
-            <div class="user-agree__checkbox">
-                <input type="checkbox"><label>Я принимаю <a href="">ПОЛЬЗОВАТЕЛЬСКОЕ СОГЛАШЕНИЕ</a></label>
-            </div>
-            <button type="submit" class="button_reg-user"><a href="https://echo.htmlacademy.ru/">Продолжить регистрацию</a></button>
+        
+        <div class="user-agreement">
+            <h1>ПОЛЬЗОВАТЕЛЬСКОЕ СОГЛАШЕНИЕ</h1>
+            <p>
+
+Интернет - ресурс (сайт) RUTRACKER.ORG (в дальнейшем - Ресурс) является интернет-сайтом, позволяющим пользователям обмениваться друг с другом информацией по протоколу бит-торрент, а также в свободной форме, и предоставляющим средства для контроля целостности передаваемой информации (посредством hash-файлов).
+
+1. О ПОЛЬЗОВАТЕЛЬСКОМ СОГЛАШЕНИИ
+
+Настоящее ПОЛЬЗОВАТЕЛЬСКОЕ СОГЛАШЕНИЕ вступает в силу после нажатия кнопки "согласен" внизу страницы и действует все время использования Пользователем Ресурса. ПОЛЬЗОВАТЕЛЬСКОЕ СОГЛАШЕНИЕ может быть изменено Администрацией без какого-либо уведомления пользователей. Новая версия ПС вступает в силу по истечении 3 (трех) дней с момента ее размещения, если иное не предусмотрено новой редакцией ПОЛЬЗОВАТЕЛЬСКОГО СОГЛАШЕНИЯ.
+
+2. УСЛОВИЯ ОГРАНИЧЕНИЯ ОТВЕТСТВЕННОСТИ
+
+Пользователь прямо соглашается c тем, что использует Ресурс на свой собственный риск.
+
+Пользователь знает, и согласен с тем, что Ресурс имеет дело с материалами и данными, созданными третьими лицами и размещенными ими в сети Интернет на своих компьютерах и (или) серверах. Содержание и безопасность этих материалов не могут быть проконтролированы Администрацией Ресурса, поэтому последняя не несет ответственности:
+
+- за содержание материалов, полученных Пользователем в результате использования данных с Ресурса, их возможное несоответствие действующему законодательству или оскорбительный характер;
+
+- за последствия применения, использования или неиспользования полученной информации;
+
+- за возможное несоответствие результатов, полученных при использовании Ресурса, ожиданиям Пользователя;
+
+- за какие-либо повреждения оборудования или программного обеспечения Пользователя, возникшие в результате использовании Ресурса;
+
+- за отсутствие возможности использования Ресурса по каким-либо причинам;
+
+- за последствия, которые может повлечь распространение нелегального либо нелицензионного программного обеспечения и аудио-/видеопродукции, а также иных материалов либо данных, затрагивающих права третьих лиц.
+
+Ни при каких обстоятельствах Ресурс не несет перед Пользователем, либо третьими лицами ответственности за ущерб, убытки или расходы, возникшие в связи с настоящим Ресурсом, его использованием или невозможностью использования, включая упущенную либо недополученную прибыль.
+
+Пользователь обязуется не передавать другим лицами свои персональные данные полученные при регистрации (логин и пароль) для входа/идентификации на ресурс и несет полную ответственность за утерю, пропажу, исчезновение или передачу иными способами персональных данных, а также за последствия связанные с данным деянием. Администрация Ресурса не несёт ответственности за действия третьих лиц, воспользовавшихся персональными данными Пользователя, и имеет право деактивировать его аккаунт при утечке персональных данных.
+
+Пользователь информируется, что неиспользуемые в течение длительного времени аккаунты удаляются и восстановлению не подлежат.
+
+Администрация Ресурса не несет никаких обязательств по обеспечению конфиденциальности в отношении информации, предоставляемой его Пользователям, хотя принимает все возможные меры к этому, если не имеется договоренности об обратном или соответствующих требований действующего законодательства.
+
+В обязанности Ресурса НЕ ВХОДИТ контроль легальности или нелегальности передаваемой информации (любой, включая, но не ограничиваясь, информацией передаваемой между пользователями по протоколу бит-торрент, внутренней пересылки информации в виде различных ссылок, текстов или архивов), определение прав собственности или законности передачи, приема или использования этой информации.
+
+3. ОГРАНИЧЕНИЯ НА ИСПОЛЬЗОВАНИЕ РЕСУРСА ПОЛЬЗОВАТЕЛЕМ.
+
+При использовании данного Ресурса, ПОЛЬЗОВАТЕЛЬ не имеет права, и соглашается с этим:
+
+- размещать hash-файлы(торренты) данных, содержащие вирусы или другие компьютерные программы заведомо вредоносного действия, файлы или программы, предназначенные для нарушения, уничтожения либо ограничения функциональности любого компьютерного или телекоммуникационного оборудования или программ, для осуществления несанкционированного доступа, а также серийные номера к коммерческим программным продуктам и программы для их генерации, логины, пароли и прочие средства для получения несанкционированного доступа к платным ресурсам в Интернете, а также размещать ссылки на вышеуказанную информацию;
+
+- размещать hash-файлы(торренты) любых сообщений, данных или программ, использование которых затрагивает какой-либо патент, торговую марку, коммерческую тайну, копирайт или прочие права собственности и/или авторские и смежные с ним права третьих лиц;
+
+- отправлять на адреса электронной почты, указанные на сайте, несанкционированные почтовые сообщения рекламного типа (junk mail, spam);
+
+- копировать и использовать в коммерческих целях любую информацию, получаемую посредством данного ресурса, нарушающую права других Пользователей или могущую нанести им прямой материальный или моральный ущерб;
+
+- размещать ссылки на ресурсы Сети;
+
+- заниматься коммерцией при помощи форума; проявлять расовую, национальную и религиозную неприязнь, призывать к самоубийству, пропагандировать терроризм, экстремизм, наркотики и прочие темы, несовместимые с общепринятыми законами морали и приличия;
+
+- выдавать себя за другого человека или за представителя организации и/или сообщества без достаточных на то прав, в том числе за сотрудников Aдминистрации, за владельца Ресурса.
+
+4. ГАРАНТИИ РАБОТОСПОСОБНОСТИ
+
+Доступ к Ресурсу предоставляются по принципу «как есть» («as is») без гарантий любого рода, как прямых, так и косвенных.
+
+В частности Администрация Ресурса не гарантирует работоспособность как сайта и его отдельных разделов, так и работоспособность и достоверность ссылок, размещенных на нем его Пользователями.
+
+Ресурс не несет ответственности за любые прямые или непрямые убытки, произошедшие из-за: использования либо невозможности использования службы; несанкционированного доступа к Вашим коммуникациям.
+
+5. ПРАВА АДМИНИСТРАЦИИ РЕСУРСА.
+
+Администрация Ресурса вправе отказать в доступе к Ресурсу любому Пользователю, или группе Пользователей без объяснения причин своих действий и предварительного уведомления.
+
+Администрация Ресурса вправе изменять либо удалять ссылки на информацию, hash-файлы (торренты), графические, звуковые и прочие данные, размещенные Пользователями на Ресурсе, без предварительного уведомления и объяснения причин своих действий.
+
+6. ОТВЕТСТВЕННОСТЬ СТОРОН.
+
+Пользователь соглашается с тем, что нормы и законы о защите прав потребителей не могут быть применимы к использованию им Ресурса, поскольку он не оказывает возмездных услуг.
+
+Ресурс не устанавливает с пользователями агентских отношений, отношений товарищества, отношений по совместной деятельности, отношений личного найма, а также каких-то иных отношений, прямо не описанных в СОГЛАШЕНИИ ОБ ИСПОЛЬЗОВАНИИ.
+
+Бездействие со стороны Ресурса в случае нарушения Пользователем, либо группой Пользователей ПОЛЬЗОВАТЕЛЬСКОГО СОГЛАШЕНИЯ не означает того, что Ресурс содействует Пользователю, либо группе Пользователей в таковых действиях.
+
+Бездействие со стороны Ресурса в случае нарушения Пользователем либо группой Пользователей ПОЛЬЗОВАТЕЛЬСКОГО СОГЛАШЕНИЯ не лишает Ресурс права предпринять соответствующие действия в защиту своих интересов позднее.
+
+7. СОГЛАСИЕ С ПОЛЬЗОВАТЕЛЬСКИМ СОГЛАШЕНИЕМ.
+
+ЕСЛИ ВЫ НЕ СОГЛАСНЫ СO ВСЕМИ ВЫШЕУКАЗАННЫМИ УСЛОВИЯМИ, ВЫ НЕ ИМЕЕТЕ ПРАВА ПОСЕЩАТЬ РЕСУРС КАК В ЦЕЛОМ, ТАК И ЛЮБУЮ ЕГО ЧАСТЬ, КРОМЕ СТРАНИЦЫ С ПОЛЬЗОВАТЕЛЬСКИМ СОГЛАШЕНИЕМ, ПОЛУЧАТЬ И/ИЛИ ИСПОЛЬЗОВАТЬ СОДЕРЖИМОЕ НАСТОЯЩЕГО РЕСУРСА ЛЮБЫМИ ДРУГИМИ СПОСОБАМИ КАК В ЦЕЛОМ ТАК И В ЛЮБОЙ ЕГО ЧАСТИ!
+
+ЕСЛИ ВЫ НЕ СОГЛАСНЫ С ПОЛЬЗОВАТЕЛЬСКИМ СОГЛАШЕНИЕМ ИЛИ ВАМ ЕЩЕ НЕ ИСПОЛНИЛОСЬ 18 ЛЕТ, ВЫ ДОЛЖНЫ НЕМЕДЛЕННО ПОКИНУТЬ РЕСУРС.
+
+            </p>
         </div>
     </main>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+        main{
+            display: flex;
+            gap: 1vw;
+        }
+        .sign-up, .reg-rules{
+            max-width: 441px;
+            height: 680px;
+        }
         p,h4,a{
             font-family: "Roboto", sans-serif;
             font-weight: 400;
@@ -337,8 +438,9 @@
         }
         a{
             color: black;
+            text-decoration: none;
         }
-        main{
+        .reg-rules{
             background-color: white;
             border-radius: 20px;
             display: flex;
@@ -348,9 +450,6 @@
             text-align: center;
             padding: 1vh 1.5vw;
             gap: 1.2vw;
-            div>*, .selects>*{
-                padding-bottom: 3%;
-            }
             div>form{
                 *{
                     background-color: #F4F4F4;
@@ -360,7 +459,7 @@
                     max-height: fit-content;
                     width: 16vw;
                     max-width: 400px;
-                    min-width: max-content
+                    min-width: max-content;
                 }
                 input{
                     padding-left: 10px;
@@ -382,9 +481,17 @@
                 font-size: 15px;
             }
             .selects{
-                >.choise{
+                >.choise *{
+                    width: 370px;
+                    font-size: large;
+                    text-align: center;
+                    background-color: #F4F4F4;
+                    border-radius: 20px;
+                    border-width: 0px;
+                    max-width: 400px;
+                    min-width: max-content;
                     display: grid;
-                    grid-template-columns: 120px 250px;
+                    grid-template-columns: 120px 250px; 
                     label{
                         padding-right: 10px;
                         font-size: 18px;
@@ -393,11 +500,33 @@
                         justify-content: start;
                     }
                     select{
-                        padding-bottom: 0;
+                        padding: 0;
+                        align-items: center;
                     }
                 }
             }
         }
+        .user-agreement{
+            max-width: 882px;
+            max-height: 680px;
+            background-color: white;
+            padding: 1vh 1.5vw;
+            border-radius: 20px;
+            >p{
+                max-height: 570px;
+                overflow-y: scroll;
+                border: solid #D9D9D9;
+                padding: 5px;
+            }
+            >p::-webkit-scrollbar-thumb{
+                color: #D9D9D9;
+                border-radius: 20px;
+            }
+            >p::-webkit-scrollbar-track{
+                color: #F4F4F4;
+            }
+        }
+        
     </style>
     <footer>
 
