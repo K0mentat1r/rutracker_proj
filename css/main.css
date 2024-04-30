@@ -5,6 +5,9 @@
     font-family: "Montserrat", sans-serif;
     font-weight: 650;
 }
+/* body{
+    overflow: ;
+} */
 #mainHeader{
     display: flex; 
     justify-content: space-between;
@@ -240,6 +243,8 @@
             #profile-uname{
                 font-weight: 500;
                 font-size: 17px;
+                /* font-size: 20px;
+                cursor: pointer; */
             }
         }
         a{

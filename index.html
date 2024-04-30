@@ -126,25 +126,26 @@
         <div class="LogIn pop-up onPop-up" id="reg"> <!--disabled offPop-up onPop-up-->
             <div class="pop-up__container">
                 <div class="pop-up__body" id="regBody">
+                    <p id="btnRegClose">закрыть</p>
                     <h1>ВХОД</h1>
                     <div class="name-user">
                         <form class>
-                            <input type="text" class="name-user__input" placeholder="Имя или e-mail">
+                            <input type="text" class="name-user__input" placeholder="Имя" id="LoginUserName">
                         </form>
                     </div>
                     <div class="password-user">
                         <form class>
-                            <input type="text" class="password-user__input" placeholder="Пароль">
+                            <input type="password" class="password-user__input" placeholder="Пароль" id="LoginUserPass">
                         </form>
                     </div>
                     <div class="new-pass-or-name">
                         <a href="">Забыли имя или пароль?</a>
                     </div>
                     <div class="login__error">
-                        <p class="errors disabled disabled-until-errors"></p> <!--заделка на будущее для js-->
+                        <p class="errors" id="LoginErrors"></p> <!--заделка на будущее для js-->
                     </div>
                     <div class="login__button">
-                        <button>Войти</button>
+                        <button id="LoginBtn">Войти</button>
                     </div>
                     <div class="reg-user">
                         <p>Нет аккаунта?</p>
@@ -878,7 +879,6 @@
             for (let j = 0; j < btnClose.length; j++){
                 let a = j;
                 btnClose[j].addEventListener("click", function(){headerNum = a; oprNumHeader();}); //btnClose[j].onclick = function(){headerNum = a; oprNumHeader();};
-                 // btnClose[headerNum].addEventListener("click",function(){console.log("event listener у btnClose " + headerNum + " удален");});
             }
         </script>
         <script>
@@ -892,11 +892,11 @@
             const openReg = document.getElementsByName("openReg");
             const elemMain = document.querySelector("main");
             const windowHeight = document.documentElement.offsetHeight;
+            const closeReg = document.getElementById("btnRegClose");
 
             let IsSecHeader = false;
             let wasIsSecHeader = false;
-
-            let IsOR2=false;
+            let stopScrolling = false; //остановить прокрутку?
 
             let elemMainHeight = elemMain.clientHeight;
             let elemMainTop = windowHeight - elemMainHeight; //верх main 
@@ -905,7 +905,7 @@
             
             // Проверка, с какого устройства зашел пользователь (нужно узнать что с макбуком (как он будет отображаться в агенте))
             let userInf = navigator.userAgent;
-            if (((userInf.includes("Win") || userInf.includes("Linux")) && !userInf.includes("Android") || userInf.includes("Macbook")) & window.innerWidth / window.innerHeight > 1 ){
+            if (((userInf.includes("Win") || userInf.includes("Linux")) && !userInf.includes("Android") || userInf.includes("Macbook")) & window.innerWidth / window.innerHeight > 0.7 ){
                 IsPC = true;
                 console.log("Пользователь зашел с пк");
             }
@@ -915,6 +915,7 @@
             }
 
             function offPopUp(){
+                stopScrolling=false;
                 popUps[popUpNum].classList.remove("onPop-up");
                 popUps[popUpNum].classList.add("offPop-up");
                 popUps[popUpNum].style.display="none";
@@ -927,6 +928,7 @@
                 }
             }
             function onPopUp(){
+                stopScrolling = true;
                 popUps[popUpNum].style.display="block";
                 popUps[popUpNum].classList.add("onPop-up");
                 popUps[popUpNum].classList.remove("offPop-up");
@@ -937,16 +939,23 @@
                     let clicks = 0; //количество кликов. Если убрать, то всплывающие окна не откроются, потому что сразу будут закрываться
                     popUpsContainer[popUpNum].onclick = function(event){ //popUpsContainer[popUpNum].addEventListener("click", function(event)
                         clicks++;
-                        if (!popUpsBody[popUpNum].contains(event.target) && clicks >0 && !IsOR2){  //мб будет криво работать, если что 0 меняй на 1, но тогда придется нажимать 2 раза а не 1
+                        if (popUpsBody[popUpNum].contains(event.target)){ //если на велся на вспл. окно
                             clicks=0;
-                            offPopUp();
+                            closeReg.addEventListener("click", offPopUp);
                         }
-                        else if (!popUpsBody[popUpNum].contains(event.target) && IsOR2 && clicks > 0){
-                            IsOR2=false;
-                            clicks=0;
-                            offPopUp();
+                        else{ //если не навелся
+                            setTimeout(function(){
+                                closeReg.removeEventListener("click", function(){}); //если пользователь навелся не на впл окно, то через 100мс убирается eventListener с кнопки
+                            },100);
+                            if (clicks > 0){
+                                clicks=0;
+                                offPopUp();
+                            }
                         }
                     };
+                    // popUpsBody[popUpNum].addEventListener("click", function(event){
+                    //     if (pop)
+                    // });
                 }
             }
             // Функция, которая проверяет видимость элемента
@@ -986,10 +995,17 @@
                 }
                 wasIsSecHeader = IsSecHeader;
             }
-            openReg[2].onclick = function(){IsOR2 = true; popUpNum=1; offPopUp(); setTimeout(function(){popUpNum = 0;onPopUp();},200);};
+            openReg[2].onclick = function(){ popUpNum=1; offPopUp(); setTimeout(function(){popUpNum = 0;onPopUp();},300);}; //без задержки не работает нормально
             getNewEventListener();
+            let wasUserWinPos = 0; //нужно, чтобы если открылось вспл. окно запомнить последнюю позицию по y
             window.onscroll = function(){
-                userWinPos = scrollY; 
+                userWinPos = window.scrollY; 
+                if (!stopScrolling){
+                    wasUserWinPos = userWinPos;
+                }
+                else{
+                    window.scrollTo(0, wasUserWinPos); //блокируем прокрутку, если открыто вспл. окно
+                }
                 checkVisibleMainHeader();
             };
         </script>
