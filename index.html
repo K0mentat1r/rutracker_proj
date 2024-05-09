@@ -126,7 +126,14 @@
         <div class="LogIn pop-up onPop-up" id="reg"> <!--disabled offPop-up onPop-up-->
             <div class="pop-up__container">
                 <div class="pop-up__body" id="regBody">
-                    <p id="btnRegClose">закрыть</p>
+                    <div class="cross__button__div">
+                        <div id="btnRegClose">
+                            <svg width="15" height="15" viewBox="0 0 44 43" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect y="4.24264" width="6" height="54.5421" rx="3" transform="rotate(-45 0 4.24264)" fill="#9096AD"/>
+                                <rect width="6" height="54.5421" rx="3" transform="matrix(-0.707107 -0.707107 -0.707107 0.707107 43.8098 4.24264)" fill="#9096AD"/>
+                            </svg>
+                        </div>
+                    </div>
                     <h1>ВХОД</h1>
                     <div class="name-user">
                         <form class>
@@ -158,7 +165,7 @@
             <div class="pop-up__container">
                 <div class="pop-up__body" id="menuBody" name="pop-up-body">
                     <div class="menu__userInfo">
-                        <a id="profile-uname" data-uid="48822890" name="openReg">войдите в аккаунт</a>
+                        <a id="profile-uname" data-uid="48822890" name="openReg">войти</a>
                         <img id="avatar-image" src="img/User_logo_white.png">
                     </div>
                     <hr noshade="">
@@ -786,229 +793,6 @@
             }
         </style>
         <!--анимация категорий (просто добавляются новые классы, сами анимации в css)-->
-        <script>
-            // получение нужных элементов
-            const Category = document.getElementsByClassName("category");
-            const btnClose = document.getElementsByName("closeCategory");
-            const catBody = document.getElementsByClassName("sub-categories");
-            const catHeader = document.getElementsByClassName("category__header");
-            //переменные размеров
-            let elemHeight = [];
-            //переменные boolean
-            let IsWork = false;
-            //счетчик
-            let headerNum = 0;
-            let wasHeaderNum = 0;
-            let newTime = true;
-
-            for (let i = 0; i < Category.length; i++){
-                elemHeight[i] = Category.item(i).offsetHeight; //получаем размеры категорий
-                Category.item(i).style.height = 50 + "px";
-                catBody[i].style.display="none";
-            }
-            function oprNumHeader(){
-                if (newTime){
-                    wasHeaderNum = headerNum;
-                }
-                newTime = false;
-                var needCatHeight = true;
-                var needCatHeight2 = true;
-                if(needCatHeight){
-                    document.documentElement.style.setProperty('--catHeight', elemHeight[headerNum] + "px");
-                    document.documentElement.style.setProperty('--catHeight2', elemHeight[headerNum] + "px");
-                    needCatHeight=false;
-                }
-                if (needCatHeight2 && wasHeaderNum != headerNum){
-                    document.documentElement.style.setProperty('--catHeight2', elemHeight[wasHeaderNum] + "px");
-                    needCatHeight2=false;
-                    IsWork = true;
-                }
-                else if (!needCatHeight && !needCatHeight2){
-                    needCatHeight=true;
-                    needCatHeight2=true;
-                }
-                onAnimations();
-            }
-            function onAnimations(){
-                if (!IsWork)
-                {
-                    catBody[headerNum].style.display = "block";
-                    Category[headerNum].classList.remove('onRevAnimCat');
-                    catHeader[headerNum].classList.remove('onRevAnimCatHeader');
-                    catBody[headerNum].classList.remove("onRevAnimSubCat");
-                    btnClose[headerNum].classList.remove("onRevAnimCloseCat")
-                    Category[headerNum].classList.add('onAnimCat');
-                    catHeader[headerNum].classList.add('onAnimCatHeader');
-                    catBody[headerNum].classList.add("onAnimSubCat");
-                    btnClose[headerNum].classList.add("onAnimCloseCat");
-
-                    IsWork = true;
-                }
-                else{
-                    IsWork =false;
-
-                    if (wasHeaderNum != headerNum){
-                        Category[wasHeaderNum].classList.remove('onAnimCat');
-                        catHeader[wasHeaderNum].classList.remove('onAnimCatHeader');
-                        catBody[wasHeaderNum].classList.remove("onAnimSubCat");
-                        btnClose[wasHeaderNum].classList.remove("onAnimCloseCat")
-                        Category[wasHeaderNum].classList.add('onRevAnimCat');
-                        catHeader[wasHeaderNum].classList.add('onRevAnimCatHeader');
-                        catBody[wasHeaderNum].classList.add("onRevAnimSubCat");
-                        btnClose[wasHeaderNum].classList.add("onRevAnimCloseCat")
-
-                        catBody[headerNum].style.display = "block";
-                        Category[headerNum].classList.add('onAnimCat');
-                        catHeader[headerNum].classList.add('onAnimCatHeader');
-                        catBody[headerNum].classList.add("onAnimSubCat");
-                        btnClose[headerNum].classList.add("onAnimCloseCat")
-                    }
-                    else{
-                        Category[headerNum].classList.remove('onAnimCat');
-                        catHeader[headerNum].classList.remove('onAnimCatHeader');
-                        catBody[headerNum].classList.remove("onAnimSubCat");
-                        btnClose[headerNum].classList.remove("onAnimCloseCat")
-                        Category[headerNum].classList.add('onRevAnimCat');
-                        catHeader[headerNum].classList.add('onRevAnimCatHeader');
-                        catBody[headerNum].classList.add("onRevAnimSubCat");
-                        btnClose[headerNum].classList.add("onRevAnimCloseCat")
-                    }
-                    wasHeaderNum = headerNum;
-                }
-            }
-            for (let j = 0; j < btnClose.length; j++){
-                let a = j;
-                btnClose[j].addEventListener("click", function(){headerNum = a; oprNumHeader();}); //btnClose[j].onclick = function(){headerNum = a; oprNumHeader();};
-            }
-        </script>
-        <script>
-            var IsPC = true;
-            let userWinPos = 0;
-
-            const popUps = document.getElementsByClassName("pop-up");
-            const popUpsBody = document.getElementsByClassName("pop-up__body"); //0 - reg, 1 - menu
-            const popUpsContainer= document.getElementsByClassName("pop-up__container");
-            const openMenu = document.getElementsByName("openMenu");
-            const openReg = document.getElementsByName("openReg");
-            const elemMain = document.querySelector("main");
-            const windowHeight = document.documentElement.offsetHeight;
-            const closeReg = document.getElementById("btnRegClose");
-
-            let IsSecHeader = false;
-            let wasIsSecHeader = false;
-            let stopScrolling = false; //остановить прокрутку?
-
-            let elemMainHeight = elemMain.clientHeight;
-            let elemMainTop = windowHeight - elemMainHeight; //верх main 
-
-            var popUpNum = -1;
-            
-            // Проверка, с какого устройства зашел пользователь (нужно узнать что с макбуком (как он будет отображаться в агенте))
-            let userInf = navigator.userAgent;
-            if (((userInf.includes("Win") || userInf.includes("Linux")) && !userInf.includes("Android") || userInf.includes("Macbook")) & window.innerWidth / window.innerHeight > 0.7 ){
-                IsPC = true;
-                console.log("Пользователь зашел с пк");
-            }
-            else{
-                IsPC = false
-                console.log("Пользователь зашел с мобильного устройства");
-            }
-
-            function offPopUp(){
-                stopScrolling=false;
-                popUps[popUpNum].classList.remove("onPop-up");
-                popUps[popUpNum].classList.add("offPop-up");
-                popUps[popUpNum].style.display="none";
-                if (IsPC && popUpNum==1){
-                    popUpsBody[1].removeEventListener("mouseleave", function(){});
-                }
-                else{
-                    popUpsBody[popUpNum].removeEventListener("click", function(){});
-                    popUpsContainer[popUpNum].removeEventListener("click", function(){});
-                }
-            }
-            function onPopUp(){
-                stopScrolling = true;
-                popUps[popUpNum].style.display="block";
-                popUps[popUpNum].classList.add("onPop-up");
-                popUps[popUpNum].classList.remove("offPop-up");
-                if (IsPC && popUpNum == 1){
-                    popUpsBody[1].addEventListener("mouseleave", offPopUp);
-                }
-                else{
-                    let clicks = 0; //количество кликов. Если убрать, то всплывающие окна не откроются, потому что сразу будут закрываться
-                    popUpsContainer[popUpNum].onclick = function(event){ //popUpsContainer[popUpNum].addEventListener("click", function(event)
-                        clicks++;
-                        if (popUpsBody[popUpNum].contains(event.target)){ //если на велся на вспл. окно
-                            clicks=0;
-                            closeReg.addEventListener("click", offPopUp);
-                        }
-                        else{ //если не навелся
-                            setTimeout(function(){
-                                closeReg.removeEventListener("click", function(){}); //если пользователь навелся не на впл окно, то через 100мс убирается eventListener с кнопки
-                            },100);
-                            if (clicks > 0){
-                                clicks=0;
-                                offPopUp();
-                            }
-                        }
-                    };
-                    // popUpsBody[popUpNum].addEventListener("click", function(event){
-                    //     if (pop)
-                    // });
-                }
-            }
-            // Функция, которая проверяет видимость элемента
-            function isElementVisible() {
-                let paddingTop = 100; //прибавляется к результату (высчитывается где начало <main>)
-                // проверка, где второй хидер
-                return (
-                    userWinPos <= elemMainTop + paddingTop
-                );
-            }
-            function getNewEventListener(){
-                if (IsSecHeader){
-                    openMenu[1].addEventListener("click", function(){popUpNum=1; onPopUp();});
-                    openReg[1].addEventListener("click", function(){popUpNum=0; onPopUp();});
-                    openMenu[0].removeEventListener("click", function(){});
-                    openReg[0].removeEventListener("click", function(){});
-                }
-                else{
-                    openMenu[0].addEventListener("click", function(){popUpNum=1; onPopUp();});
-                    openReg[0].addEventListener("click", function(){popUpNum=0; onPopUp();});
-                    openMenu[1].removeEventListener("click", function(){});
-                    openReg[1].removeEventListener("click", function(){});
-                }
-            }
-            function checkVisibleMainHeader(){
-                // Проверяем его видимость
-                if (!isElementVisible()) { //видно
-                    IsSecHeader = false;
-                    secondHeader.style.display="flex";
-
-                } else { //не видно пользователю  
-                    IsSecHeader = true;
-                    secondHeader.style.display="none";
-                }
-                if (wasIsSecHeader != IsSecHeader){
-                    getNewEventListener();
-                }
-                wasIsSecHeader = IsSecHeader;
-            }
-            openReg[2].onclick = function(){ popUpNum=1; offPopUp(); setTimeout(function(){popUpNum = 0;onPopUp();},300);}; //без задержки не работает нормально
-            getNewEventListener();
-            let wasUserWinPos = 0; //нужно, чтобы если открылось вспл. окно запомнить последнюю позицию по y
-            window.onscroll = function(){
-                userWinPos = window.scrollY; 
-                if (!stopScrolling){
-                    wasUserWinPos = userWinPos;
-                }
-                else{
-                    window.scrollTo(0, wasUserWinPos); //блокируем прокрутку, если открыто вспл. окно
-                }
-                checkVisibleMainHeader();
-            };
-        </script>
         <div id="idx-sidebar2">
             <article>
                 <h3 class="sb2__name">Авторские раздачи</h3>
@@ -1120,6 +904,36 @@
                     background-color: black;
                 }
             }
+            @media (max-width: 953px) {
+                footer a{
+                    font-size: 13px;
+                }
+                footer h6{
+                    font-size: 13px;
+                }
+                .other-links{
+                    nav{
+                        grid-template-columns: repeat(3, 1fr);
+                        grid-template-rows: repeat(2, 1fr);
+                    }
+                }
+            }
+            @media (max-width:680px){
+                .other-links{
+                    nav{
+                        grid-template-columns: repeat(2, 1fr);
+                        grid-template-rows: repeat(3, 1fr);
+                    }
+                }
+                .main-links{
+                    ul{
+                        padding: 0;
+                        ::marker{
+                            content: "";
+                        }
+                    }
+                }
+            }
         </style>
 
         <div class="reclama">
@@ -1169,4 +983,270 @@
         </div>
     </footer>
 </body>
+<script>
+    // получение нужных элементов
+    const Category = document.getElementsByClassName("category");
+    const btnClose = document.getElementsByName("closeCategory");
+    const catBody = document.getElementsByClassName("sub-categories");
+    const catHeader = document.getElementsByClassName("category__header");
+    //переменные размеров
+    let elemHeight = [];
+    //переменные boolean
+    let IsGetCatHeight = false;
+    //счетчик
+    let headerNum = 0;
+    let wasHeaderNum = 0;
+    let IsUserJustCameIn = true;
+    for (let i = 0; i < Category.length; i++){
+        elemHeight[i] = Category.item(i).offsetHeight;
+        Category.item(i).style.height = 50 + "px";
+        catBody[i].style.display = "none";
+    }
+
+    function setCategoryHeight(){
+        if (IsUserJustCameIn){
+            wasHeaderNum = headerNum;
+        }
+        IsUserJustCameIn = false;
+        var needCatHeight = true;
+        var needCatHeight2 = true;
+        if(needCatHeight){
+            document.documentElement.style.setProperty('--catHeight', elemHeight[headerNum] + "px");
+            document.documentElement.style.setProperty('--catHeight2', elemHeight[headerNum] + "px");
+            needCatHeight=false;
+        }
+        if (needCatHeight2 && wasHeaderNum != headerNum){
+            document.documentElement.style.setProperty('--catHeight2', elemHeight[wasHeaderNum] + "px");
+            needCatHeight2=false;
+            IsGetCatHeight = true;
+        }
+        else if (!needCatHeight && !needCatHeight2){
+            needCatHeight=true;
+            needCatHeight2=true;
+        }
+        onAnimations();
+    }
+    // function scrollToTopCategory(numOfCat){
+    //     let rect = Category[numOfCat].getBoundingClientRect();
+    //     if (elemHeight[numOfCat] > 500 || rect.bottom < userWinPos - 200){
+    //         window.scrollTo(0, rect.bottom);
+    //     }
+    // }   
+    function animCategoryOpen(num){
+        Category[num].classList.remove('onRevAnimCat');
+        catHeader[num].classList.remove('onRevAnimCatHeader');
+        catBody[num].classList.remove("onRevAnimSubCat");
+        btnClose[num].classList.remove("onRevAnimCloseCat")
+
+        Category[num].classList.add('onAnimCat');
+        catHeader[num].classList.add('onAnimCatHeader');
+        catBody[num].classList.add("onAnimSubCat");
+        btnClose[num].classList.add("onAnimCloseCat");
+    }
+    function animCategoryClose(num){
+        Category[num].classList.remove('onAnimCat');
+        catHeader[num].classList.remove('onAnimCatHeader');
+        catBody[num].classList.remove("onAnimSubCat");
+        btnClose[num].classList.remove("onAnimCloseCat")
+
+        Category[num].classList.add('onRevAnimCat');
+        catHeader[num].classList.add('onRevAnimCatHeader');
+        catBody[num].classList.add("onRevAnimSubCat");
+        btnClose[num].classList.add("onRevAnimCloseCat")
+    }
+    function onAnimations(){
+        if (!IsGetCatHeight)
+        {
+            catBody[headerNum].style.display = "block";
+            animCategoryOpen(headerNum);
+
+            IsGetCatHeight = true;
+        }
+        else{
+            IsGetCatHeight = false;
+
+            if (wasHeaderNum != headerNum){
+                animCategoryClose(wasHeaderNum);
+                catBody[headerNum].style.display = "block";
+                animCategoryOpen(headerNum);
+                // setTimeout(()=>{
+                //     let rect = Category[headerNum].getBoundingClientRect();
+                //     if (elemHeight[headerNum] > 500 | (rect.bottom > userWinPos || rect.top-100 <= userWinPos)){
+                //         window.scrollTo(1, rect.bottom);
+                //     }
+                // },500); //пока что не готово
+            }
+            else{
+                animCategoryClose(wasHeaderNum);
+            }
+            wasHeaderNum = headerNum;
+        }
+    }
+    function getHeaderNum(num){
+        headerNum=num;
+        setCategoryHeight();
+    }
+    for (let j = 0; j < btnClose.length; j++){
+        let a = j;
+        btnClose[j].addEventListener("click", ()=>{getHeaderNum(a)}); //btnClose[j].onclick = function(){headerNum = a; oprNumHeader();};
+    }
+</script>
+<script>
+    var IsPC = true;
+    let userWinPos = 0;
+
+    const popUps = document.getElementsByClassName("pop-up");
+    const popUpsBody = document.getElementsByClassName("pop-up__body"); //0 - reg, 1 - menu
+    const popUpsContainer= document.getElementsByClassName("pop-up");
+    const openMenu = document.getElementsByName("openMenu");
+    const openReg = document.getElementsByName("openReg");
+    const elemMain = document.querySelector("main");
+    const windowHeight = document.documentElement.offsetHeight;
+    const closeReg = document.getElementById("btnRegClose");
+
+    let IsSecHeader = false;
+    let wasIsSecHeader = false;
+    let stopScrolling = false; //остановить прокрутку?
+
+    let elemMainHeight = elemMain.clientHeight;
+    let elemMainTop = windowHeight - elemMainHeight; //верх main 
+
+    var popUpNum = -1;
+    
+    // Проверка, с какого устройства зашел пользователь (нужно узнать что с макбуком (как он будет отображаться в агенте))
+    let userInf = navigator.userAgent;
+    let MaybePC = false;
+    // if (((userInf.includes("Win") || userInf.includes("Linux")) && !userInf.includes("Android") || userInf.includes("Macbook")) & window.innerWidth / window.innerHeight > 0.8 ){
+        
+    //     IsPC = true;
+    //     console.log("Пользователь зашел с пк");
+    // }
+    // else{
+    //     IsPC = false
+    //     console.log("Пользователь зашел с мобильного устройства");
+    // }
+    if (window.innerWidth / window.innerHeight > 0.8){
+        MaybePC = true;
+        console.log("Возможно, пользователь зашел с пк");
+        if ((userInf.includes("Win") || userInf.includes("Linux")) && !userInf.includes("Android") || userInf.includes("Macbook")){
+            IsPC = true;
+            console.log("Пользователь зашел с пк");
+        }
+        else{
+            MaybePC = false;
+            IsPC = false;
+            console.log("Пользователь зашел с мобильного устройства");
+        }
+    }
+    else{
+        IsPC = false;
+        console.log("Пользователь зашел с мобильного устройства");
+    }
+
+    function offPopUp(){
+        stopScrolling=false;
+        popUps[popUpNum].classList.remove("onPop-up");
+        popUps[popUpNum].classList.add("offPop-up");
+        popUps[popUpNum].style.display="none";
+        if (IsPC && popUpNum==1){
+            popUpsBody[1].removeEventListener("mouseleave", offPopUp);
+        }
+        if (popUpNum==0){
+            closeReg.removeEventListener("click", offPopUp);
+        }
+        else{
+            popUpsBody[popUpNum].removeEventListener("click", offPopUp);
+            popUpsContainer[popUpNum].removeEventListener("click", offPopUp);
+        }
+    }
+    function onPopUp(){
+        stopScrolling = true;
+        popUps[popUpNum].style.display="block";
+        popUps[popUpNum].classList.add("onPop-up");
+        popUps[popUpNum].classList.remove("offPop-up");
+        if (IsPC && popUpNum == 1){
+            popUpsBody[1].addEventListener("mouseleave", offPopUp);
+        }
+        else{
+            let clicks = 0; //количество кликов. Если убрать, то всплывающие окна не откроются, потому что сразу будут закрываться
+            popUpsContainer[popUpNum].onclick = function(event){ //popUpsContainer[popUpNum].addEventListener("click", function(event)
+                clicks++;
+                if (popUpsBody[popUpNum].contains(event.target)){ //если навелся на вспл. окно
+                    clicks=0;
+                    closeReg.addEventListener("click", offPopUp);
+                }
+                else{ //если не навелся
+                    if (clicks > 0){
+                        clicks=0;
+                        offPopUp();
+                    }
+                }
+            };
+            // popUpsBody[popUpNum].addEventListener("click", function(event){
+            //     if (pop)
+            // });
+        }
+    }
+    // Функция, которая проверяет видимость элемента
+    function isHeader2Visible() {
+        let paddingTop = 100; //прибавляется к результату (высчитывается где начало <main>)
+        // проверка, где второй хидер
+        return (
+            userWinPos <= elemMainTop + paddingTop
+        );
+    }
+    function numOfPopUp(newt){
+        popUpNum=newt; 
+        onPopUp();
+    }
+    function getNewEventListener(){
+        if (IsSecHeader){
+            openMenu[1].addEventListener("click", () => numOfPopUp(1));
+            openReg[1].addEventListener("click", () => numOfPopUp(0));
+            openMenu[0].removeEventListener("click", function(){});
+            openReg[0].removeEventListener("click", function(){});
+        }
+        else{
+            openMenu[0].addEventListener("click", () => numOfPopUp(1));
+            openReg[0].addEventListener("click", () => numOfPopUp(0));
+            openMenu[1].removeEventListener("click", function(){});
+            openReg[1].removeEventListener("click", function(){});
+        }
+        
+    }
+    function checkVisibleMainHeader(){
+        // Проверяем его видимость
+        if (!isHeader2Visible()) { //не видно пользователю основной хидер  
+            IsSecHeader = false;
+            secondHeader.style.display="flex";
+
+        } else { //видно
+            IsSecHeader = true;
+            secondHeader.style.display="none";
+        }
+        if (wasIsSecHeader != IsSecHeader){ //если поменялся хидер
+            getNewEventListener();
+        }
+        wasIsSecHeader = IsSecHeader;
+    }
+    openReg[2].onclick = () => { popUpNum=1; offPopUp(); setTimeout(()=>{popUpNum = 0;onPopUp();},300);}; //без задержки не работает нормально
+    getNewEventListener();
+    checkVisibleMainHeader();
+    let wasUserWinPos = 0; //нужно, чтобы если открылось вспл. окно запомнить последнюю позицию по y
+    window.onscroll = function(){
+        userWinPos = window.scrollY; 
+        if (!stopScrolling){
+            wasUserWinPos = userWinPos;
+        }
+        else{
+            window.scrollTo(0, wasUserWinPos); //блокируем прокрутку, если открыто вспл. окно
+        }
+        checkVisibleMainHeader();
+    };
+</script>
+<script>
+    if (!IsPC && !MaybePC){
+        
+    }
+</script>
 </html>
