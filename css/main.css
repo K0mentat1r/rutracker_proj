@@ -12,11 +12,15 @@
 
 #mainHeader{
     display: flex; 
-    justify-content: space-between;
     align-items: center;
     padding: 0 20px;
     position: relative;
     z-index: 3;
+    .Header__div_for-mobile{
+        width: 100%;
+        display: inline-flex;
+        justify-content: space-evenly;
+    }
     .links-n-search{
         display: flex;
         justify-content: center;
@@ -36,6 +40,7 @@
         }
     }
     .menu_user-logo{
+        justify-self: flex-end;
         padding-top: 15px;
         cursor: pointer;
         *{
@@ -588,6 +593,39 @@ main{
     #secondHeader{
         gap: 5vw;
     }
+    #mainHeader{
+        width: 100%;
+        display: inline-grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        grid-auto-flow: column;
+        flex-flow: wrap;
+        gap: 10px;
+        .Header__div_for-mobile{
+            justify-content: space-around;
+            align-items: center;
+            flex-direction: row;
+            display: flex;
+            width: 100%;
+        }
+        .links-n-search{
+            width: 100%;
+            justify-content: center;
+        }
+        .search{
+            width: 300px;
+        }
+        .menu_user-logo{
+            /* width: fit-content; */
+            display: flex;
+            cursor: none;
+            flex-direction: column;
+            align-items: start;
+            a{
+                font-size: 16px;
+            }
+        }
+    }
 }
 @media (max-width:990px){
     #secondHeader{
@@ -597,12 +635,25 @@ main{
             display: none;
         }
     }
+    main{
+        .title{
+            font-size: 22px;
+            padding: 10px;
+        }
+        #categories .category .sub-categories .sub-category a {
+            font-size: 18px;
+        }
+    }
 }
 @media (max-width:790px){
     main{
         display: flex;
         flex-direction: column-reverse;
         padding: 0 20px;
+        .title{
+            font-size: 25px;
+            padding: 10px 20px;
+        }
     }
     #idx-sidebar2{
         width: 60%;
@@ -612,6 +663,14 @@ main{
         background: linear-gradient(to right, #CFCFCF, #ECECEC);
     }
 }
+@media (max-width:650px){
+    main{
+        .title{
+            font-size: 20px;
+            padding: 5px;
+        }
+    }
+}
 @media (max-width:460px){
-    
+
 }

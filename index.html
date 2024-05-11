@@ -77,30 +77,29 @@
         <div class="logo_rutracker">
             <a href="index.html"><img src="img/logo.jpeg" alt="Logo"></a>
         </div>
-
-        <div class="links-n-search">
-            <nav class="links">
-                <ul class="links__buttons">
-                    <a href="index.html">Главная</a>
-                    <a href="#">Трекеры</a>
-                    <a href="#">Группы</a>
-                    <a href="#">FAQ</a>
-                    <a href="#">VPN</a>
-                    <a href="#">Правила</a>
-                </ul>
-            </nav>
-            <div class="search"> <!--Нужно постмотреть какие классы, id, имена и др. (для работы скриптов, которые есть в оригинале)-->
-                <form class="search__form">
-                    <input type="text" class="search__input" placeholder="Поиск"> <!--Нужно ещё засунуть в начало картинку, типо лупы, как у гугла-->
-                </form>
+        <div class="Header__div_for-mobile">
+            <div class="links-n-search">
+                <nav class="links">
+                    <ul class="links__buttons">
+                        <a href="index.html">Главная</a>
+                        <a href="#">Трекеры</a>
+                        <a href="#">Группы</a>
+                        <a href="#">FAQ</a>
+                        <a href="#">VPN</a>
+                        <a href="#">Правила</a>
+                    </ul>
+                </nav>
+                <div class="search"> <!--Нужно постмотреть какие классы, id, имена и др. (для работы скриптов, которые есть в оригинале)-->
+                    <form class="search__form">
+                        <input type="text" class="search__input" placeholder="Поиск"> <!--Нужно ещё засунуть в начало картинку, типо лупы, как у гугла-->
+                    </form>
+                </div>
             </div>
-        </div>
-        <div> <!--Тут что то будет, пока есть, чтобы поисковая строка стояла ровно-->
-        </div>
 
-        <div class="menu_user-logo">
-            <img src="img/User_logo_white.png" alt="Профиль" name="openMenu">
-            <a name="openReg">ВОЙТИ</a>
+            <div class="menu_user-logo">
+                <img src="img/User_logo_white.png" alt="Профиль" name="openMenu">
+                <a name="openReg">ВОЙТИ</a>
+            </div>
         </div>
     </header>
     <header id="secondHeader">
@@ -792,7 +791,6 @@
                 content: "";
             }
         </style>
-        <!--анимация категорий (просто добавляются новые классы, сами анимации в css)-->
         <div id="idx-sidebar2">
             <article>
                 <h3 class="sb2__name">Авторские раздачи</h3>
@@ -841,147 +839,6 @@
         </div>
     </main>
     <!-- Если придумаем как сделать, чтобы не нужно писать было футер на каждой странице, то здесь можно его убирать. -->
-    <footer>
-        <style>
-            main{
-                padding-bottom: 50px;
-            }
-            footer{
-                background-color: white;
-                display: flex;
-                gap: 10px;
-                align-items: center;
-                flex-direction: column;
-                padding: 20px 0;
-                .footer__links{
-                    display: flex;
-                    flex-direction: row;
-                    align-items: center;
-                }
-                .main-links{
-                    border-right: 1px solid #9fa79f;
-                    padding: calc(0.5% + 10px);
-                    ul{
-                        display: flex;
-                        flex-direction: column;
-                        padding-left: calc(0.5% + 10px);
-                        list-style-type: disc;
-                        ::marker{
-                            font-size: 17px;            
-                        }
-                    }
-                }
-                a{
-                    font-size: 12px;
-                    text-decoration: none;
-                    color: black;
-                }
-                nav{
-                    display: grid;
-                    grid-template-columns: repeat(5, 1fr);
-                    gap: 10px;
-                    div{
-                        display: flex;
-                        flex-direction: column;
-                        padding-left: calc(0.4vw + 10px);
-                        *{
-                            padding-top: 5px;
-                        }
-                    }
-                }
-                div h6{
-                    margin:0;
-                    margin-bottom: 0.5px;
-                    font-weight: 800;
-                }
-                .reclama{
-                    width: 95%;
-                    min-width: 500px;
-                    height: 15vh;
-                    display: flex;
-                    margin: 20px 0;
-                    padding: 0;
-                    background-color: black;
-                }
-            }
-            @media (max-width: 953px) {
-                footer a{
-                    font-size: 13px;
-                }
-                footer h6{
-                    font-size: 13px;
-                }
-                .other-links{
-                    nav{
-                        grid-template-columns: repeat(3, 1fr);
-                        grid-template-rows: repeat(2, 1fr);
-                    }
-                }
-            }
-            @media (max-width:680px){
-                .other-links{
-                    nav{
-                        grid-template-columns: repeat(2, 1fr);
-                        grid-template-rows: repeat(3, 1fr);
-                    }
-                }
-                .main-links{
-                    ul{
-                        padding: 0;
-                        ::marker{
-                            content: "";
-                        }
-                    }
-                }
-            }
-        </style>
-
-        <div class="reclama">
-        </div>
-        <div class="footer__links">
-            <div class="main-links">
-                <ul>
-                    <h6>Основное</h6>
-                    <li><a href="">Администрация</a></li>
-                    <li><a href="">Модераторы</a></li>
-                    <li><a href="">Тех.&nbsp;помощь</a></li>
-                    <li><a href="">Telegram-канал</a></li>
-                </ul>
-            </div>
-            <div class="other-links">
-                <nav>
-                    <div>
-                        <h6>Правила</h6>
-                        <a href="">Условия&nbsp;использования</a>
-                        <a href="">Правила</a>
-                        <a href="">Кому&nbsp;задать&nbsp;вопрос</a>
-                        <a href="">Торрентопедия</a>
-                    </div>
-                    <div>
-                        <h6>Реклама</h6>
-                        <a href="">Реклама&nbsp;на&nbsp;сайте</a>
-                    </div>
-                    <div>
-                        <h6>Сотрудничество</h6>
-                        <a href="">Для&nbsp;правообладателей</a>
-                        <a href="">Для&nbsp;прессы</a>
-                        <a href="">Для&nbsp;провайдеров</a>
-                    </div>
-                    <div>
-                        <h6>Раздачи</h6>
-                        <a href="">Авторские&nbsp;раздачи</a>
-                        <a href="">Случайная&nbsp;раздача</a>
-                    </div>
-
-                    <div>
-                        <h6>Ещё что то (поменяем потом)</h6>
-                        <a href="">Конкурсы</a>
-                        <a href="">Новости&nbsp;"Хранителей"&nbsp;и&nbsp;"Антикваров"</a>
-                    </div>
-                </nav>
-            </div>
-        </div>
-    </footer>
 </body>
 <script>
     // получение нужных элементов
@@ -1244,9 +1101,7 @@
         checkVisibleMainHeader();
     };
 </script>
-<script>
-    if (!IsPC && !MaybePC){
-        
-    }
-</script>
+<!-- <script>
+    
+</script> -->
 </html>
