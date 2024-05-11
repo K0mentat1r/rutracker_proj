@@ -92,7 +92,6 @@
         text-align: center;
         padding-left: 0;
         margin-left: 0;
-        min-width: 375px;
         *{
             padding-left: 1vw;
         }
@@ -595,6 +594,7 @@ main{
     }
     #mainHeader{
         width: 96%;
+        padding-right: 0;
         grid-template-columns: 19% 60% 21%;
         grid-template-rows: 1fr 1fr;
         grid-auto-flow: column;
@@ -663,9 +663,6 @@ main{
         width: 60%;
         margin: auto;
     }
-    .news__body{
-        background: linear-gradient(to right, #CFCFCF, #ECECEC);
-    }
     #mainHeader{
         width: 95%;
     }
@@ -677,7 +674,87 @@ main{
             padding: 5px;
         }
     }
+    .sub-categories{
+        padding-left: 30px;
+    }
+}
+@media (max-width:530px){
+    .logo_rutracker{
+        width: 160% !important;
+        grid-column-start: 1 !important;
+    }
+    #mainHeader{
+        grid-template-columns: 45% 5% 45%;
+    }
+    #secondHeader{
+        gap: 5px;
+        .menu_user-logo{
+            flex-direction: column-reverse;
+            width: 30px;
+            text-align: center;
+            a{
+                display: none;
+            }
+        }
+    }
+    .sub-category{
+        column-gap: 20px !important;
+    }
 }
 @media (max-width:460px){
-
+    .menu_user-logo{
+        img{
+            width:40px;
+            border: var(--mini-border);
+        }
+        a{
+            font-size: 12px !important;
+        }
+    }
+    #mainHeader{
+        a{
+            font-size: 15px;
+        }
+        .links__buttons{
+            gap: 5px;
+        }
+    }
+    #secondHeader{
+        padding-left: 0;
+        .links__buttons{
+            a{
+                font-size: 13px;
+            }
+        }
+    }
+    #idx-sidebar2 {
+        width: 80%;
+        margin: auto;
+    }
+    .news__body{
+        width: 100%;
+        background: linear-gradient(to right, #CFCFCF, #CFCFCF, #ECECEC) !important;
+    }
+    .sub-categories{
+        padding-left: 10px;
+    }
+    #categories .category .sub-categories .sub-category a {
+        font-size: 15px !important;
+    }
+    .sub-category{
+        grid-template-columns: 5% 90% 5%;
+    }
+    .news__body{
+        .news__date p{
+            font-size: 17px;
+        }
+        .news__ad{
+            font-size: 15px !important;
+        }
+    }
+}
+@media (max-width:330px){
+    .title{
+        font-size: 17px !important;
+    }
 }

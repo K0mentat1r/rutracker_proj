@@ -788,6 +788,21 @@
             .category__header li::marker {
                 content: "";
             }
+            @media (max-width:530px){
+                .sub-category__games::before {
+                    width: 30px;
+                    height: 22px;
+                }
+                .sub-category__shops::before {
+                    width: 27px;
+                    height: 26px;
+                }
+                .other-sub-category::before {
+                    background-image: url(img/icons/icon_folder.svg);
+                    width: 25px;
+                    height: 19px;
+                }
+            }
         </style>
         <div id="idx-sidebar2">
             <article>
@@ -838,7 +853,7 @@
     </main>
     <footer>
         <style>
-            @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+            /* @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
             p,h4,a,label{
                 font-family: "Roboto", sans-serif;
                 font-weight: 400;
@@ -846,7 +861,7 @@
             h1,h2,h3,h4,h5,h6{
                 font-family: "Montserrat", sans-serif;
                 font-weight: 600;
-            }
+            } */
             footer{
                 background-color: white;
                 display: flex;
@@ -897,7 +912,7 @@
                 }
                 .reclama{
                     width: 95%;
-                    min-width: 500px;
+                    /* min-width: 500px; */
                     height: 15vh;
                     display: flex;
                     margin: 20px 0;
@@ -935,6 +950,27 @@
                     }
                 }
             }
+            @media (max-width:530px){
+                footer{
+                    align-items: start;
+                }
+                .footer__links{
+                    display: flex;
+                    flex-direction: column !important;
+                    justify-content: stretch;
+                    align-items: start !important;
+                    .other-links{
+                        nav{
+                            display: flex;
+                            flex-direction: column;
+                        }
+                    }
+                    .main-links{
+                        padding: 0;
+                        border: none;
+                    }
+                }
+            }   
         </style>
     
         <div class="reclama">
@@ -975,7 +1011,7 @@
                     </div>
     
                     <div>
-                        <h6>Ещё что то (поменяем потом)</h6>
+                        <h6>Прочее</h6>
                         <a href="">Конкурсы</a>
                         <a href="">Новости&nbsp;"Хранителей"&nbsp;и&nbsp;"Антикваров"</a>
                     </div>
@@ -997,11 +1033,12 @@
     let IsGetCatHeight = false;
     //счетчик
     let headerNum = 0;
+    let catHeaderHeight = 50;
     let wasHeaderNum = 0;
     let IsUserJustCameIn = true;
     for (let i = 0; i < Category.length; i++){
         elemHeight[i] = Category.item(i).offsetHeight;
-        Category.item(i).style.height = 50 + "px";
+        Category.item(i).style.height = catHeaderHeight + "px";
         catBody[i].style.display = "none";
     }
 
