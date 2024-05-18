@@ -760,7 +760,7 @@
             }
             .sub-category__games::before {
                 background-image: url(img/icons/icon_gamepad.svg);
-                width: 40px;
+                width: 40px; /*коэф различия (высота/ширина) = 0,725*/
                 height: 29px;
             }
             .sub-category__shops::before {
@@ -787,6 +787,12 @@
             }
             .category__header li::marker {
                 content: "";
+            }
+            @media (max-width:1290px) and (min-width:531px){
+                .sub-category__games::before {
+                    width: 35px;
+                    height: 26px;
+                } 
             }
             @media (max-width:530px){
                 .sub-category__games::before {
@@ -1261,10 +1267,12 @@
         if (!isHeader2Visible()) { //не видно пользователю основной хидер  
             IsSecHeader = false;
             secondHeader.style.display="flex";
+            secondHeader.classList.add("onSecondHeader");
 
         } else { //видно
             IsSecHeader = true;
             secondHeader.style.display="none";
+            secondHeader.classList.remove("onSecondHeader");
         }
         if (wasIsSecHeader != IsSecHeader){ //если поменялся хидер
             getNewEventListener();

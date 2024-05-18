@@ -5,9 +5,25 @@
     font-family: "Montserrat", sans-serif;
     font-weight: 650;
 }
+.menu_user-logo img, .category__header ul{
+    opacity: 100%;
+    filter:none;
+    transition: opacity 0.2s, filter 0.2s;
+}
 .menu_user-logo img:hover, .category__header ul:hover{
     opacity: 60%;
     filter: drop-shadow(2px 2px 5px rgba(0, 0, 0, 0.2));
+}
+:root{
+    /* нужно для работы анимаций открытия и закрытия категорий. Меняется через скрипты */
+    --catHeight: 0;
+    --catHeight2: 0;
+    /* нужно для изменения стилей в медиа запросах без использования !important */
+    --col-gap-sub-cat: 10px;
+    --news-ad-font-size: 17px;
+    --width-logo-rtcr-main-header: 100%;
+    --bg-news-body:linear-gradient(to right, #CFCFCF, #CFCFCF, #ECECEC, #ECECEC);
+    --title-font-size: 25px;
 }
 
 #mainHeader{
@@ -66,7 +82,7 @@
         }
     }
     .logo_rutracker{
-        width:100%;
+        width:var(--width-logo-rtcr-main-header);
         max-width: 400px;
         img{
             width: 100%;
@@ -130,6 +146,9 @@
             width: 250px;
         }
     }
+}
+.links__buttons{
+    white-space: nowrap;
 }
 
 /*Основные свойства для всплывающих окон*/
@@ -305,7 +324,7 @@ main{
     display: grid;
     grid-template-columns: 1fr 3fr 1fr;
     .title{
-        font-size: 25px;
+        font-size: var(--title-font-size);
         padding: 10px 30px;
     }
     .all-news{
@@ -317,13 +336,12 @@ main{
             margin-bottom: 0;
         }
         .news__body{
-            background: linear-gradient(to right, #CFCFCF, #CFCFCF, #ECECEC, #ECECEC);
+            background: var(--bg-news-body);
             border-radius: 10px;
             padding: 5px;
             display: flex;
             gap: 10px;
             align-items: center;
-            font-size: 17px;
             .news__date{
                 border-radius: 10px;
                 background-color: #ACADB7;
@@ -332,6 +350,9 @@ main{
                 align-items: center;
                 padding: 0 20px;
                 font-size: 20px;
+            }
+            .news__ad{
+                font-size: var(--news-ad-font-size);
             }
         }
     }
@@ -402,9 +423,8 @@ main{
                     margin-left: 0;
                     align-items: center;
                     display: grid;
-                    grid-template-columns: 5% 90% 10%; /*grid-template-columns: 10% 80% 10%; можно использовать для телефонов. 
-                    В процентах текст не центрируется, когда мало места, а в fr центрируется*/ /*криво встает на экране 1350px (длина) (breakpoint)*/
-                    column-gap: 10px;
+                    grid-template-columns: 5% 90% 10%;
+                    column-gap: var(--col-gap-sub-cat);
                     text-align: start;
                     a{
                         font-size: 20px;
@@ -458,10 +478,6 @@ main{
 
         }
     }
-}
-:root{
-    --catHeight: 0;
-    --catHeight2: 0;
 }
 @keyframes revAnimCategoryHeader{
     0%{
@@ -584,7 +600,6 @@ main{
     #secondHeader{
         .menu_user-logo{
             justify-content: flex-end;
-            
         }
     }
 }
@@ -618,16 +633,24 @@ main{
             align-items: start;
             grid-column-start: 3;
             grid-row-start: 1;
-            a{
-                font-size: 16px;
-            }
         }
         .logo_rutracker{
-            width: 70%;
-            grid-column-start: 2;
             grid-column-end: 2;
             margin:auto;
             max-width: 1000px;
+        }
+    }
+}
+@media (max-width:1100px) and (min-width: 531px){
+    .logo_rutracker{
+        width: 70%;
+        grid-column-start: 2;
+    }
+}
+@media (max-width:1100px) and (min-width: 461px){
+    .menu_user-logo{
+        a{
+            font-size: 16px;
         }
     }
 }
@@ -641,12 +664,18 @@ main{
     }
     main{
         .title{
-            font-size: 22px;
             padding: 10px;
         }
-        #categories .category .sub-categories .sub-category a {
-            font-size: 18px;
-        }
+    }
+}
+@media (max-width:990px) and (min-width:461px){
+    #categories .category .sub-categories .sub-category a {
+        font-size: 18px;
+    }
+}
+@media (max-width:990px) and (min-width:791px){
+    :root{
+        --title-font-size:22px;
     }
 }
 @media (max-width:790px){
@@ -655,7 +684,6 @@ main{
         flex-direction: column-reverse;
         padding: 0 20px;
         .title{
-            font-size: 25px;
             padding: 10px 20px;
         }
     }
@@ -667,10 +695,14 @@ main{
         width: 95%;
     }
 }
+@media (max-width:790px) and (min-width:651px){
+    :root{
+        --title-font-size:25px;
+    }
+}
 @media (max-width:650px){
     main{
         .title{
-            font-size: 20px;
             padding: 5px;
         }
     }
@@ -678,10 +710,17 @@ main{
         padding-left: 30px;
     }
 }
+@media (max-width:650px) and (min-width:331px){
+    :root{
+        --title-font-size:20px;
+    }
+}
 @media (max-width:530px){
     .logo_rutracker{
-        width: 160% !important;
-        grid-column-start: 1 !important;
+        grid-column-start: 1;
+    }
+    :root{
+        --width-logo-rtcr-main-header:160%;
     }
     #mainHeader{
         grid-template-columns: 45% 5% 45%;
@@ -697,8 +736,8 @@ main{
             }
         }
     }
-    .sub-category{
-        column-gap: 20px !important;
+    :root{
+        --col-gap-sub-cat: 20px;
     }
 }
 @media (max-width:460px){
@@ -708,11 +747,11 @@ main{
             border: var(--mini-border);
         }
         a{
-            font-size: 12px !important;
+            font-size: 12px ;
         }
     }
     #mainHeader{
-        a{
+        .links__buttons a{
             font-size: 15px;
         }
         .links__buttons{
@@ -733,13 +772,16 @@ main{
     }
     .news__body{
         width: 100%;
-        background: linear-gradient(to right, #CFCFCF, #CFCFCF, #ECECEC) !important;
+    }
+    :root{
+        --bg-news-body: linear-gradient(to right, #CFCFCF, #CFCFCF, #ECECEC);
+        --news-ad-font-size: 15px;
     }
     .sub-categories{
         padding-left: 10px;
     }
     #categories .category .sub-categories .sub-category a {
-        font-size: 15px !important;
+        font-size: 15px;
     }
     .sub-category{
         grid-template-columns: 5% 90% 5%;
@@ -748,13 +790,11 @@ main{
         .news__date p{
             font-size: 17px;
         }
-        .news__ad{
-            font-size: 15px !important;
-        }
     }
 }
 @media (max-width:330px){
-    .title{
-        font-size: 17px !important;
+    :root{
+        --title-font-size:17px;
     }
 }
+/* Ещё есть медиа запросы в html (index.html). Они касаются иконок в категориях */

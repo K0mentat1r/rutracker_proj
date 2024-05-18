@@ -49,11 +49,15 @@ select{
     border-radius: 10px;
     font-size: 16px;
 }
-a:hover{
-    color:#5B5BB3;
-    opacity: 100%;
-    filter: drop-shadow(2px 2px 5px rgba(0, 0, 0, 0.2));
+a {
+    color: black; /* чтобы возвращалось к черному цвету после завершения анимации */
+    transition: color 0.2s; /* добавим переходы для возвращения к черному цвету */
 }
+
+a:hover{
+    color: #848aac;
+}
+
 /* .is-repeating-part-site{
     border: none;
     outline: none;
